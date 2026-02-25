@@ -1,0 +1,39 @@
+// Arrow
+// --------------------------------------------------
+
+$arrow-width: 19px;
+$arrow-height: 15px;
+
+.arrow {
+	display: block;
+	width: $arrow-width;
+	height: $arrow-height;
+	margin-left: -$arrow-width;
+	
+	&:before {
+		content: '';
+		display: block;
+		margin-left: $arrow-width;
+		width: $arrow-width;
+		height: $arrow-height;
+		background-image: url(../img/icon/arrow.png);
+		background-repeat: no-repeat;
+		z-index: -1;
+	}
+}
+
+.arrow-bounce {
+	@include animation(arrow-bounce 1s forwards 1s);
+}
+
+.arrow-left:before {
+	@include transform(rotate(90deg));
+}
+
+.arrow-up:before {
+	@include transform(rotate(180deg));
+}
+
+.arrow-right:before {
+	@include transform(rotate(270deg));
+}

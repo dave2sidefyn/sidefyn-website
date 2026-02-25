@@ -1,0 +1,42 @@
+// Header
+// --------------------------------------------------
+
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  transition: background-color .3s ease, box-shadow .3s ease;
+  z-index: 6;
+  @include transform(translateZ(100px)); // fixes subpages overlapping during animation on iOS
+
+  &.fixed {
+    background-color: $brand-primary-dark;
+    box-shadow: 0 0 10px #000;
+    .banner-logo img {
+      visibility: visible;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    background-color: $brand-primary-dark;
+    box-shadow: 0 0 10px #000;
+
+    .content {
+      padding: 0 10px;
+    }
+
+    .banner-logo {
+      margin: 7.5px 0 7.5px 0;
+    }
+  }
+}
+
+.banner-logo {
+  float: right;
+  img {
+    width: 120px;
+    margin-top: -7px;
+    visibility: hidden;
+  }
+}

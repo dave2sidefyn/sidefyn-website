@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subpage id="jobs" title="Jobs">
+    <textblock type="title">Jobs</textblock>
+    <textblock type="paragraph">
+        Talente finden bei uns ein Zuhause. Melde dich unter
+        <a href="mailto:info@sidefyn.ch">info@sidefyn.ch</a>.
+    </textblock>
+    <grid style="grid-plain grid-sm text-center">
+        <col width-lg="6" width-md="6" width-sm="12">
+            <textblock type="subtitle">Freelancer Multimedia/Webentwicklung</textblock>
+            <textblock type="paragraph">Du bist talentiert und engagierst dich im Bereich Multimedia oder
+                Webentwicklung? Du bist ein Teamplayer und erledigst deine Aufgaben schnell und sorgfältig? Dann schicke
+                uns dein Portfolio oder nimm mit uns Kontakt auf!
+            </textblock>
+            <!--<button id="#job-freelancer" style="text-center fixed-width">Mehr Infos
+            </button>-->
+        </col>
+    </grid>
+    <!--<tabs>
+         <tab id="job-application-supporter">
+             <textblock type="subtitle">Freelancer Multimedia/Webentwicklung
+             </textblock>
+             <textblock type="paragraph">Sie sind ein Freelancer welcher nach dem Stundenlohnprinzip bezahlt wird. Wenn
+                 wir Resourcenengpässe haben kommen wir gerne auf Sie zurück und binden Sie in unser Projekt ein.
+                 Gleichzeitig können sie Aufträge annehmen und mit sidefyn Resourcen erfolgreich realisieren
+             </textblock>
+             <textblock type="paragraph">
+                 <b>Ihre Aufgaben</b>
+             </textblock>
+             <ul>
+                 <li>Entgegennehmen und Bearbeiten von durch Kunden gemeldete
+                     Störungsmeldungen und
+                     Probleme (1st &amp; 2nd Level Support,
+                     Incident-
+                     und Problemmanagement)
+                 </li>
+                 <li>Beraten, Instruieren und Unterstützen der Kunden mit
+                     Fernwartung
+                     oder bei Bedarf vor Ort bei
+                     technischen und
+                     organisatorischen Fragen
+                 </li>
+                 <li>Initialisieren von Korrekturen (Changemanagement)</li>
+                 <li>Unterstützung des Entwicklungsteams bei Applikationstests (Teil
+                     des Entwicklungsteams)
+                 </li>
+                 <li>Bereitstellen von Anleitungen für unsere Benutzer</li>
+             </ul>
+             <textblock type="paragraph">
+                 <b>Ihr Profil</b>
+             </textblock>
+             <ul>
+                 <li>Sie sind motiviert, belastbar, kommunikationsstark und haben
+                     eine ausgeprägte Service- und Kundenorientierung
+                 </li>
+                 <li>Sie sind eine Persönlichkeit mit rascher Auffassungsgabe,
+                     Eigeninitiative und hoher Zuverlässigkeit
+                 </li>
+                 <li>Sie beherrschen die deutsche und französische Sprache in Wort
+                     und Schrift
+                 </li>
+                 <li>Sie haben auch Freude die fachlichen Hintergründe des Systems
+                     zu
+                     verstehen
+                 </li>
+                 <li>Sie haben einen Lehrabschluss im kaufmännischen Bereich oder in
+                     der Informatik und bringen vorzugsweise bereits Erfahrungen im
+                     Bereich Support oder Helpdesk mit
+                 </li>
+             </ul>
+             <textblock type="paragraph">
+                 <b>Wir bieten</b>
+             </textblock>
+             <ul>
+                 <li>Abwechslungsreiche, herausfordernde und verantwortungsvolle
+                     Tätigkeit
+                 </li>
+                 <li>Junges und motiviertes Team</li>
+                 <li>Zeitgerechte Entlöhnung</li>
+             </ul>
+             <textblock type="paragraph">
+                 Wenn Sie eine verantwortungsvolle Aufgabe
+                 suchen und ein dynamisches, lebhaftes Umfeld
+                 schätzen, freuen wir uns
+                 auf Ihre Kontaktaufnahme. Ihre Bewerbung senden Sie
+                 bitte an:
+             </textblock>
+             <textblock type="address" style="vcard">
+                 <span class="fn org">DV Bern AG</span>
+                 <br/>
+                 <span class="adr">
+                     <span class="street-address">Nussbaumstrasse 21</span>
+                     <br/>
+                     <span class="postal.code">3000</span>
+                     <span class="locality">Bern 22</span>
+                 </span>
+                 <br/>
+                 <a href="mailto:christian.loeffel@dvbern.ch" class="email">christian.loeffel@dvbern.ch
+                 </a>
+                 <br/>
+                 <br/>
+             </textblock>
+             <textblock type="paragraph">
+                 <a
+                         href="/public/dist/downloads/20141113_Inserat_Application_Support_01.pdf"
+                         class="btn btn-light" onclick="window.open(this.href);return false;">Als PDF sichern
+                 </a>
+             </textblock>
+         </tab>
+     </tabs>-->
+</subpage>

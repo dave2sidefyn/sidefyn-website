@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subpage id="kompetenz-webapplikation" prev="kompetenz-movies"
+         next="kompetenz-it-services" title="Webapplikation">
+    <textblock type="title">
+        <img src="public/dist/img/icon/cms.png"
+             alt="Webapplikation Icon" class="icon"/>
+        <br/>Webapplikation
+    </textblock>
+    <textblock type="paragraph">
+        Egal, ob eine einfache informative oder eine komplexe Webseite, wir gehen auf jedes Bedürfnis individuell ein.
+        Wir stehen dir sowohl bei der technischen als auch bei der inhaltlichen Beratung zur Seite, und lassen
+        dich dabei deine eigenen Ideen verwirklichen.
+        Weiterhin unterstützen wir dich bei dem Design und erstellen
+        somit die Seite genau nach deinen Wünschen.
+
+
+    </textblock>
+    <grid style="grid-plain grid-sm text-center">
+        <col width-lg="4" width-md="4" width-sm="12">
+            <button id="#kompetenz-webapplikation-angebot" style="text-right fixed-width">Angebot
+            </button>
+        </col>
+        <col width-lg="4" width-md="4" width-sm="12">
+            <button id="#kompetenz-webapplikation-arbeiten" style="fixed-width">Arbeiten
+            </button>
+        </col>
+        <col width-lg="4" width-md="4" width-sm="12">
+            <button id="#kompetenz-webapplikation-referenzen" style="text-left fixed-width">Referenzen
+            </button>
+        </col>
+    </grid>
+    <tabs>
+        <tab id="kompetenz-webapplikation-angebot">
+            <grid style="grid-plain text-center">
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>Responsive Design</b>
+                        <br/>
+                        Wir machen dir eine Webseite, die für Handy-, Tablet- und Computerdisplay optimiert ist. Gerne
+                        begleiten wir dich dabei in die komplexe Welt der "Mobile"-freundlichen Webseiten.
+                    </textblock>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <img alt="Responsive Web" src="public/dist/img/icon/responsive_web.png" class="picture-border"/>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>Webseiten nach Mass</b>
+                        <br/>
+                        Wir designen und entwickeln deine neue Webseite genau nach deinen Wünschen.
+                        Außerdem beraten wir dich gerne, falls du noch keine konkreten Vorstellungen hast.
+                    </textblock>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <img alt="Beratung" src="public/dist/img/icon/beratung.png" class="picture-border"/>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>Redesign</b>
+                        <br/>
+                        Du hast eine veraltete Webseite, die dringend ein neues Design braucht? Wir erneuern das Design deiner
+                         Webseite genau nach deinen Vorstellungen.
+                    </textblock>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>Hosting</b>
+                        <br/>
+                        Wir können für dich die Webseiten hosten und warten, und du dir dabei den Aufwand mit
+                        zusätzlichen Hostingpartnern ersparen.
+                    </textblock>
+                </col>
+            </grid>
+        </tab>
+        <tab id="kompetenz-webapplikation-arbeiten">
+            <grid style="grid-plain text-center">
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>
+                            <a href="http://dvbern.ch">dvbern.ch</a>
+                        </b>
+                        <br/>
+                        Diese Webseite wurde zusammen mit einer Designfirma realisiert. Sie ist als
+                        OnePager aufgebaut und mehrsprachig möglich. Die Seite hat kein CMS im Hintergrund und wird
+                        über XML gesteuert.
+
+                    </textblock>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <a href="http://dvbern.ch">
+                        <img alt="Webseite DV Bern AG" src="public/dist/img/work/dvbern.png" class="picture-border"/>
+                    </a>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>
+                            <a href="http://quap.ch">quap.ch</a>
+                        </b>
+                        <br/>
+                        Mit dem Start-Up Quap GmbH haben wir über ein Jahr (Teilzeit-Arbeit) eine komplett
+                        eigenständige Webseite gebaut, bei der Kunden und Unternehmen miteinander Termine ausmachen
+                        können.
+                        Durch eine lebhafte und gute Zusammenarbeit haben wir gemeinsam den ersten Meilenstein
+                        abgeschlossen und konnten am 10.02.2015 online gehen.
+                    </textblock>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <a href="http://dvbern.ch">
+                        <img alt="Webseite DV Bern AG" src="public/dist/img/work/quap.png" class="picture-border"/>
+                    </a>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>
+                            <a href="http://advokatur-km.ch">advokatur-km.ch</a>
+                        </b>
+                        <br/>
+                        Diese kleinere Webseite musste in kürzester Zeit realisiert werden.
+                        Sie ist die Visitenkarte für die Advokatur und in 4 verschiedenen Sprachen verfügbar, darunter auch Russisch.
+
+                    </textblock>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <a href="http://advokatur-km.ch">
+                        <img alt="Webseite Advokatur KM" src="public/dist/img/work/advokatur-km.png"
+                             class="picture-border"/>
+                    </a>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>
+                            <a href="http://christophammann.com">christophammann.com</a>
+                        </b>
+                        <br/>
+                        Dem Fotograf Christoph Ammann haben wir eine Webseite designet, bei der das Augenmerk
+                        vor allem auf seinen Fotos liegt und diese durch Fotostrecken perfekt zur Geltung kommen.
+                    </textblock>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <a href="http://christophammann.com">
+                        <img alt="Webseite Christoph Ammann" src="public/dist/img/work/christophammann.png"
+                             class="picture-border"/>
+                    </a>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>
+                            <a href="http://filmnaechte.ch">filmnaechte.ch</a>
+                        </b>
+                        <br/>
+                        Das zeitlose Design der Webseite für die Filmnächte Münsingen wurde nach ihren Vorgaben entwickelt.
+                        Fokus wurde dabei vor allem auf die gute Darstellung der Inhalte und die mobile Version der Seite gelegt.
+                    </textblock>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <a href="http://filmnaechte.ch">
+                        <img alt="Webseite Filmnächte Münsingen" src="public/dist/img/work/filmnaechte.png"
+                             class="picture-border"/>
+                    </a>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>
+                            <a href="http://schreinerei-tanner.ch">schreinerei-tanner.ch</a>
+                        </b>
+                        <br/>
+                        Für die Schreinerei Tanner aus Münsingen haben wir eine einfach designete Webseite entwickelt,
+                        die sie in selbst verwalten können.
+                    </textblock>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <a href="http://schreinerei-tanner.ch">
+                        <img alt="Webseite Schreinerei Tanner" src="public/dist/img/work/schreinerei-tanner.png"
+                             class="picture-border"/>
+                    </a>
+                </col>
+            </grid>
+        </tab>
+        <tab id="kompetenz-webapplikation-referenzen">
+            <textblock type="subtitle">Weitere Kunden</textblock>
+            <grid style="grid-plain text-center">
+                <col width-lg="4" width-md="4" width-sm="6">
+                    <a href="http://www.quap.ch/">
+                        <img src="public/dist/img/logo/quap.png" alt="Quap GmbH"
+                             class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="6">
+                    <a href="http://www.dvbern.ch/">
+                        <img src="public/dist/img/logo/dvbern.png" alt="DV Bern AG"
+                             class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="6">
+                    <a href="http://www.advokatur-km.ch/">
+                        <img src="public/dist/img/logo/advokatur-km.png" alt="Advokatur KM"
+                             class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="6">
+                    <a href="https://www.christophammann.ch/">
+                        <img src="public/dist/img/logo/christophammann.png" alt="Christoph Ammann Photography"
+                             class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="6">
+                    <a href="http://blessed.ch/">
+                        <img src="public/dist/img/logo/blessed.png" alt="blessed.ch"
+                             class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="6">
+                    <a href="http://kemimalaika.com/">
+                        <img src="public/dist/img/logo/kemimalaika.png" alt="kemimalaika.ch"
+                             class="logo"/>
+                    </a>
+                </col>
+            </grid>
+            <reference id="referenz-webapplikation">
+                <textblock type="subtitle">
+                    DV Bern AG
+                </textblock>
+                <textblock type="paragraph" style="hide-grid">
+                    Mit der DV Bern AG haben wir einen sehr schönen und simplen Webauftritt erfolgreich realisieren
+                    können. Das Design wurde in einer Agentur entworfen und wir haben es anschließend "responsive"
+                    umgesetzt.
+                </textblock>
+                <textblock type="quote">Zusammen mit der Agentur hat es sidefyn verstanden, unsere Vorstellungen einer
+                    modernen und ansprechenden Webseite perfekt zu realisieren.
+                    Ihre unkomplizierte und kompetente Arbeitsweise ist erfrischend und Ziel führend.
+                </textblock>
+                <textblock type="paragraph" style="text-center">Stefan Niedermaier, VR Präsident / Geschäftsleitung DV
+                    Bern AG
+                </textblock>
+                <button id="#referenz-webapplikation" class="btn-bottom show-grid">Mehr Infos
+                </button>
+            </reference>
+
+
+            <reference id="referenz-webapplikation">
+                <textblock type="subtitle">
+                    Quap GmbH - Quick Appointment
+                </textblock>
+                <textblock type="paragraph" style="hide-grid">
+                    Mit dem Start-Up Quap GmbH haben wir über ein Jahr (Teilzeit-Arbeit) eine komplett eigenständige Webseite gebaut,
+                    bei der Kunden und Unternehmen miteinander Termine ausmachen können. Durch eine lebhafte
+                    und gute Zusammenarbeit haben wir gemeinsam den ersten Meilenstein abgeschlossen und konnten am 10.02.2015 online gehen.
+                </textblock>
+                <textblock type="quote">Die Zusammenarbeit mit Sidefyn ist professionell, kompetent und sehr angenehm.
+                    Unsere Ideen werden schnell umgesetzt und fachliche Inputs von Sidefyn ermöglichen es, kreative und
+                    benutzerfreudliche Lösungen zu erstellen. Mit Sidefyn als Partner haben wir eine ausgezeichnete Wahl
+                    getroffen.
+                </textblock>
+                <textblock type="paragraph" style="text-center">Dominic Kobel, Geschäftsleitung Quap GmbH
+                </textblock>
+                <button id="#referenz-webapplikation" class="btn-bottom show-grid">Mehr Infos
+                </button>
+            </reference>
+        </tab>
+    </tabs>
+    <textblock type="address" style="vcard">
+        <span class="fn">David Wiedmer</span>
+        <br/>
+        <a href="mailto:dave@sidefyn.ch" class="email">dave@sidefyn.ch</a>
+        <br/>
+        <span class="tel">+41 79 533 97 99</span>
+        <br/>
+    </textblock>
+</subpage>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xi="http://www.w3.org/2001/XInclude" lang="de_CH">
+
+	<title>sidefyn - Seite nicht gefunden</title>
+
+	<xi:include href="../config.xml" parse="xml" />
+	<xi:include href="includes/navigation.xml" parse="xml" />
+	<xi:include href="includes/address.xml" parse="xml" />
+
+	<rows>
+		<row style="row-header row-dark">
+			<textblock type="title">Seite nicht gefunden</textblock>
+		</row>
+	</rows>
+</page>

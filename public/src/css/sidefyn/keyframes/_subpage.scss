@@ -1,0 +1,36 @@
+// Subpage
+// --------------------------------------------------
+
+@include keyframes(subpage-in) {
+    0%   { @include transform(perspective(100vh) rotateX(-90deg)); }
+	33%  { @include transform(perspective(100vh) rotateX(  0deg)); }
+	66%  { @include transform(perspective(100vh) rotateX(  5deg)); }
+	100% { @include transform(perspective(100vh) rotateX(  0deg)); }
+}
+
+@include keyframes(subpage-out) {
+	0%   { @include transform(perspective(100vh) rotateX(  0deg)); }
+	33%  { @include transform(perspective(100vh) rotateX(  5deg)); }
+	66%  { @include transform(perspective(100vh) rotateX(  0deg)); }
+	100% { @include transform(perspective(100vh) rotateX(-90deg)); }
+}
+
+@include keyframes(subpage-in-left) {
+	0%   { @include transform(translateX(-100vw)); }
+	100% { @include transform(translateX(   0  )); }
+}
+
+@include keyframes(subpage-out-left) {
+	0%   { @include transform(translateX(   0  )); }
+	100% { @include transform(translateX(-100vw)); }
+}
+
+@include keyframes(subpage-in-right) {
+	0%   { @include transform(translateX(100vw)); }
+	100% { @include transform(translateX(  0  )); }
+}
+
+@include keyframes(subpage-out-right) {
+	0%   { @include transform(translateX(  0  )); }
+	100% { @include transform(translateX(100vw)); }
+}

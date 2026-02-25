@@ -1,0 +1,190 @@
+// Subpage
+// --------------------------------------------------
+
+.subpage-wrapper {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-items: stretch;
+  align-items: stretch;
+  top: 0;
+  min-height: 100%;
+}
+
+.subpage {
+  display: none;
+  padding-top: 60px;
+  position: fixed;
+  overflow-x: hidden;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 5;
+  background-color: $brand-secondary;
+  &.subpage-light {
+    background-color: $brand-primary;
+  }
+  z-index: 1;
+  @include transform(perspective(350px) rotateX(-90deg));
+  @include transform-origin(50%, 0%);
+  @include animation(subpage-out .7s forwards);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: scale(1);
+
+  &.right {
+    @include animation(subpage-out-right .7s forwards);
+  }
+
+  &.left {
+    @include animation(subpage-out-left .7s forwards);
+  }
+
+  h1, h2, h3 {
+    color: $brand-secondary;
+  }
+
+  p, blockquote, li {
+    color: #000000;
+  }
+
+  &.in {
+    @include animation(subpage-in .7s forwards);
+
+    &.right {
+      @include animation(subpage-in-right .7s forwards);
+    }
+
+    &.left {
+      @include animation(subpage-in-left .7s forwards);
+    }
+  }
+
+  .content {
+    background-color: #fff;
+    z-index: 1;
+    min-height: 100%;
+    text-align: left;
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    align-self: stretch;
+    -webkit-align-self: stretch;
+    padding-bottom: 75px;
+    @include transition(transform .2s ease);
+    max-width: 900px;
+
+    @media (max-width: $screen-sm-max) {
+      width: 100%;
+
+      blockquote {
+        margin: 30px 0;
+      }
+
+      .text-center {
+        padding-left: 0;
+      }
+    }
+
+    &.moving {
+      transition: none;
+    }
+
+    @media (min-width: $screen-md-min) {
+      text-align: center;
+      padding: 60px;
+    }
+  }
+
+  h1 {
+    color: $brand-secondary;
+
+    @media (max-width: $screen-sm-max) {
+      font-size: 15px;
+      line-height: 17px;
+    }
+  }
+}
+
+.subpage-container {
+  overflow-y: scroll;
+
+  .container {
+    overflow: hidden;
+    height: 100vh;
+
+    .row {
+      display: none;
+    }
+  }
+}
+
+.subpage-ghost {
+  flex: 1 auto;
+  -webkit-flex: 1 auto;
+  padding: 0;
+  display: inline;
+}
+
+.subpage-controls {
+  position: relative;
+  height: 30px;
+
+  .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    p {
+      margin: 0 10px 0 0;
+    }
+  }
+}
+
+.subpage-navigation {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+
+  li {
+    display: inline;
+    margin: 0 2px;
+  }
+}
+
+.subpage-prev-button, .subpage-next-button {
+  position: absolute;
+  top: 0;
+  line-height: 100vh;
+  height: 100vh;
+  width: 19px;
+  margin-top: -130px;
+
+  @media (max-width: 1060px) {
+    display: none;
+  }
+
+  a {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    width: 19px;
+  }
+}
+
+.subpage-prev-button {
+  a {
+    margin-left: -200px;
+  }
+}
+
+.subpage-next-button {
+  @media (min-width: $screen-md-min) {
+    margin-left: $container-md - 150px;
+    a {
+      margin-left: 40px;
+    }
+  }
+}
+

@@ -1,0 +1,75 @@
+// Button
+// --------------------------------------------------
+
+.btn {
+  text-transform: uppercase;
+  text-align: center;
+  color: $brand-primary-dark;
+  border: 1px solid #fff;
+  padding: 15px;
+  margin: 15px 0;
+  font-size: 12px;
+  letter-spacing: .1em;
+  transition: background-color .3s ease, color .3s ease;
+  background-color: #fff;
+
+  &:hover, &:focus, &:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+  }
+}
+
+.fixed-width {
+  margin: 0;
+
+  .btn {
+    display: inline-block;
+    margin: 0;
+    padding: 2px 10px;
+    min-width: 160px;
+  }
+
+  &.fixed-width-lg {
+    .btn {
+      min-width: 320px;
+
+      @media (max-width: $screen-xs-max) {
+        min-width: 100%;
+      }
+    }
+  }
+}
+
+.grid-plain .btn, .btn-light {
+  background-color: $brand-secondary-dark;
+  color: #fff;
+  &:hover, &:focus, &:active {
+    border-color: $brand-secondary-dark;
+    background-color: #fff;
+    color: $brand-secondary-dark;
+  }
+}
+
+.btn-bottom {
+  height: 100px;
+
+  p {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+  }
+}
+
+.btn-close {
+  button {
+    background-color: transparent;
+    border: none;
+    width: 26px;
+    height: 24px;
+    color: $brand-secondary-dark;
+    &:focus {
+      outline: none;
+    }
+  }
+}

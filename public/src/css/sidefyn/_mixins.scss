@@ -1,0 +1,11 @@
+// Mixins
+// --------------------------------------------------
+
+@import "mixins/tab-focus";
+@import "mixins/grid";
+@import "mixins/clearfix";
+
+.hidden{
+  visibility: hidden;
+  display: none;
+}

@@ -1,0 +1,74 @@
+// Headings
+// --------------------------------------------------
+
+@mixin heading() {
+	letter-spacing: .1em;
+	text-transform: uppercase;
+}
+
+h1 {
+	@include heading();
+	font-size: 50px;
+	line-height: 60px;
+	color: #fff;
+	
+	@media (max-width: $screen-md-min) {
+		font-size: 40px;
+		line-height: 47.5px;
+	}
+	@media (max-width: $screen-xs-min) {
+		font-size: 25px;
+		line-height: 35px;
+	}
+}
+
+h2 {
+	@include heading();
+	font-size: 20px;
+	line-height: 36px;
+	color: #fff;
+	background-color: $brand-primary;
+	padding: 0 15px;
+	margin: 8.5px 0 15px 0;
+	display: inline-block;
+	
+	@media (max-width: $screen-md-min) {
+		font-size: 17.5px;
+		line-height: 30px;
+	}
+	@media (max-width: $screen-xs-min) {
+		font-size: 15px;
+		line-height: 25px;
+	}
+}
+
+h3 {
+	@include heading();
+	font-size: 20px;
+	line-height: 28px;
+	margin-top: 40px;
+	text-align: center;
+	
+	@media (max-width: $screen-sm-max) {
+		font-size: 16px;
+	}
+}
+
+h1, h2, .row-headline {
+	text-align: center;
+	@media (max-width: $screen-sm-max) {
+		text-align: left;
+	}
+}
+
+.row-headline {
+	& + .row-headline {
+		margin-top: -14px;
+	}
+}
+
+@media (max-width: $screen-sm-max) {
+	.subpage h3 {
+		text-align: left;
+	}
+}

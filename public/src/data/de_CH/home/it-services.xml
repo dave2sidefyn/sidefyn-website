@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subpage id="kompetenz-it-services" prev="kompetenz-webapplikation" title="IT-Services">
+    <textblock type="title">
+        <img src="public/dist/img/icon/resp.png"
+             alt="IT-Services" class="icon"/>
+        <br/>IT-Services
+    </textblock>
+    <textblock type="paragraph">
+        Wir sind Spezialisten und bei Fragen rund um den Computer immer top informiert. Gerne helfen wir dir bei der Auswahl
+        der unzähligen Möglichkeiten in der Informatik. Wir helfen und beraten kompetent und können den Computer für
+        deine Bedürfnisse optimal einrichten.
+    </textblock>
+    <textblock type="address" style="vcard">
+        <span class="fn">David Wiedmer</span>
+        <br/>
+        <a href="mailto:dave@sidefyn.ch" class="email">dave@sidefyn.ch</a>
+        <br/>
+        <span class="tel">+41 79 533 97 99</span>
+        <br/>
+    </textblock>
+</subpage>

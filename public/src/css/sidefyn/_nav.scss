@@ -1,0 +1,91 @@
+// Navigation
+// --------------------------------------------------
+
+.nav {
+	margin-top: 4px;
+	
+	ul {
+		list-style-type: none;
+		height: auto;
+		transition: max-height .3s ease;
+		overflow: auto;
+		margin: 0;
+		-webkit-backface-visibility: hidden;
+		@include transform-origin(50%, 0%);
+		
+		@media (max-width: $screen-sm-max) {
+			display: none;
+			background-color: rgba($brand-primary, .95);
+			width: 100vw;
+			height: 100vh;
+			position: fixed;
+			padding: 60px 20px;
+			top: 0;
+			left: 0;
+			text-align: center;
+			z-index: -1;
+			@include animation(nav-out .5s forwards);
+			
+			&.in {
+				@include animation(nav-in .5s forwards);
+			}
+		}
+		
+		li {
+		
+			&.divider {
+				height: 1px;
+				overflow: hidden;
+			}
+			
+			@media (max-width: $screen-sm-max) {
+				float: none;
+				display: block;
+				margin-top: 3px;
+				
+				&.divider {
+					margin: 16px;
+				}
+			}
+			@media (min-width: $screen-md-min) {
+				float: left;
+				margin-left: 20px;
+			}
+			
+			a {
+				color: #ffffff;
+				font-size: 16px;
+				letter-spacing: .1em;
+				text-transform: uppercase;
+				font-weight: 600;
+				
+				&:hover, &:focus, &:active {
+					text-decoration: none;
+					color: #dddddd;
+					outline: none;
+				}
+			}
+			
+			
+		}
+	}
+}
+
+.navbar-toggle {
+	position: relative;
+	margin-right: 2px;
+	padding: 9px 10px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	background-color: transparent;
+	background-image: none;
+	border: none;
+	
+	&:focus {
+		outline: 0;
+	}
+	
+	@media (min-width: $screen-sm-max) {
+		display: none;
+	}
+}

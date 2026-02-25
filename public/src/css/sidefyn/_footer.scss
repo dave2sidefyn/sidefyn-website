@@ -1,0 +1,61 @@
+// Footer
+// --------------------------------------------------
+
+.footer {
+  background-color: $brand-primary;
+  font-size: 16px;
+  * {
+    color: #fff;
+
+    a {
+      text-transform: uppercase;
+    }
+
+    a:hover, a:focus, a:active {
+      color: $brand-secondary;
+      text-decoration: none;
+    }
+  }
+
+  li {
+    font-weight: 500;
+    line-height: inherit;
+  }
+}
+
+.footer-address {
+  float: left;
+  padding: 16px;
+  margin-top: 0;
+  font-size: 16px;
+  line-height: 20px;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  td {
+    padding-right: 5px;
+    font-weight: 500;
+  }
+}
+
+.footer-language {
+  list-style-type: none;
+  float: right;
+  width: 50%;
+  text-align: right;
+  line-height: 20px;
+}
+
+.footer-nav {
+  list-style-type: none;
+  float: right;
+  margin-top: 140px; //(before 48px ccdave)
+  padding-left: 230px;
+
+  li {
+    float: left;
+    margin: 0 0 0 40px;
+  }
+}

@@ -1,0 +1,8 @@
+// Arrow
+// --------------------------------------------------
+
+@include keyframes(arrow-bounce) {
+    0%   { @include transform(translateY(  0)); }
+	50%  { @include transform(translateY(-20px)); }
+	100% { @include transform(translateY(  0)); }
+}

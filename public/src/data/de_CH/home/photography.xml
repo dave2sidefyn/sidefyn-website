@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subpage id="kompetenz-photography"
+         next="kompetenz-movies" title="photography">
+    <textblock type="title"><img src="public/dist/img/icon/photo.png"
+                                     alt="Photography Icon" class="icon" /><br />Fotografie</textblock>
+    <textblock type="paragraph">
+        Du brauchst jemanden, der für dein Anlass professionelle Bilder erstellt? Jemanden, der unsichtbar den gegebenen Auftrag ausführt?
+        Da bist du bei sidefyn genau richtig. Wir arbeiten für jede Situation mit Spezialisten zusammen. Wir
+        fangen Impressionen und Situationen ein und erschaffen ausdrucksstarke Bilder für dein Projekt.
+
+        Individuelle, auf dein Unternehmen abgestimmte Fotos machen deinen Werbeauftritt unverwechselbar -
+        sei es für den Einsatz der Fotos in Printmedien, im Internet, bei Messen, bei Veranstaltungen
+        oder in der Pressearbeit.
+
+        Professionell und zielstrebig setzen wir dabei die Kundenvorgaben sowie unsere eigenen Ideen um.
+    </textblock>
+    <grid style="grid-plain grid-sm text-center">
+        <col width-lg="4" width-md="4" width-sm="12">
+            <button id="#kompetenz-photography-angebot" style="text-right fixed-width">Angebot
+            </button>
+        </col>
+        <col width-lg="4" width-md="4" width-sm="12">
+            <button id="#kompetenz-photography-arbeiten" style="fixed-width">Arbeiten
+            </button>
+        </col>
+        <col width-lg="4" width-md="4" width-sm="12">
+            <button id="#kompetenz-photography-weitere-referenzen" style="text-left fixed-width">Weitere Referenzen
+            </button>
+        </col>
+    </grid>
+    <tabs>
+        <tab id="kompetenz-photography-angebot">
+            <grid style="grid-plain text-center">
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                         <b>Eventfotos</b>
+                     <br/>
+                    Sei es ein Konzert, ein Firmenanlass oder ein Turnier - wir machen Bilder.
+                    </textblock>
+                </col>
+                    <col width-lg="6" width-md="6" width-sm="12">
+                        <img alt="Responsive Web" src="public/dist/img/picturework/eventfotos.png" class="picture-border"/>
+                    </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>Fotoshootings</b>
+                        <br/>
+                        Fancy Fashionbilder oder schlichte Bewerbungsfotos - wir haben die passende Lösung.
+                    </textblock>
+                </col>
+                    <col width-lg="6" width-md="6" width-sm="12">
+                        <img alt="Responsive Web" src="public/dist/img/picturework/fotoshootings.png" class="picture-border"/>
+                    </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>Dokumentationen</b>
+                        <br/>
+                        Du hast ein langwieriges Projekt? Wir begleiten dich dabei gerne.
+                    </textblock>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <img alt="Responsive Web" src="public/dist/img/picturework/dokumentation.png" class="picture-border"/>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <textblock type="paragraph">
+                        <b>Sonstiges</b>
+                        <br/>
+                        Du brauchst etwas, was wir nicht aufgelistet haben? Melde dich trotzdem - wir finden eine Lösung.
+                    </textblock>
+                </col>
+                <col width-lg="6" width-md="6" width-sm="12">
+                    <img alt="Responsive Web" src="public/dist/img/picturework/sonstiges.png" class="picture-border"/>
+                </col>
+            </grid>
+        </tab>
+        <tab id="kompetenz-photography-arbeiten">
+            <ul>
+                <li>CM-Integra</li>
+                <li>Bruno Kernen Snowcamp</li>
+                <li>Distisuisse</li>
+                <li>Startupweekend Zürich</li>
+                <li>Aspire</li>
+                <li>ZhdK</li>
+                <li>Glice</li>
+            </ul>
+        </tab>
+        <tab id="kompetenz-photography-weitere-referenzen">
+            <textblock type="subtitle">Kunden</textblock>
+            <grid style="grid-plain text-center">
+                <col width-lg="4" width-md="4" width-sm="6">
+                    <a href="http://www.cmintegra.ch">
+                        <img src="public/dist/img/logo/cmintegra.png"
+                             alt="CMIntegra" class="logo" />
+                    </a>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="6">
+                    <a href="http://www.brunokernen-snowcamp.ch/default.asp">
+                        <img src="public/dist/img/logo/brunokernen.png"
+                             alt="Bruno Kernen Snowcamp" class="logo" />
+                    </a>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="6">
+                    <a href="http://www.distisuisse.ch/de/home/">
+                        <img src="public/dist/img/logo/distisuisse.png"
+                             alt="Distisuisse" class="logo" />
+                    </a>
+                </col>
+            </grid>
+            
+           <!-- <reference id="referenz-photography">
+                <textblock type="subtitle" style="hide-grid">
+                    subtitle
+                </textblock>
+                <textblock type="quote" style="hide-grid">
+                    quote
+                </textblock>
+                <textblock type="paragraph" style="hide-grid">XY XY,
+                    Start-Up Weekend Zürich
+                </textblock>
+                <button id="#referenz-photography" class="btn-bottom show-grid">Mehr Infos
+                </button>
+                <textblock type="subtitle" style="hide-grid">
+                    Bruno Kernen Snow-/Golfcamps
+                </textblock>
+                <textblock type="quote" style="hide-grid">
+                    Ich schätze die sehr gute
+                    Zusammenarbeit mit sidefyn
+                    sowie deren
+                    professionelle Arbeit.
+                </textblock>
+                <textblock type="paragraph" style="hide-grid">Bruno Kernen,
+                    Ehemaliger Ski-Star
+                </textblock>
+            </reference>  -->
+        </tab>
+    </tabs>
+    <textblock type="address" style="vcard">
+        <span class="fn">Moritz Weibel</span>
+        <br/>
+        <a href="mailto:mo@sidefyn.ch" class="email">mo@sidefyn.ch
+        </a>
+        <br/>
+        <span class="tel">+41 79 766 14 09</span>
+        <br/>
+    </textblock>
+</subpage>

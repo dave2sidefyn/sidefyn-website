@@ -1,0 +1,26 @@
+// Animation
+// --------------------------------------------------
+
+@include keyframes(test-coverage) {
+	0%   {width: 0;}
+	100% {width: 68%;}
+}
+
+@include keyframes(leaf-left-sway) {
+	0%   { @include transform(rotateZ(-105deg) translateX(0)); }
+	30%  { @include transform(rotateZ( -70deg) translateX(-20px)); @include animation-timing-function(ease-in-out); }
+	60%  { @include transform(rotateZ(-110deg) translateX(-25px)); @include animation-timing-function(ease-in-out); }
+	100% { @include transform(rotateZ( -90deg) translateX(-48px)); @include animation-timing-function(cubic-bezier(0.990, 0.000, 0.890, 0.435)); }
+}
+@include keyframes(leaf-middle-sway) {
+	0%   { @include transform(rotateZ(-50deg) translateX(  0  ) translateY(0)); }
+	30%  { @include transform(rotateZ(-25deg) translateX( 10px) translateY(-10px)); @include animation-timing-function(ease-in-out); }
+	60%  { @include transform(rotateZ(-65deg) translateX(-17px) translateY( 17px)); @include animation-timing-function(ease-in-out); }
+	100% { @include transform(rotateZ(-45deg) translateX(-20px) translateY( 20px) scale(.8)); @include animation-timing-function(cubic-bezier(0.990, 0.000, 0.890, 0.435)); }
+}
+@include keyframes(leaf-right-sway) {
+	0%   { @include transform(rotateZ(-15deg) translateX(  0  ) translateY(0)); }
+	30%  { @include transform(rotateZ( 20deg) translateX(-10px) translateY(10px)); @include animation-timing-function(ease-in-out); }
+	60%  { @include transform(rotateZ(-20deg) translateX(-17px) translateY(17px)); @include animation-timing-function(ease-in-out); }
+	100% { @include transform(rotateZ(  0deg) translateX(-24px) translateY(24px)); @include animation-timing-function(cubic-bezier(0.990, 0.000, 0.890, 0.435)); }
+}

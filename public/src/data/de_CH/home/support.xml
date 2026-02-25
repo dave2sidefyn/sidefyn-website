@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subpage id="support" title="Support">
+	<textblock type="title">Support</textblock>
+	<grid style="grid-plain grid-sm text-center">
+		<col width-lg="12" width-md="12" width-sm="12">
+			<button id="https://support.dvbern.ch" style="fixed-width fixed-width-lg" newwindow="true">Ticketingsystem starten
+			</button>
+		</col>
+		<col width-lg="12" width-md="12" width-sm="12">
+			<button id="/public/dist/downloads/Jira Benutzerhandbuch.pdf" style="fixed-width fixed-width-lg" newwindow="true">Benutzerhandbuch zum Ticketingsystem
+			</button>
+		</col>
+		<col width-lg="12" width-md="12" width-sm="12">
+			<button id="http://get.teamviewer.com/gnp9hsx" style="fixed-width fixed-width-lg" newwindow="true">Remote Support starten
+			</button>
+		</col>
+	</grid>
+</subpage>

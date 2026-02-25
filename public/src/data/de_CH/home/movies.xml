@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subpage id="kompetenz-movies" prev="kompetenz-photography"
+	next="kompetenz-webapplikation" title="movies">
+    <textblock type="title"><img src="public/dist/img/icon/movie.png"
+                                 alt="Movie Icon" class="icon" /><br />Film</textblock>
+	<textblock type="paragraph">
+        Egal, ob Werbung, Musikvideo oder Dokumentation,
+        wir produzieren einen kurzen Trailer mit genau so viel Engagement
+        und Begeisterung wie einen langen Imagefilm.
+        Wir arbeiten bei jedem Projekt kundeneffizient, kreativ und immer mit Fokus
+        auf das gemeinsame Ziel: die Entwicklung eines großartigen Filmes.
+	</textblock>
+	<grid style="grid-plain grid-sm text-center">
+		<col width-lg="4" width-md="4" width-sm="12">
+			<button id="#kompetenz-movies-angebot" style="text-right fixed-width">Angebot
+			</button>
+		</col>
+        <col width-lg="4" width-md="4" width-sm="12">
+            <button id="#kompetenz-movies-arbeiten" style="fixed-width">Arbeiten
+            </button>
+        </col>
+		<col width-lg="4" width-md="4" width-sm="12">
+			<button id="#kompetenz-movies-weitere-referenzen" style="text-left fixed-width">Weitere Referenzen
+			</button>
+		</col>
+	</grid>
+	<tabs>
+		<tab id="kompetenz-movies-angebot">
+			<textblock type="paragraph">
+				Bewegte Bilder sagen mehr als Worte!
+				<br />
+				<br />
+				<b>Produktbeispiele</b>
+			</textblock>
+			<ul>
+				<li>Musikvideos</li>
+				<li>Eventvideos</li>
+                <li>Kurzfilme</li>
+				<li>Dokumentationen</li>
+                <li>Werbungen</li>
+			</ul>
+		</tab>
+        <tab id="kompetenz-movies-arbeiten">
+            <ul>
+                <li>JB-Funks Dr Shit Musikvideo
+                    <br />
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/NxWXx8MWVlE" frameborder="0"></iframe>
+                </li>
+                <li>Startup Weekend Zürich 2014
+                    <br />
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/sglEKIPEUDU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0"></iframe></li>
+                <li>Riddemption Misplaced Musikvideo
+                    <br />
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Z59n9VcjQiM" frameborder="0" ></iframe></li>
+                <li><a href="http://youtu.be/6X-vdo8ro_k" target="_blank">Aspire Launch Event and Photo Exhibition</a></li>
+                <li><a href="http://youtu.be/VZeqxXHGTpc" target="_blank">Ryan Tennis</a></li>
+                <li><a href="http://youtu.be/36q1fmv3-bE" target="_blank">Up the chain</a></li>
+                <li><a href="http://youtu.be/sm-oOgCqGtU" target="_blank">John Francis</a></li>
+                <li><a href="http://youtu.be/6gq8ltp_39o" target="_blank">Jan Steiner</a></li>
+                <li><a href="http://youtu.be/STWZzyziQt4" target="_blank">Silas</a></li>
+                <li><a href="http://youtu.be/H-xW06rD0Sg" target="_blank">Farbraum</a></li>
+            </ul>
+        </tab>
+		<tab id="kompetenz-movies-weitere-referenzen">
+			<textblock type="subtitle">Kunden</textblock>
+			<grid style="grid-plain text-center">
+				<col width-lg="4" width-md="4" width-sm="6">
+					<a href="http://www.aspireme.co">
+						<img src="public/dist/img/logo/aspire.png"
+							alt="Aspire" class="logo" />
+					</a>
+				</col>
+				<col width-lg="4" width-md="4" width-sm="6">
+					<a href="http://zuerich.startupweekend.ch/">
+						<img src="public/dist/img/logo/startupweekendZuerich.png"
+							alt="Startupweekend Zürich" class="logo" />
+					</a>
+				</col>
+                <col width-lg="4" width-md="4" width-sm="6">
+                    <a href="http://www.cmintegra.ch">
+                        <img src="public/dist/img/logo/cmintegra.png"
+                             alt="CMIntegra" class="logo" />
+                    </a>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="6">
+                    <a href="http://www.brunokernen-snowcamp.ch/default.asp">
+                        <img src="public/dist/img/logo/brunokernen.png"
+                             alt="Bruno Kernen Snowcamp" class="logo" />
+                    </a>
+                </col>
+			</grid>
+
+            <!--<reference id="referenz-movies">
+                <textblock type="subtitle">
+                    Startup Weekend Zürich
+                </textblock>
+
+                <textblock type="paragraph" style="hide-grid">
+                    paragraph
+                </textblock>
+                <textblock type="quote">quote
+                </textblock>
+                <textblock type="paragraph" style="text-center">Vorname Nachname,
+                    Stellung
+                </textblock>
+                <button id="#referenz-movies" class="btn-bottom show-grid">Mehr Infos
+                </button>
+            </reference>  -->
+        </tab>
+    </tabs>
+    <textblock type="address" style="vcard">
+        <span class="fn">Moritz Weibel</span>
+        <br />
+        <a href="mailto:mo@sidefyn.ch" class="email">mo@sidefyn.ch</a>
+        <br />
+        <span class="tel">+41 79 766 14 09</span>
+        <br />
+    </textblock>
+</subpage>

@@ -1,0 +1,26 @@
+// Responsive
+// --------------------------------------------------
+
+.visible-sm {
+	@media (min-width: $screen-md-min) {
+		display: none !important;
+	}
+}
+
+.hidden-sm {
+	@media (max-width: $screen-sm-max) {
+		display: none !important;
+	}
+}
+
+.visible-md {
+	@media (max-width: $screen-md-min), (min-width: $screen-md-max) {
+		display: none !important;
+	}
+}
+
+.hidden-lg {
+	@media (min-width: $screen-lg-min) {
+		display: none !important;
+	}
+}

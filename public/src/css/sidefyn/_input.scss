@@ -1,0 +1,30 @@
+// Mixins
+// --------------------------------------------------
+
+input, textarea {
+  border-radius: 4px;
+  padding: 0 10px;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  height: 36px;
+  line-height: 34px;
+  width: 97%;
+  margin: 15px;
+}
+
+textarea {
+  height: 120px;
+  line-height: 25px;
+  resize: none;
+}
+
+textarea:disabled {
+  background-color: #d8d8d8;
+}
+
+.button-white {
+  .btn {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+}

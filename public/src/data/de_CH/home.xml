@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xi="http://www.w3.org/2001/XInclude" lang="de_CH">
+
+    <title>sidefyn</title>
+    <description>Die sidefyn GmbH ist eine junge Webauftritt und Multimedia Firma in der Region Bern und Zürich. Wir
+        gestalten und entwickeln dir deine Webseite mit bester Qualität. Auch dein Videoclip oder Fotoshooting ist bei
+        uns in besten Händen!
+    </description>
+    <keywords>Individualsoftware, Hosting, jung, Multimedia, GmbH, Region, Regional, Freelancer, DV Bern,
+        Web, Design, sidefyn, sidefyn GmbH, PHP, Technologie, Profi, Bern, Entwicklung, Musikvideos, Eventfilme,
+        Werbeclips
+        Mobile, Softwareentwicklung, Java, JEE, Eventfotos, Einzelfotoshootings, Quap, Kamera, Red, Rocked, mieten,
+        vermieten
+    </keywords>
+
+    <xi:include href="../config.xml" parse="xml"/>
+    <xi:include href="includes/navigation.xml" parse="xml"/>
+    <xi:include href="includes/address.xml" parse="xml"/>
+
+    <subpages>
+        <xi:include href="home/photography.xml" parse="xml"/>
+        <xi:include href="home/movies.xml" parse="xml"/>
+        <xi:include href="home/webapplikation.xml" parse="xml"/>
+        <xi:include href="home/it-services.xml" parse="xml"/>
+        <xi:include href="home/jobs.xml" parse="xml"/>
+        <xi:include href="home/impressum.xml" parse="xml"/>
+        <xi:include href="home/agb.xml" parse="xml"/>
+    </subpages>
+
+
+    <rows>
+        <row id="header" style="row-header">
+            <textblock type="title">
+                <img src="public/dist/img/logo/sidefyn.png" alt="sidefyn Logo" class="header-logo"/>
+            </textblock>
+            <!--<textblock type="headline">Webseiten und Multimedia nach neusten Standards. Mit uns sidefyn durch den
+                Alltag!
+            </textblock>-->
+        </row>
+
+        <!--<row id="scroll-down" style="row-scroll-down hidden-sm">
+            <scroll-down id="kompetenzen"/>
+        </row>-->
+
+        <!--<row id="wir-sind-profi" style="row-light" xml:space="preserve">
+			<textblock type="title" magic="enter top and move 50px over 1.5s">Da sind wir Profi!</textblock>
+			<textblock  type="paragraph" >
+				Individuelle Weblösungen und Multimedia-Projekte mit der neusten Technologie.</textblock>
+		</row>-->
+
+        <row id="kompetenzen" style="row-dark-2">
+            <grid style="grid-plain text-center">
+
+                <col width-lg="3" width-md="6" width-sm="12">
+                    <textblock type="subtitle" xml:space="preserve">
+						Fotografie
+					</textblock>
+                    <textblock type="paragraph">Egal, ob Eventfotos oder Einzelfotoshootings, mit unserem Equipment
+                        können wir jeden Wunsch erfüllen.
+                    </textblock>
+                    <button id="#kompetenz-photography" class="btn-bottom">Mehr Infos</button>
+                </col>
+                <col width-lg="3" width-md="6" width-sm="12">
+                    <textblock type="subtitle">
+                        Film
+                    </textblock>
+                    <textblock type="paragraph">Seien es Musikvideos, Eventfilme oder Werbeclips, jeder Wunsch wird in
+                        Erfüllung
+                        gehen.
+                    </textblock>
+                    <button id="#kompetenz-movies" class="btn-bottom">Mehr Infos</button>
+                </col>
+                <col width-lg="3" width-md="6" width-sm="12">
+                    <textblock type="subtitle">Webapplikation</textblock>
+                    <textblock type="paragraph">Innovative und dynamische Webapplikationen, die durch Qualität und
+                        Leistung auffallen.
+                    </textblock>
+                    <button id="#kompetenz-webapplikation" class="btn-bottom">Mehr Infos</button>
+                </col>
+
+                <col width-lg="3" width-md="6" width-sm="12">
+                    <textblock type="subtitle">IT-Dienstleistungen</textblock>
+                    <textblock type="paragraph">Gerne stehen wir mit unserem technischen Know-how auch für weitere
+                        Fragen
+                        und Anliegen zur Verfügung.
+                    </textblock>
+                    <button id="#kompetenz-it-services" class="btn-bottom">Mehr Infos</button>
+                </col>
+            </grid>
+        </row>
+
+        <row id="equipment-header" style="row-header row-background-image-2">
+            <textblock type="title" magic="enter top and move 50px over 1.5s">Miete geeignetes Equipment</textblock>
+            <!--<textblock type="paragraph">Weil sharing unter Freunden Spass macht.
+            </textblock>-->
+        </row>
+
+        <row id="equipment" style="row-dark-2">
+            <textblock type="subtitle">Wir haben etwas, das du möchtest? Wir teilen gerne.</textblock>
+            <textblock type="paragraph" style="material-section">Kameras</textblock>
+            <grid style="grid-plain text-center">
+                <!-- Kameras -->
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">RED Epic Dragon 6K Canon AL Gunner Collection
+                    </textblock>
+                    <textblock type="paragraph" style="material-preis">800.00</textblock>
+                    <img src="public/dist/img/material/EPIC-M_RED_Dragon_Gunner_Collection.png"
+                         alt="EPIC-M_RED_Dragon_Gunner_Collection.png" class="material"/>
+                    <button id="#reservation-EPIC-M_RED_Dragon_Gunner_Collection" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">RED Epic Dragon 6K Canon AL Brain Only
+                    </textblock>
+                    <textblock type="paragraph" style="material-preis">700.00</textblock>
+                    <img src="public/dist/img/material/Dragon-M-roll-up6KCanonAL.png"
+                         alt="Dragon-M-roll-up6KCanonAL.png" class="material"/>
+                    <button id="#reservation-Dragon-M-roll-up6KCanonAL" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Canon EOS 5D Mark III</textblock>
+                    <textblock type="paragraph" style="material-preis">30.00</textblock>
+                    <img src="public/dist/img/material/EOS5DMarkIII.png" alt="EOS5DMarkIII.png" class="material"/>
+                    <button id="#reservation-EOS5DMarkIII" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Sony a7s</textblock>
+                    <textblock type="paragraph" style="material-preis">70.00</textblock>
+                    <img src="public/dist/img/material/sonyA7s.png" alt="sonyA7s.png" class="material"/>
+                    <button id="#reservation-sonyA7s" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">GoPro Hero 3+</textblock>
+                    <textblock type="paragraph" style="material-preis">35.00</textblock>
+                    <img src="public/dist/img/material/goproHero3+.png" alt="goproHero3+.png" class="material"/>
+                    <button id="#reservation-goproHero3+" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">GoPro Hero 3</textblock>
+                    <textblock type="paragraph" style="material-preis">30.00</textblock>
+                    <img src="public/dist/img/material/goproHero3.png" alt="goproHero3.png" class="material"/>
+                    <button id="#reservation-goproHero3" class="btn-bottom"></button>
+                </col>
+                <!-- Kameras Ende -->
+            </grid>
+            <textblock type="paragraph" style="material-section">Zubehör</textblock>
+            <grid style="grid-plain text-center">
+                <!-- Kamera Zubehör -->
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">DJI Ronin 2</textblock>
+                    <textblock type="paragraph" style="material-preis">300.00</textblock>
+                    <img src="public/dist/img/material/DJIRonin2.png" alt="DJIRonin2.png" class="material"/>
+                    <button id="#reservation-DJIRonin2" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Glidecam HD 2000</textblock>
+                    <textblock type="paragraph" style="material-preis">30.00</textblock>
+                    <img src="public/dist/img/material/glidecamHD-2000.png" alt="glidecamHD-2000.png" class="material"/>
+                    <button id="#reservation-glidecamHD-2000" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Shoulder Rig</textblock>
+                    <textblock type="paragraph" style="material-preis">50.00</textblock>
+                    <img src="public/dist/img/material/DSMCProductionPack.png" alt="DSMCProductionPack.png"
+                         class="material"/>
+                    <button id="#reservation-DSMCProductionPack" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Dynacore V-Mount Akku 220Wh</textblock>
+                    <textblock type="paragraph" style="material-preis">60.00</textblock>
+                    <img src="public/dist/img/material/dynacore-powering-system.png" alt="dynacore-powering-system.png"
+                         class="material"/>
+                    <button id="#reservation-dynacore-powering-system" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Atomos Ninja 2</textblock>
+                    <textblock type="paragraph" style="material-preis">100.00</textblock>
+                    <img src="public/dist/img/material/atomosNinja2.png" alt="atomosNinja2.png" class="material"/>
+                    <button id="#reservation-atomosNinja2" class="btn-bottom"></button>
+                </col>
+                <!-- Kamera Zubehör Ende -->
+            </grid>
+            <textblock type="paragraph" style="material-section">Objektive</textblock>
+            <grid style="grid-plain text-center">
+                <!-- Objektive -->
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Canon EF 24-70mm f2.8L II USM</textblock>
+                    <textblock type="paragraph" style="material-preis">15.00</textblock>
+                    <img src="public/dist/img/material/EF_24-70mm_f2.8L_II_USM.png" alt="EF_24-70mm_f2.8L_II_USM.png"
+                         class="material"/>
+                    <button id="#reservation-EF_24-70mm_f2.8L_II_USM" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Canon EF 24-105mm f4L IS USM</textblock>
+                    <textblock type="paragraph" style="material-preis">15.00</textblock>
+                    <img src="public/dist/img/material/EF_24-105mm_f4L_IS_USM.png" alt="EF_24-105mm_f4L_IS_USM.png"
+                         class="material"/>
+                    <button id="#reservation-EF_24-105mm_f4L_IS_USM" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Canon EF 28mm f1.8 USM</textblock>
+                    <textblock type="paragraph" style="material-preis">15.00</textblock>
+                    <img src="public/dist/img/material/EF_28mm_f1.8_USM.png" alt="EF_28mm_f1.8_USM.png"
+                         class="material"/>
+                    <button id="#reservation-EF_28mm_f1.8_USM" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Canon EF 50mm f1.4 USM</textblock>
+                    <textblock type="paragraph" style="material-preis">15.00</textblock>
+                    <img src="public/dist/img/material/EF_50mm_f1.4_USM.png" alt="EF_50mm_f1.4_USM.png"
+                         class="material"/>
+                    <button id="#reservation-EF_50mm_f1.4_USM" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Canon EF 70-200mm f2.8L IS II USM</textblock>
+                    <textblock type="paragraph" style="material-preis">15.00</textblock>
+                    <img src="public/dist/img/material/EF_70-200mm_f2.8L_IS_II_USM.png"
+                         alt="EF_70-200mm_f2.8L_IS_II_USM.png" class="material"/>
+                    <button id="#reservation-EF_70-200mm_f2.8L_IS_II_USM" class="btn-bottom"></button>
+                </col>
+                <!-- Objektive Ende -->
+            </grid>
+            <textblock type="paragraph" style="material-section">Red Zubehör</textblock>
+            <grid style="grid-plain text-center">
+                <!-- RED Zubehör -->
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">RED Rocket X</textblock>
+                    <textblock type="paragraph" style="material-preis">150.00</textblock>
+                    <img src="public/dist/img/material/REDRocketX.png" alt="REDRocketX.png" class="material"/>
+                    <button id="#reservation-REDRocketX" class="btn-bottom"></button>
+                </col>
+                <!-- RED Zubehör Ende -->
+            </grid>
+            <textblock type="paragraph" style="material-section">Audio</textblock>
+            <grid style="grid-plain text-center">
+                <!-- Audio -->
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Zoom H6</textblock>
+                    <textblock type="paragraph" style="material-preis">25.00</textblock>
+                    <img src="public/dist/img/material/zoomH6.png" alt="zoomH6.png" class="material"/>
+                    <button id="#reservation-zoomH6" class="btn-bottom"></button>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6">
+                    <textblock type="paragraph" style="material-title">Sennheiser MKE-600</textblock>
+                    <textblock type="paragraph" style="material-preis">10.00</textblock>
+                    <img src="public/dist/img/material/Sennheiser_MKE-600_1.png" alt="Sennheiser_MKE-600_1"
+                         class="material"/>
+                    <button id="#reservation-Sennheiser_MKE-600_1" class="btn-bottom"></button>
+                </col>
+                <!-- Audio Ende -->
+
+            </grid>
+        </row>
+
+        <row id="materialformular" form="materialform" style="row-light hidden">
+            <grid style="grid-plain">
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="text-right" for="name">Name, Vorname:</textblock>
+                </col>
+                <col width-lg="8" width-md="8" width-sm="12">
+                    <textblock type="input" input-type="text" name="name" id="name"/>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="text-right" for="email">E-Mail:</textblock>
+                </col>
+                <col width-lg="8" width-md="8" width-sm="12">
+                    <textblock type="input" input-type="email" name="email" id="email"/>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="text-right" for="telefon">Telefon:</textblock>
+                </col>
+                <col width-lg="8" width-md="8" width-sm="12">
+                    <textblock type="input" input-type="telefon" name="telefon" id="telefon"/>
+                </col>
+
+                <!--<col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="text-right" for="datevon">Datum von/bis:</textblock>
+                </col>
+                <col width-lg="3" width-md="3" width-sm="6">
+                    <textblock type="input" input-type="text" name="datevon" id="datevon"/>
+                </col>
+                <col width-lg="3" width-md="3" width-sm="6">
+                    <textblock type="input" input-type="text" name="datebis" id="datebis"/>
+                </col>
+                <col width-lg="2" width-md="2" width-sm="0">
+                </col>        -->
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="text-right" for="listartikel">Reservierte Artikel:</textblock>
+                </col>
+                <col width-lg="8" width-md="8" width-sm="12">
+                    <textblock type="textarea" disabled="true" name="listartikel" id="listartikel"/>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="text-right" for="message">Datum und Mitteilung:</textblock>
+                </col>
+                <col width-lg="8" width-md="8" width-sm="12">
+                    <textblock type="textarea" name="message" id="message"/>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="0">
+                </col>
+                <col width-lg="8" width-md="8" width-sm="12">
+                    <button id="#material-button" class="text-left button-white">Absenden</button>
+                </col>
+                <col id="materialformular-success" width-lg="8" width-md="8" width-sm="12">
+                    <textblock type="headline" style="hidden">Nachricht wurde erfolgreich übermittelt.</textblock>
+                </col>
+                <col id="materialformular-error" width-lg="8" width-md="8" width-sm="12">
+                    <textblock type="headline" style="hidden">Nachricht senden fehlgeschlagen.</textblock>
+                </col>
+            </grid>
+        </row>
+
+        <row id="team" style="row-header row-background-image-3">
+            <textblock type="title" magic="enter top and move 50px over 1.5s">Das Team</textblock>
+            <!--<textblock type="paragraph">Individuell, innovativ und immer einen Schritt voraus.</textblock>-->
+        </row>
+
+        <row id="sidefyn-in-zahlen-details" style="row-dark-2">
+            <grid style="grid-plain grid-sm text-center">
+                <col width-lg="12" width-md="12" width-sm="12">
+                    <textblock type="paragraph" style="stats-1-1">Geschäftsführung</textblock>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="stats-1-2">Nathanael Mägli</textblock>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="stats-1-2">David Wiedmer</textblock>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="stats-1-2">Moritz Weibel</textblock>
+                </col>
+            </grid>
+            <grid style="grid-plain grid-sm text-center">
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="stats-1">54</textblock>
+                    <textblock type="paragraph" style="stats-2">sidefyne Fotoaufträge</textblock>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="stats-1">23</textblock>
+                    <textblock type="paragraph" style="stats-2">erfolgreiche Webauftritte</textblock>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="stats-1">100</textblock>
+                    <textblock type="paragraph" style="stats-2">% motiviert</textblock>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="stats-1">2</textblock>
+                    <textblock type="paragraph" style="stats-2">Jahre GmbH</textblock>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="stats-1">3</textblock>
+                    <textblock type="paragraph" style="stats-2">Freelancer</textblock>
+                </col>
+                <col width-lg="4" width-md="4" width-sm="12">
+                    <textblock type="paragraph" style="stats-1">4</textblock>
+                    <textblock type="paragraph" style="stats-2">Bereiche</textblock>
+                </col>
+            </grid>
+            <grid style="grid-plain grid-sm text-center">
+                <col width-lg="12" width-md="12" width-sm="12">
+                    <textblock type="paragraph" style="stats-1-1">Beteiligung an</textblock>
+                </col>
+                <col width-lg="12" width-md="12" width-sm="12">
+                    <a href="http://www.quap.ch" title="Quap">
+                        <img src="public/dist/img/logo/quap.png" alt="Quap"
+                             class="logo"/>
+                    </a>
+                </col>
+            </grid>
+        </row>
+
+        <row id="socialmedia" style="row-dark" xml:space="preserve">
+			<textblock type="title" magic="enter top and move 50px over 1.5s">Social Media</textblock>
+			<textblock  type="headline" >
+				Du findest uns auf folgenden Plattformen:
+			</textblock>
+            <textblock type="paragraph" style="text-center">
+                <a href="http://www.facebook.com/sidefyn">
+			        <img alt="Facebook" src="public/dist/img/socialmedia/facebook.png" class="socialmedia" />
+                </a>
+                <!--<a href="http://plus.google.com/sidefyn">
+			        <img alt="Google+" src="public/dist/img/socialmedia/google.png" class="socialmedia" />
+                </a> -->
+                <!--<a href="http://www.instagram.com/sidefyn">
+			        <img alt="Instagram" src="public/dist/img/socialmedia/instagram.png" class="socialmedia" />
+                </a>-->
+                <a href="https://www.linkedin.com/company/sidefyn-gmbh">
+			        <img alt="Linkedin" src="public/dist/img/socialmedia/linkedin.png" class="socialmedia" />
+                </a>
+                <a href="http://www.twitter.com/sidefyn">
+			        <img alt="Twitter" src="public/dist/img/socialmedia/twitter.png" class="socialmedia" />
+                </a>
+                <a href="http://www.youtube.com/c/Sidefynch ">
+			        <img alt="Youtube" src="public/dist/img/socialmedia/youtube.png" class="socialmedia" />
+                </a>
+            </textblock>
+		</row>
+
+        <row id="referenzen" style="row-header row-background-image-1">
+            <textblock type="title" magic="enter top and move 50px over 1.5s">Referenzen</textblock>
+            <!--<textblock type="paragraph">Diese Firmen haben durch unsere Projekte schon Fortschritt erziehlt.
+            </textblock>-->
+        </row>
+
+        <row id="kunden" style="row-dark-2">
+            <!--<textblock type="subtitle">Auswahl unserer Kunden</textblock>-->
+            <grid style="grid-plain text-center">
+                <col width-lg="3" width-md="4" width-sm="6" magic="enter top and move 50px over 1.5s">
+                    <a href="http://www.advokatur-km.ch/">
+                        <img src="public/dist/img/logo/advokatur-km.png" alt="Advokatur KM" class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6" magic="enter top and move 50px over 1.5s">
+                    <a href="http://www.aspireme.co">
+                        <img src="public/dist/img/logo/aspire.png" alt="Aspire" class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6" magic="enter top and move 50px over 1.5s">
+                    <a href="http://www.brunokernen-snowcamp.ch/default.asp">
+                        <img src="public/dist/img/logo/brunokernen.png" alt="Bruno Kernen Snowcamp"
+                             class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6" magic="enter top and move 50px over 1.5s">
+                    <a href="http://christophammann.com">
+                        <img src="public/dist/img/logo/christophammann.png" alt="Christoph Ammann Photography"
+                             class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6" style="visible-md"
+                     magic="enter top and move 50px over 1.5s">
+                    <a href="http://www.cmintegra.ch">
+                        <img src="public/dist/img/logo/cmintegra.png" alt="Cmintegra" class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6" magic="enter top and move 50px over 1.5s">
+                    <a href="http://www.distisuisse.ch/de/home/">
+                        <img src="public/dist/img/logo/distisuisse.png" alt="DistiSuisse" class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6" magic="enter top and move 50px over 1.5s">
+                    <a href="http://dvbern.ch">
+                        <img src="public/dist/img/logo/dvbern.png" alt="DV Bern AG" class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6" magic="enter top and move 50px over 1.5s">
+                    <a href="http://quap.ch">
+                        <img src="public/dist/img/logo/quap.png" alt="Quap GmbH" class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6" magic="enter top and move 50px over 1.5s">
+                    <a href="http://zuerich.startupweekend.ch/">
+                        <img src="public/dist/img/logo/startupweekendZuerich.png" alt="Startupweekend Zürich"
+                             class="logo"/>
+                    </a>
+                </col>
+                <col width-lg="3" width-md="4" width-sm="6" style="visible-sm">
+                    <img src="public/dist/img/logo/zhdk.png" alt="zhdk" class="logo"/>
+                </col>
+            </grid>
+        </row>
+
+        <row id="karte" style="row-light row-bleed">
+            <map/>
+        </row>
+
+        <row id="scroll-up" style="row-scroll-up">
+            <scroll-up id="header"/>
+        </row>
+    </rows>
+</page>

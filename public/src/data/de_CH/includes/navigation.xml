@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <main>
+        <item href="#kompetenzen">Kompetenzen</item>
+        <item href="#equipment">Equipment</item>
+        <item href="#team">Team</item>
+        <item href="#referenzen">Referenzen</item>
+        <!--<item href="#unser-kontakt">Kontakt</item>-->
+    </main>
+    <footer>
+        <item href="#jobs">Jobs</item>
+        <item href="#impressum">Impressum</item>
+        <item href="#agb">AGB</item>
+    </footer>
+
+    <languages>
+        <!--
+        <item href="/?lang=de_CH">Deutsch</item>
+        <item href="/?lang=en_GB">Englisch</item>
+        <item href="/?lang=fr_CH">Französisch</item> -->
+    </languages>
+</navigation>

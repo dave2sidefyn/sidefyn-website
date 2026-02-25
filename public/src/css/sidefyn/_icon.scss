@@ -1,0 +1,51 @@
+// Icon
+// --------------------------------------------------
+
+.icon-bar {
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+	background-color: #fff;
+	
+	& + .icon-bar {
+		margin-top: 4px;
+	}
+}
+
+.icon-diagonal-bar {
+	display: block;
+	width: 26px;
+	height: 2px;
+	border-radius: 1px;
+	background-color: $brand-secondary;
+	@include transform(rotate(45deg));
+	
+	& + .icon-diagonal-bar {
+		@include transform-origin(13px, 1px);
+		@include transform(rotate(-45deg));
+		margin-top: -2px;
+	}
+}
+
+.icon-circle {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 6px;
+	background-color: scale-lightness($brand-secondary, 60);
+	
+	&.active, &:active, &:focus, &:hover {
+		background-color: $brand-secondary;
+	}
+}
+
+.subpage-light {
+	.icon-circle {
+		background-color: scale-lightness($brand-primary, 60);
+		
+		&.active, &:active, &:focus, &:hover {
+			background-color: $brand-primary;
+		}
+	}
+}

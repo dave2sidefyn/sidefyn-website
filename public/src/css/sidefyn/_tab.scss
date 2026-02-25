@@ -1,0 +1,17 @@
+// Tab
+// --------------------------------------------------
+
+.tab-container {
+	position: relative;
+	overflow: hidden;
+}
+
+.tab {
+	@include animation(tab-out .5s forwards);
+	display: none;
+	
+	&.in {
+		@include animation(tab-in .5s forwards);
+		display: block;
+	}
+}

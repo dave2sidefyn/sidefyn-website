@@ -1,0 +1,19 @@
+// Scrollbar
+// --------------------------------------------------
+
+::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+::-webkit-scrollbar-track {
+	background-color: $brand-secondary;
+    box-shadow: 0 0 6px rgba(0 ,0, 0, .3) inset;
+}
+ 
+::-webkit-scrollbar-thumb {
+	background-color: darkgrey;
+	
+	&:hover {
+		background-color: $brand-primary
+	}
+}

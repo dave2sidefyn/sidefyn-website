@@ -1,0 +1,70 @@
+// material
+// --------------------------------------------------
+
+#equipment {
+
+  .material-title {
+    font-weight: bolder;
+    line-height: 16px;
+    margin-top: -20px;
+  }
+
+  .material {
+    max-height: 150px;
+    max-width: 100%;
+  }
+
+  .material-preis {
+    margin-top: -15px;
+
+  }
+
+  .material-section {
+    font-size: 20px;
+    border-top: 1px inset;
+    width: 84%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+  }
+
+  .material-preis::before {
+    content: "(";
+  }
+
+  .material-preis::after {
+    content: " CHF)";
+  }
+
+  .btn::after {
+    content: "mieten";
+
+  }
+
+  .active {
+    background-color: $brand-secondary;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"; /* IE 8 */
+    filter: alpha(opacity=40); /* IE 5-7 */
+    -moz-opacity: 0.4; /* Netscape */
+    -khtml-opacity: 0.4; /* Safari 1.x */
+    opacity: 0.4; /* Good browsers */
+    .btn {
+      background-color: $brand-primary-dark;
+      color: #fff;
+      &::after {
+        content: "ausgew\00e4hlt";
+      }
+
+    }
+    .btn:hover {
+      background-color: #933437;
+      color: #fff;
+      &::after {
+        content: "l\00f6schen";
+      }
+
+    }
+  }
+}
+
+

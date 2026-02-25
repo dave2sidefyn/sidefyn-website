@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addresses>
+    <address class="footer-address vcard Bern">
+        <span class="fn org">sidefyn GmbH</span>
+        <br/>
+        <span class="adr">
+            <span class="street-address">
+                Polygonstrasse 47
+            </span>
+            <br/>
+            <span class="postal-code">CH-3014 </span>
+            <span class="locality">Bern</span>
+        </span>
+        <br/>
+        <br/>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Telefon:</td>
+                    <td class="tel">+41 79 533 97 99</td>
+                </tr>
+            </tbody>
+        </table>
+    </address>
+    <address class="footer-address vcard Zuerich">
+        <span class="fn org">sidefyn GmbH</span>
+        <br/>
+        <span class="adr">
+            <span class="street-address">
+                Kornhausstrasse 34
+            </span>
+            <br/>
+            <span class="postal-code">CH-8006 </span>
+            <span class="locality">Zürich</span>
+        </span>
+        <br/>
+        <br/>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Telefon:</td>
+                    <td class="tel">+41 79 766 14 09</td>
+                </tr>
+            </tbody>
+        </table>
+    </address>
+</addresses>

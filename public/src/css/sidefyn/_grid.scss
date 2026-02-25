@@ -1,0 +1,164 @@
+// Grid
+// --------------------------------------------------
+
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+
+.container {
+  @include container-fixed();
+}
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+
+.content {
+  @include make-row();
+
+  margin: 0 auto;
+  padding: 10px;
+
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+}
+
+.show-grid {
+  display: none;
+}
+
+.grid {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+  font-size: 10px; //Wieso war hier vorher 0?
+  overflow: hidden;
+
+  .show-grid {
+    display: block;
+  }
+
+  .hide-grid {
+    display: none;
+  }
+}
+
+.text-center .col {
+  padding: $grid-gutter-width 10px;
+}
+
+.grid-sm {
+  padding: 10px 0;
+
+  * .text-center {
+    padding: 10px 5px;
+  }
+
+  .col {
+    padding: 5px;
+  }
+}
+
+.grid-animations {
+  .col {
+    height: 300px;
+
+    p {
+      display: inline-block;
+      position: absolute;
+      font-size: 22px;
+      font-weight: 500;
+    }
+  }
+}
+
+.col {
+  padding: 0px 10px;
+  display: inline-block;
+  background-color: $brand-secondary;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: background-color .2s ease, background-image .2s ease;
+
+  &:hover, &:focus, &:active, &.active {
+    background-color: $brand-secondary-dark;
+    background-image: none;
+  }
+
+  &.clickable-column {
+    @media (min-width: $screen-sm-min) {
+      text-align: center;
+    }
+    cursor: pointer;
+  }
+
+  img {
+    text-align: center;
+  }
+
+  h3 {
+    text-align: left;
+    @media (min-width: $screen-sm-min) {
+      text-align: center;
+    }
+    font-size: 18px;
+  }
+
+  & > .text-center {
+    padding: 0;
+  }
+
+  .text-center h3 {
+    text-align: center;
+  }
+
+  blockquote {
+    text-align: center;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .subpage .col h3 {
+    text-align: center;
+  }
+}
+
+.grid-plain {
+  .col {
+    background: none;
+    box-shadow: none;
+  }
+}
+
+.grid-fixed-height {
+  .col {
+    h3 {
+      height: 50px;
+    }
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  @include make-column('lg');
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  @include make-column('md');
+}
+
+@media (max-width: $screen-sm-max) {
+  @include make-column('sm');
+}

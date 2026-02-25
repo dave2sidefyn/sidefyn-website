@@ -1,0 +1,402 @@
+// Animation
+// --------------------------------------------------
+// If you have to change something in this file, have fun!
+// It took me about 2-3 days to figure out all the values.
+// Tested in Chrome, IE, Safari, Firefox, iOS, Android
+
+.anim-container {
+	position: relative;
+	line-height: 100%;
+	height: 100%;
+	
+	img {
+		display: block;
+		max-width: 100%;
+		max-height: 100%;
+		margin: 0 auto;
+	}
+	
+	p {
+		text-transform: uppercase;
+	}
+	
+	.number {
+		font-size: 60px;
+		
+		@media (max-width: $screen-sm-max) {
+			font-size: 40px;
+		}
+	}
+}
+
+.anim-element {
+	position: absolute;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.anim-test-coverage {
+	@media(max-width: $screen-sm-max){
+		order: 3;
+		-webkit-order: 3;
+	}
+}
+
+.anim-test-coverage-container {
+	width: 73%;
+	height: 46px;
+	margin: 147px 5% 0 5%;
+}
+
+.anim-test-coverage-border {
+	width: 100%;
+	height: 80%;
+	margin-top: 10px;
+	border: 4px solid #fff;
+	
+	@media (max-width: $screen-sm-max){
+		height: 60%;
+	}
+}
+
+.anim-test-coverage-bar {
+	position: absolute;
+	width: 0;
+	height: 80%;
+	margin-top: 10px;
+	background-color: #fff;
+	
+	&.animate {
+		@include animation(test-coverage 2s forwards 1s);
+	}
+	
+	@media (max-width: $screen-sm-max){
+		height: 60%;
+	}
+}
+
+.anim-test-coverage-text {
+	margin: 100px 5% 0 5%;
+	font-size: 30px !important;
+	
+	@media (min-width: $screen-md-min) and (max-width: $screen-md-max){
+		font-size: 20px !important;
+	}
+	@media (max-width: $screen-sm-max){
+		font-size: 18px !important;
+	}
+}
+
+.anim-glasses {
+	p {
+		top: 155px;
+		width: 100%;
+		text-align: center;
+		margin-left: -30px;
+	}
+
+	img {
+		margin-top: 40px;
+	}
+
+	@media(max-width: $screen-sm-max){
+		order: 2;
+		-webkit-order: 2;
+		img {
+			margin-top: 80px;
+		}
+	}
+}
+
+.anim-mouse {
+	@media(max-width: $screen-sm-max){
+		order: 6;
+		-webkit-order: 6;
+	}
+	
+	img {
+		@include transform(rotate(-45deg));
+		margin-top: -60px;
+	}
+	
+	p {
+		top: 155px;
+		width: 100%;
+		text-align: center;
+		margin-left: -30px;
+	}
+}
+
+.anim-taxme-users {
+	padding: 0 !important;
+	
+	@media(max-width: $screen-sm-max){
+		order: 8;
+		-webkit-order: 8;
+	}
+	
+	.number {
+		width: 100%;
+		display: block;
+		margin: 60px 0 20px 0;
+		
+		@media(max-width: $screen-sm-max){
+			font-size: 30px;
+		}
+	}
+	
+	p {
+		width: 100%;
+		text-align: center;
+		padding-top: 40px;
+	}
+}
+
+.anim-coffee {
+	@media(max-width: $screen-sm-max){
+		order: 1;
+		-webkit-order: 1;
+	}
+
+	.number {
+		font-size: 50px;
+		color: $brand-secondary;
+		position: absolute;
+		display: block;
+		width: 100%;
+		padding-right: 9px;
+		margin-top: -96px;
+		
+		@media (max-width: $screen-sm-max){
+			font-size: 30px;
+		}
+	}
+	
+	.anim-coffee-img-container {
+		height: 100%;
+		text-align: center;
+		
+		&:before {
+			content: ' ';
+			display: inline-block;
+			vertical-align: middle;
+			height: 100%;
+		}
+	}
+	
+	img {
+		display: inline-block;
+		vertical-align: middle;
+		margin-top: -40px;
+	}
+	
+	p {
+		width: 100%;
+		left: 0;
+		top: 0;
+		text-align: center;
+		margin-top: 205px;
+	}
+}
+
+.anim-moustache, .anim-beard {
+	img {
+		max-height: 180px;
+		max-width: 240px;
+		margin-top: 40px;
+		
+		@media(max-width: $screen-md-max){
+			max-width: 175px;
+		}
+		
+		@media(max-width: $screen-sm-max){
+			@include transform(translateY(40px));
+			max-width: 100%;
+			max-height: 50%;
+		}
+	}
+	
+	p {
+		width: 100%;
+		top: 0;
+		left: 0;
+		margin-top: 160px;
+		text-align: center;
+		
+		@media(max-width: $screen-sm-max){
+			@include transform(translateY(40px));
+		}
+	}
+}
+
+.anim-moustache {
+	@media(max-width: $screen-sm-max){
+		order: 7;
+		-webkit-order: 7;
+		
+		img {
+			margin-top: 85px;
+		}
+	}
+}
+
+.anim-beard {
+	img {
+		margin-top: -26px;
+	}
+	
+	@media(max-width: $screen-sm-max){
+		order: 5;
+		-webkit-order: 5;
+		
+		img {
+			margin-top: 15px;
+		}
+	}
+}
+
+.anim-keyboard {
+	@media(max-width: $screen-sm-max){
+		order: 9;
+		-webkit-order: 9;
+	}
+	
+	.anim-keyboard-img-container {
+		height: 100%;
+		width: 50%;
+		
+		@media (max-width: $screen-sm-min){
+			margin-top: -10px;
+		}
+		
+		@media (min-width: $screen-lg-min){
+			width: 35%;
+		}
+		
+		&:before {
+			content: ' ';
+			display: inline-block;
+			vertical-align: middle;
+			height: 100%;
+		}
+	}
+	
+	img {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	
+	.number {
+		position: absolute;
+		width: 100%;
+		margin-top: -50px;
+	}
+	
+	p {
+		position: relative;
+		width: 50%;
+		margin-left: 50%;
+		top: 0;
+		margin-top: 100px;
+		padding-left: 20px;
+		padding-top: 60px;
+		right: 0;
+		
+		@media (max-width: $screen-sm-min){
+			margin-top: 155px;
+			margin-left: 10px;
+			left: 0;
+			width: 80%;
+			
+			.number {
+				position: static;
+				margin-top: 0;
+			}
+		}
+		
+		@media (max-width: $screen-xs-min){
+			margin-top: 135px;
+		}
+	}
+}
+
+.anim-vegetarians {
+	@media(max-width: $screen-sm-max){
+		order: 4;
+		-webkit-order: 4;
+	}
+	
+	p {
+		width: 100%;
+		top: 0;
+		left: 0;
+		text-align: center;
+		margin-top: 185px;
+		margin-left: -10px;
+		
+		@media(max-width: $screen-xs-min){
+			text-align: left;
+			margin-left: 10px;
+		}
+	}
+	
+	.anim-vegetarians-leaf-container {
+		width: 240px;
+		margin: 0 auto;
+		
+		@media(max-width: $screen-sm-max){
+			max-width: 100%;
+		}
+		@media(max-width: $screen-xs-min){
+			margin-left: -60px;
+		}
+	}
+	
+	img {
+		max-width: 240px;
+		@media(max-width: $screen-xs-min){
+			margin-left: -60px;
+		}
+	}
+}
+
+.leaf {
+	position: absolute;
+	margin-right: 0 !important;
+	outline: 1px solid transparent;
+}
+
+$leaf-offset : 70px;
+
+.leaf-left {
+	@include transform(rotateZ(-90deg));
+	margin-left: $leaf-offset !important;
+	top: 71px;
+	
+	&.animate {
+		@include animation(leaf-left-sway 7s both ease-in-out);
+		@include animation-delay(.8s);
+	}
+}
+
+.leaf-middle {
+	@include transform(rotateZ(-45deg));
+	margin-left: $leaf-offset + 30 !important;
+	top: 88px;
+	
+	&.animate {
+		@include animation(leaf-middle-sway 7s both ease-in-out);
+		@include animation-delay(1.6s);
+	}
+}
+
+.leaf-right {
+	margin-left: $leaf-offset + 85 !important;
+	top: 94px;
+	
+	&.animate {
+		@include animation(leaf-right-sway 7s both ease-in-out);
+		@include animation-delay(1.3s);
+	}
+}
+
