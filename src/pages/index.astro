@@ -18,7 +18,6 @@ import DrawerImpressum from '../components/DrawerImpressum.astro';
 import DrawerAgb from '../components/DrawerAgb.astro';
 import DrawerKontakt from '../components/DrawerKontakt.astro';
 import { clients } from '../data/clients';
-import siteScriptUrl from '../scripts/site.ts?url';
 ---
 
 <Layout title="sidefyn GmbH">
@@ -46,5 +45,5 @@ import siteScriptUrl from '../scripts/site.ts?url';
   <DrawerAgb />
   <DrawerKontakt />
 
-  <script type="module" src={siteScriptUrl}></script>
+  <script type="module" src={`${import.meta.env.BASE_URL}scripts/site.js`}></script>
 </Layout>

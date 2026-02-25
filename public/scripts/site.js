@@ -8,9 +8,9 @@ const initMobileNav = () => {
 };
 
 const initDrawers = () => {
-  let currentDrawer: HTMLElement | null = null;
+  let currentDrawer = null;
 
-  const openDrawer = (id: string) => {
+  const openDrawer = (id) => {
     if (currentDrawer) currentDrawer.classList.remove('open');
     const drawer = document.getElementById(`drawer-${id}`);
     if (!drawer) return;
@@ -30,7 +30,7 @@ const initDrawers = () => {
     document.body.style.overflow = '';
   };
 
-  document.querySelectorAll<HTMLElement>('[data-drawer]').forEach(btn => {
+  document.querySelectorAll('[data-drawer]').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.drawer;
       if (id) openDrawer(id);
@@ -44,14 +44,14 @@ const initDrawers = () => {
 };
 
 const initTabs = () => {
-  document.querySelectorAll<HTMLElement>('[data-tabs]').forEach(tabContainer => {
-    tabContainer.querySelectorAll<HTMLElement>('[data-tab]').forEach(btn => {
+  document.querySelectorAll('[data-tabs]').forEach(tabContainer => {
+    tabContainer.querySelectorAll('[data-tab]').forEach(btn => {
       btn.addEventListener('click', () => {
         const target = btn.dataset.tab;
         if (!target) return;
-        tabContainer.querySelectorAll<HTMLElement>('[data-tab]').forEach(b => b.classList.toggle('active', b === btn));
+        tabContainer.querySelectorAll('[data-tab]').forEach(b => b.classList.toggle('active', b === btn));
         const drawer = btn.closest('aside');
-        drawer?.querySelectorAll<HTMLElement>('.tab-panel').forEach(panel => {
+        drawer?.querySelectorAll('.tab-panel').forEach(panel => {
           panel.classList.toggle('active', panel.id === `tab-${target}`);
         });
       });
@@ -92,7 +92,7 @@ const initHeaderBackground = () => {
 };
 
 const initContactForm = () => {
-  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const form = document.getElementById('contact-form');
   const status = document.getElementById('contact-status');
   if (!form || !status) return;
 

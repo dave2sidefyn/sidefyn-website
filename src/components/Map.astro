@@ -68,10 +68,10 @@ const mapHeight = 315;
   };
 </script>
 
-{mapsKey && (
-  <script
-    async
-    defer
-    src={`https://maps.googleapis.com/maps/api/js?key=${mapsKey}&callback=initMap&v=weekly`}
-  />
-)}
+  {mapsKey && (
+    <script
+      async
+      defer
+      src={`https://maps.googleapis.com/maps/api/js?key=${mapsKey}&callback=initMap&v=weekly&loading=async`}
+    />
+  )}
