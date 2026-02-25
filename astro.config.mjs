@@ -4,7 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.sidefyn.ch',
+  site: 'https://dave2sidefyn.github.io/sidefyn-website',
+  base: '/sidefyn-website/',
   vite: {
     plugins: [tailwindcss()],
   },

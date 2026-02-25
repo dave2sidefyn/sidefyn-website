@@ -1,0 +1,30 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<footer class="bg-navy py-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row gap-10 justify-between">
+    <div class="flex flex-col sm:flex-row gap-10">
+      <address class="not-italic text-white/80 text-sm leading-loose">
+        <strong class="text-white font-display">sidefyn GmbH</strong><br />
+        Weingartstrasse 1<br />
+        CH-3014 Bern
+      </address>
+    </div>
+
+    <nav class="flex flex-col gap-2 text-sm">
+      <a href="https://www.linkedin.com/in/davidwiedmer/" target="_blank" rel="noopener"
+         class="flex items-center gap-2 text-white hover:text-brand transition-colors font-display tracking-wide mb-2">
+        <img src={`${base}img/socialmedia/linkedin.png`} alt="LinkedIn" class="h-4 w-4 object-contain" />
+        David Wiedmer
+      </a>
+      <button data-drawer="kontakt" class="text-white hover:text-brand text-left transition-colors font-display tracking-wide">
+        I bruche sidefyni UNgerstützig!
+      </button>
+      <button data-drawer="jobs"      class="text-white/70 hover:text-brand text-left transition-colors font-display tracking-wide">Jobs</button>
+      <button data-drawer="impressum" class="text-white/70 hover:text-brand text-left transition-colors font-display tracking-wide">Impressum</button>
+      <button data-drawer="agb"       class="text-white/70 hover:text-brand text-left transition-colors font-display tracking-wide">AGB</button>
+    </nav>
+  </div>
+  <p class="text-center text-white/30 text-xs mt-10">© sidefyn GmbH · <a href="mailto:info@sidefyn.ch" class="hover:text-brand transition-colors">info@sidefyn.ch</a></p>
+</footer>

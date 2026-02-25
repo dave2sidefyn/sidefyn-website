@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Oxygen";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/oxygen/v16/2sDfZG1Wl4LcnbuKgE0mRUe0A4Uc.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Oxygen";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/oxygen/v16/2sDfZG1Wl4LcnbuKgE0mRUEoA4Uc.woff2") format("woff2");
+}
+
 @theme {
   --color-brand:        #3bbac5;
   --color-brand-dark:   #1d5c62;
@@ -7,7 +22,7 @@
   --color-green-dark:   #67be6f;
   --color-navy:         #294053;
   --font-sans:          "Oxygen", ui-sans-serif, system-ui, sans-serif;
-  --font-display:       "Marcellus SC", Georgia, serif;
+  --font-display:       "Oxygen", ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -15,7 +30,7 @@
     scroll-behavior: smooth;
   }
   body {
-    font-family: var(--font-sans);
+    font-family: "Oxygen", ui-sans-serif, system-ui, sans-serif;
     overflow-x: hidden;
   }
   ::-webkit-scrollbar            { width: 6px; }
@@ -53,6 +68,12 @@
   }
   .drawer.open {
     transform: translateX(0);
+  }
+
+  /* Header background when scrolled */
+  .header-solid {
+    background-color: rgba(41, 64, 83, 0.92);
+    backdrop-filter: blur(8px);
   }
 
   /* Tab panels inside drawers */

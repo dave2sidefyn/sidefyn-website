@@ -1,0 +1,77 @@
+---
+const mapsKey = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY ?? '';
+const mapHeight = 315;
+---
+
+<section id="karte" class="bg-navy">
+  <div
+    id="map"
+    class="w-full"
+    style={`height: ${mapHeight}px;`}
+    role="application"
+    aria-label="sidefyn GmbH Standort Bern"
+  ></div>
+
+  {!mapsKey && (
+    <div class="px-6 py-4 text-white/80 text-sm">
+      Google Maps API Key fehlt. Standort: Weingartstrasse 1, 3014 Bern.
+      <a href="https://maps.google.com?q=Weingartstrasse+1,+3014+Bern,+Switzerland" class="text-brand hover:underline" target="_blank" rel="noopener">
+        Karte öffnen
+      </a>
+    </div>
+  )}
+</section>
+
+<script is:inline>
+  window.initMap = function () {
+    const mapElement = document.getElementById('map');
+    if (!mapElement || !window.google?.maps) return;
+
+    const latLng = { lat: 46.9627314, lng: 7.4434203 };
+    const mapOptions = {
+      zoom: 14,
+      center: latLng,
+      scrollwheel: false,
+      draggable: false,
+      disableDefaultUI: true,
+      styles: [
+        { featureType: 'administrative', elementType: 'labels.text.fill', stylers: [{ color: '#444444' }] },
+        { featureType: 'landscape', elementType: 'all', stylers: [{ color: '#f2f2f2' }] },
+        { featureType: 'poi', elementType: 'all', stylers: [{ visibility: 'off' }] },
+        { featureType: 'road', elementType: 'all', stylers: [{ saturation: -100 }, { lightness: 45 }] },
+        { featureType: 'road.highway', elementType: 'all', stylers: [{ visibility: 'simplified' }] },
+        { featureType: 'road.arterial', elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
+        { featureType: 'transit', elementType: 'all', stylers: [{ visibility: 'off' }] },
+        { featureType: 'water', elementType: 'all', stylers: [{ color: '#1d5c62' }, { visibility: 'on' }] },
+      ],
+    };
+
+    const map = new google.maps.Map(mapElement, mapOptions);
+    const marker = new google.maps.Circle({
+      center: latLng,
+      radius: 60,
+      map,
+      strokeWeight: 0,
+      fillColor: '#99CCCC',
+      fillOpacity: 1,
+    });
+
+    marker.addListener('click', () => {
+      window.open('https://maps.google.com?q=sidefyn GmbH', '_blank', 'noopener');
+    });
+
+    window.addEventListener('resize', () => {
+      const center = map.getCenter();
+      google.maps.event.trigger(map, 'resize');
+      if (center) map.setCenter(center);
+    });
+  };
+</script>
+
+{mapsKey && (
+  <script
+    async
+    defer
+    src={`https://maps.googleapis.com/maps/api/js?key=${mapsKey}&callback=initMap&v=weekly`}
+  />
+)}

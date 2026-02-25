@@ -8,8 +8,12 @@ interface Props {
 
 const {
   title = 'sidefyn GmbH',
-  description = 'Die sidefyn GmbH ist eine junge Webauftritt und Multimedia Firma in der Region Bern und Zürich. Wir gestalten und entwickeln deine Webseite mit bester Qualität.',
+  description = 'Die sidefyn GmbH ist eine junge Webauftritt und Multimedia Firma in Bern. Wir gestalten und entwickeln deine Webseite mit bester Qualität.',
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const siteUrl = (Astro.site?.toString() ?? 'https://dave2sidefyn.github.io/sidefyn-website').replace(/\/$/, '');
+const assetUrl = (path: string) => new URL(path.replace(/^\//, ''), `${siteUrl}${base}`).toString();
 ---
 
 <!doctype html>
@@ -23,10 +27,10 @@ const {
     <meta name="theme-color" content="#294053" />
     <meta property="og:title" content="sidefyn GmbH" />
     <meta property="og:type" content="company" />
-    <meta property="og:url" content="https://www.sidefyn.ch/" />
-    <meta property="og:image" content="https://www.sidefyn.ch/img/logo/sidefyn.png" />
-    <link rel="icon" type="image/png" href="/img/icon/favicon.png" />
-    <link rel="canonical" href="https://www.sidefyn.ch/" />
+    <meta property="og:url" content={siteUrl + base} />
+    <meta property="og:image" content={assetUrl('/img/logo/sidefyn.png')} />
+    <link rel="icon" type="image/png" href={`${base}img/icon/favicon.png`} />
+    <link rel="canonical" href={siteUrl + base} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

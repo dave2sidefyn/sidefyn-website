@@ -1,0 +1,35 @@
+<aside id="drawer-kontakt" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+  <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+    <span></span>
+    <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+    <span></span>
+  </div>
+  <div class="p-8 flex-1 space-y-6 text-white/80 text-sm leading-relaxed">
+    <h2 class="font-display text-3xl text-white">Mehr sidefyn</h2>
+    <p>Schreib uns kurz, was du brauchst. Wir melden uns so schnell wie möglich bei dir.</p>
+
+    <form id="contact-form" class="space-y-4">
+      <div>
+        <label for="contact-name" class="block text-white/70 mb-1">Name (optional)</label>
+        <input id="contact-name" name="name" type="text" class="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-white/40" placeholder="Dein Name" />
+      </div>
+      <div>
+        <label for="contact-email" class="block text-white/70 mb-1">E-Mail *</label>
+        <input id="contact-email" name="email" type="email" required class="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-white/40" placeholder="name@firma.ch" />
+      </div>
+      <div>
+        <label for="contact-phone" class="block text-white/70 mb-1">Telefon (optional)</label>
+        <input id="contact-phone" name="phone" type="tel" class="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-white/40" placeholder="+41 79 000 00 00" />
+      </div>
+      <div>
+        <label for="contact-message" class="block text-white/70 mb-1">Nachricht *</label>
+        <textarea id="contact-message" name="message" required rows="5" class="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-white/40" placeholder="Kurz beschreiben, was du brauchst..."></textarea>
+      </div>
+
+      <button type="submit" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+        Nachricht senden
+      </button>
+      <p id="contact-status" class="text-white/70"></p>
+    </form>
+  </div>
+</aside>

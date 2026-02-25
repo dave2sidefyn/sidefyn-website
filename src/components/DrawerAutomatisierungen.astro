@@ -1,0 +1,32 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<aside id="drawer-automatisierungen" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+  <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+    <button data-drawer="webauftritte" class="text-white/50 hover:text-brand transition-colors text-sm font-display">&larr; Webauftritte</button>
+    <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+    <button data-drawer="ai-first" class="text-white/50 hover:text-brand transition-colors text-sm font-display">AI First &rarr;</button>
+  </div>
+  <div class="p-8 flex-1">
+    <div class="flex items-center gap-4 mb-6">
+      <img src={`${base}img/icon/beratung.png`} alt="" class="h-10 w-10 object-contain" />
+      <h2 class="font-display text-3xl">Automatisierungen</h2>
+    </div>
+    <p class="text-white/80 leading-relaxed mb-8">
+      Manuelle, repetitive Prozesse kosten Zeit und Ressourcen. Wir analysieren deine Workflows und automatisieren
+      sie mit massgeschneiderten Lösungen — von einfachen Skripten bis hin zu komplexen Integrationen zwischen
+      verschiedenen Systemen und APIs.
+    </p>
+    <div class="space-y-4 text-white/80 text-sm">
+      <div><p class="font-semibold text-white">Prozessautomatisierung</p><p>Automatisierung von wiederkehrenden Aufgaben und Geschäftsprozessen.</p></div>
+      <div><p class="font-semibold text-white">API-Integrationen</p><p>Verbindung verschiedener Systeme und Tools über Schnittstellen.</p></div>
+      <div><p class="font-semibold text-white">Daten-Pipelines</p><p>Automatischer Datentransfer und -verarbeitung zwischen Systemen.</p></div>
+      <div><p class="font-semibold text-white">Workflow-Optimierung</p><p>Analyse und Optimierung bestehender Abläufe für maximale Effizienz.</p></div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-white/10 text-sm text-white/60">
+      <p class="font-display text-white mb-1">David Wiedmer</p>
+      <a href="mailto:dave@sidefyn.ch" class="text-brand hover:underline">dave@sidefyn.ch</a>
+    </div>
+  </div>
+</aside>

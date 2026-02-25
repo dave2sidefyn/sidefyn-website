@@ -1,0 +1,53 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<section id="kompetenzen" class="bg-white py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+      <div class="reveal">
+        <img src={`${base}img/icon/cms.png`} alt="" class="h-12 w-12 mx-auto mb-4 object-contain" />
+        <h3 class="font-display text-xl text-brand mb-4">Webapplikationen</h3>
+        <p class="text-gray-700 text-sm leading-relaxed mb-6">
+          Von der Idee bis zur Umsetzung entwickeln wir leistungsstarke, skalierbare Webapplikationen für dein Business.
+        </p>
+        <button data-drawer="webapplikationen" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+          Mehr Infos
+        </button>
+      </div>
+
+      <div class="reveal" style="transition-delay: 0.15s">
+        <img src={`${base}img/icon/design.png`} alt="" class="h-12 w-12 mx-auto mb-4 object-contain" />
+        <h3 class="font-display text-xl text-brand mb-4">Webauftritte</h3>
+        <p class="text-gray-700 text-sm leading-relaxed mb-6">
+          Wir gestalten und entwickeln deinen professionellen Webauftritt — responsiv, modern und auf deine Marke zugeschnitten.
+        </p>
+        <button data-drawer="webauftritte" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+          Mehr Infos
+        </button>
+      </div>
+
+      <div class="reveal" style="transition-delay: 0.3s">
+        <img src={`${base}img/icon/beratung.png`} alt="" class="h-12 w-12 mx-auto mb-4 object-contain" />
+        <h3 class="font-display text-xl text-brand mb-4">Automatisierungen</h3>
+        <p class="text-gray-700 text-sm leading-relaxed mb-6">
+          Wir automatisieren deine Workflows und Geschäftsprozesse, damit du dich auf das Wesentliche konzentrieren kannst.
+        </p>
+        <button data-drawer="automatisierungen" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+          Mehr Infos
+        </button>
+      </div>
+
+      <div class="reveal" style="transition-delay: 0.45s">
+        <img src={`${base}img/icon/resp.png`} alt="" class="h-12 w-12 mx-auto mb-4 object-contain" />
+        <h3 class="font-display text-xl text-brand mb-4">AI First</h3>
+        <p class="text-gray-700 text-sm leading-relaxed mb-6">
+          Wir integrieren künstliche Intelligenz in deine Produkte und Prozesse — für smarte, zukunftssichere Lösungen.
+        </p>
+        <button data-drawer="ai-first" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+          Mehr Infos
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

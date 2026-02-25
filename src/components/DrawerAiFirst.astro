@@ -1,0 +1,32 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<aside id="drawer-ai-first" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+  <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+    <button data-drawer="automatisierungen" class="text-white/50 hover:text-brand transition-colors text-sm font-display">&larr; Automatisierungen</button>
+    <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+    <span class="w-24"></span>
+  </div>
+  <div class="p-8 flex-1">
+    <div class="flex items-center gap-4 mb-6">
+      <img src={`${base}img/icon/resp.png`} alt="" class="h-10 w-10 object-contain" />
+      <h2 class="font-display text-3xl">AI First</h2>
+    </div>
+    <p class="text-white/80 leading-relaxed mb-8">
+      Künstliche Intelligenz ist kein Buzzword — sie ist ein Werkzeug. Wir helfen dir, AI gezielt in deine Produkte
+      und Prozesse zu integrieren: von intelligenten Chatbots und LLM-basierten Lösungen bis hin zu automatisierten
+      Analyse- und Entscheidungssystemen.
+    </p>
+    <div class="space-y-4 text-white/80 text-sm">
+      <div><p class="font-semibold text-white">LLM-Integration</p><p>Einbindung grosser Sprachmodelle (GPT, Claude, etc.) in deine Anwendungen.</p></div>
+      <div><p class="font-semibold text-white">Intelligente Chatbots</p><p>Massgeschneiderte Assistenten für Kundenservice, interne Prozesse oder Produkte.</p></div>
+      <div><p class="font-semibold text-white">Datenanalyse mit AI</p><p>Automatische Auswertung und Interpretation von Daten mit Machine-Learning-Methoden.</p></div>
+      <div><p class="font-semibold text-white">AI-Strategie & Beratung</p><p>Wir helfen dir, den richtigen AI-Ansatz für dein Unternehmen zu finden.</p></div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-white/10 text-sm text-white/60">
+      <p class="font-display text-white mb-1">David Wiedmer</p>
+      <a href="mailto:dave@sidefyn.ch" class="text-brand hover:underline">dave@sidefyn.ch</a>
+    </div>
+  </div>
+</aside>

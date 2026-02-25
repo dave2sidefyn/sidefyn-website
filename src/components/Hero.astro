@@ -1,0 +1,26 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<section
+  id="header"
+  class="relative h-screen parallax flex items-center justify-center"
+  style={`background-image: url('${base}img/background/background-head2.png');`}
+>
+  <div class="absolute inset-0 bg-black/40"></div>
+  <img
+    src={`${base}img/logo/sidefyn.png`}
+    alt="sidefyn"
+    class="relative z-10 w-72 md:w-[480px] reveal"
+  />
+  <div class="relative z-10 mt-6 text-center px-6">
+    <p class="text-white/90 font-display text-lg md:text-xl reveal">sidefyni Lösige us Bärn.</p>
+    <button
+      data-drawer="kontakt"
+      class="mt-5 inline-block border border-white text-white hover:bg-white hover:text-navy transition-colors px-6 py-2 text-sm font-display tracking-wide reveal"
+      style="transition-delay: 0.1s"
+    >
+      I bruche sidefyni Ungerstützig!
+    </button>
+  </div>
+</section>

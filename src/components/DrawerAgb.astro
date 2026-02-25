@@ -1,0 +1,23 @@
+---
+import { agbSections } from '../data/agb';
+---
+
+<aside id="drawer-agb" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+  <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+    <span></span>
+    <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+    <span></span>
+  </div>
+  <div class="p-8 flex-1 space-y-6 text-white/80 text-sm leading-relaxed">
+    <h2 class="font-display text-3xl text-white">AGB Webdesign</h2>
+
+    {agbSections.map(section => (
+      <div>
+        <h3 class="font-display text-white mb-2">{section.title}</h3>
+        <ul class="list-disc list-inside space-y-1">
+          {section.items.map(item => <li>{item}</li>)}
+        </ul>
+      </div>
+    ))}
+  </div>
+</aside>

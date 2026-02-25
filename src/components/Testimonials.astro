@@ -1,0 +1,38 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<section id="testimonials" class="bg-white py-20 border-b border-gray-100">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="reveal flex flex-col">
+        <blockquote class="text-gray-700 leading-relaxed italic flex-1 mb-6">
+          &ldquo;Zusammen mit der Agentur hat es sidefyn verstanden, unsere Vorstellungen einer modernen und ansprechenden
+          Webseite perfekt zu realisieren. Ihre unkomplizierte und kompetente Arbeitsweise ist erfrischend und Ziel führend.&rdquo;
+        </blockquote>
+        <div class="flex items-center gap-4">
+          <img src={`${base}img/logo/dvbern.png`} alt="DV Bern AG" class="h-8 w-24 object-contain grayscale" />
+          <div>
+            <p class="font-display text-sm text-gray-900">Stefan Niedermaier</p>
+            <p class="text-xs text-gray-500">DV Bern AG</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal flex flex-col" style="transition-delay: 0.2s">
+        <blockquote class="text-gray-700 leading-relaxed italic flex-1 mb-6">
+          &ldquo;Ich bin sehr zufrieden mit der Zusammenarbeit, die nun seit mehr als 8 Jahren besteht.
+          Viele Automatisierungen und Modernisierungen wären ohne sidefyn nicht möglich gewesen.
+          David hat stets dafür gesorgt, dass die Interessen der Matte Brennerei im Vordergrund stehen.&rdquo;
+        </blockquote>
+        <div class="flex items-center gap-4">
+          <img src={`${base}img/logo/mattebrennerei.png`} alt="Matte Brennerei GmbH" class="h-8 w-24 object-contain grayscale" />
+          <div>
+            <p class="font-display text-sm text-gray-900">Lars Urfer</p>
+            <p class="text-xs text-gray-500">Matte Brennerei GmbH</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

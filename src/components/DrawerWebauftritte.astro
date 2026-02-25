@@ -1,0 +1,58 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<aside id="drawer-webauftritte" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+  <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+    <button data-drawer="webapplikationen" class="text-white/50 hover:text-brand transition-colors text-sm font-display">&larr; Webapplikationen</button>
+    <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+    <button data-drawer="automatisierungen" class="text-white/50 hover:text-brand transition-colors text-sm font-display">Automatisierungen &rarr;</button>
+  </div>
+  <div class="p-8 flex-1">
+    <div class="flex items-center gap-4 mb-6">
+      <img src={`${base}img/icon/design.png`} alt="" class="h-10 w-10 object-contain" />
+      <h2 class="font-display text-3xl">Webauftritte</h2>
+    </div>
+    <p class="text-white/80 leading-relaxed mb-8">
+      Dein Webauftritt ist deine Visitenkarte im Internet. Wir gestalten und entwickeln professionelle, moderne
+      Webseiten, die deine Marke stärken und deine Zielgruppe überzeugen — responsiv, schnell und auf allen Geräten.
+    </p>
+    <div class="flex gap-2 mb-6 flex-wrap" data-tabs>
+      <button data-tab="wau-angebot"  class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors active">Angebot</button>
+      <button data-tab="wau-arbeiten" class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors">Arbeiten & Referenzen</button>
+    </div>
+    <div id="tab-wau-angebot" class="tab-panel active">
+      <div class="space-y-4 text-white/80 text-sm">
+        <div><p class="font-semibold text-white">Corporate Website</p><p>Professionelle Unternehmenswebseiten, die deine Marke und Werte überzeugend präsentieren.</p></div>
+        <div><p class="font-semibold text-white">Landing Pages</p><p>Zielgerichtete Seiten für Kampagnen, Produkte oder Events — conversion-optimiert.</p></div>
+        <div><p class="font-semibold text-white">Mehrsprachigkeit</p><p>Wir entwickeln Webseiten in mehreren Sprachen für internationale Zielgruppen.</p></div>
+        <div><p class="font-semibold text-white">Hosting & Wartung</p><p>Zuverlässiges Hosting und laufende Wartung deines Webauftritts.</p></div>
+      </div>
+    </div>
+    <div id="tab-wau-arbeiten" class="tab-panel">
+      <div class="space-y-6 text-white/80 text-sm">
+        <div class="grid sm:grid-cols-2 gap-4 items-start">
+          <div><p class="font-semibold text-white"><a href="http://advokatur-km.ch" target="_blank" class="text-brand hover:underline">advokatur-km.ch</a></p><p>Visitenkarte in 4 Sprachen inkl. Russisch.</p></div>
+          <a href="http://advokatur-km.ch" target="_blank"><img src={`${base}img/work/advokatur-km.png`} alt="Advokatur KM" class="w-full rounded" /></a>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4 items-start">
+          <div><p class="font-semibold text-white">Schreinerei Tanner</p><p>Handwerksbetrieb mit modernem Webauftritt.</p></div>
+          <img src={`${base}img/work/schreinerei-tanner.png`} alt="Schreinerei Tanner" class="w-full rounded" />
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4 items-start">
+          <div><p class="font-semibold text-white">Blessed</p><p>Kreative Brand-Website mit eigenem Designkonzept.</p></div>
+          <img src={`${base}img/work/blessed.png`} alt="Blessed" class="w-full rounded" />
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-4 items-center pt-6">
+        <img src={`${base}img/logo/advokatur-km.png`} alt="Advokatur KM" class="h-8 w-full object-contain filter brightness-0 invert" />
+        <img src={`${base}img/logo/blessed.png`} alt="Blessed" class="h-8 w-full object-contain filter brightness-0 invert" />
+        <img src={`${base}img/logo/kemimalaika.png`} alt="Kemi Malaika" class="h-8 w-full object-contain filter brightness-0 invert" />
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-white/10 text-sm text-white/60">
+      <p class="font-display text-white mb-1">David Wiedmer</p>
+      <a href="mailto:dave@sidefyn.ch" class="text-brand hover:underline">dave@sidefyn.ch</a>
+    </div>
+  </div>
+</aside>

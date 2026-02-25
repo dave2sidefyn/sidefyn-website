@@ -1,0 +1,32 @@
+---
+import type { Client } from '../data/clients';
+
+const { clients } = Astro.props as { clients: Client[] };
+---
+
+<section id="kunden" class="bg-white py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+      {clients.map((client, i) => (
+        client.url ? (
+          <a
+            href={client.url}
+            target="_blank"
+            rel="noopener"
+            class="reveal border border-gray-200 px-4 py-3 text-center font-display text-sm text-gray-600 hover:border-brand hover:text-brand transition-colors leading-snug"
+            style={`transition-delay: ${i * 0.05}s`}
+          >
+            {client.name}
+          </a>
+        ) : (
+          <span
+            class="reveal border border-gray-200 px-4 py-3 text-center font-display text-sm text-gray-600 leading-snug"
+            style={`transition-delay: ${i * 0.05}s`}
+          >
+            {client.name}
+          </span>
+        )
+      ))}
+    </div>
+  </div>
+</section>

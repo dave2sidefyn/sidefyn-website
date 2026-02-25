@@ -1,0 +1,59 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<aside id="drawer-webapplikationen" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+  <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+    <button data-drawer="webapplikationen" class="text-white/50 hover:text-brand transition-colors text-sm font-display">&nbsp;</button>
+    <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+    <button data-drawer="webauftritte" class="text-white/50 hover:text-brand transition-colors text-sm font-display">Webauftritte &rarr;</button>
+  </div>
+  <div class="p-8 flex-1">
+    <div class="flex items-center gap-4 mb-6">
+      <img src={`${base}img/icon/cms.png`} alt="" class="h-10 w-10 object-contain" />
+      <h2 class="font-display text-3xl">Webapplikationen</h2>
+    </div>
+    <p class="text-white/80 leading-relaxed mb-8">
+      Egal, ob eine einfache informative oder eine komplexe Webseite, wir gehen auf jedes Bedürfnis individuell ein.
+      Von der Idee bis zur Umsetzung entwickeln wir leistungsstarke, skalierbare Webapplikationen — stets mit Fokus
+      auf Qualität, Performance und deine Nutzenden.
+    </p>
+    <div class="flex gap-2 mb-6 flex-wrap" data-tabs>
+      <button data-tab="wa-angebot"  class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors active">Angebot</button>
+      <button data-tab="wa-arbeiten" class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors">Arbeiten & Referenzen</button>
+    </div>
+    <div id="tab-wa-angebot" class="tab-panel active">
+      <div class="space-y-4 text-white/80 text-sm">
+        <div><p class="font-semibold text-white">Responsive Design</p><p>Wir machen dir eine Webseite, die für Handy-, Tablet- und Computerdisplay optimiert ist.</p></div>
+        <div><p class="font-semibold text-white">Webapplikationen nach Mass</p><p>Wir designen und entwickeln deine Applikation genau nach deinen Wünschen.</p></div>
+        <div><p class="font-semibold text-white">Redesign</p><p>Du hast eine veraltete Webseite, die dringend ein neues Design braucht? Wir erneuern es.</p></div>
+        <div><p class="font-semibold text-white">Hosting & Wartung</p><p>Wir können für dich die Webseiten hosten und warten.</p></div>
+      </div>
+    </div>
+    <div id="tab-wa-arbeiten" class="tab-panel">
+      <div class="space-y-6 text-white/80 text-sm">
+        <div class="grid sm:grid-cols-2 gap-4 items-start">
+          <div><p class="font-semibold text-white"><a href="http://aaremarzili.info" target="_blank" class="text-brand hover:underline">aaremarzili.info</a></p><p>Komplexe Webapplikation und App!, mehrsprachig, AI First</p></div>
+          <a href="http://aaremarzili.info" target="_blank"><img src={`${base}img/work/aaremarzili.png`} alt="aaremarzili.info" class="w-full rounded" /></a>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4 items-start">
+          <div><p class="font-semibold text-white"><a href="http://dvbern.ch" target="_blank" class="text-brand hover:underline">dvbern.ch</a></p><p>Aktuelle Webseite leider nicht mehr bei uns)</p></div>
+          <a href="http://dvbern.ch" target="_blank"><img src={`${base}img/work/dvbern.png`} alt="DV Bern" class="w-full rounded" /></a>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4 items-start">
+          <div><p class="font-semibold text-white"><a href="http://quap.ch" target="_blank" class="text-brand hover:underline">quap.ch</a></p><p>Terminbuchungsplattform, aktuelle Webapplikation leider nicht mehr bei uns.</p></div>
+          <a href="http://quap.ch" target="_blank"><img src={`${base}img/work/quap.png`} alt="Quap" class="w-full rounded" /></a>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-4 items-center pt-6">
+        <img src={`${base}img/logo/quap.png`} alt="Quap" class="h-8 w-full object-contain filter brightness-0 invert" />
+        <img src={`${base}img/logo/dvbern.png`} alt="DV Bern" class="h-8 w-full object-contain filter brightness-0 invert" />
+        <img src={`${base}img/logo/christophammann.png`} alt="Christoph Ammann" class="h-8 w-full object-contain filter brightness-0 invert" />
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-white/10 text-sm text-white/60">
+      <p class="font-display text-white mb-1">David Wiedmer</p>
+      <a href="mailto:dave@sidefyn.ch" class="text-brand hover:underline">dave@sidefyn.ch</a>
+    </div>
+  </div>
+</aside>
