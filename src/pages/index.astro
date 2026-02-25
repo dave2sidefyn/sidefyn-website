@@ -1,0 +1,982 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const slackWebhook = import.meta.env.PUBLIC_SLACK_WEBHOOK_URL ?? '';
+
+const equipment = {
+  kameras: [
+    { id: 'RED-Epic-Dragon-6K-Gunner', name: 'RED Epic Dragon 6K Canon AL Gunner Collection', price: '800.00', img: 'EPIC-M_RED_Dragon_Gunner_Collection.png' },
+    { id: 'RED-Epic-Dragon-6K-Brain',  name: 'RED Epic Dragon 6K Canon AL Brain Only',        price: '700.00', img: 'Dragon-M-roll-up6KCanonAL.png' },
+    { id: 'Canon-EOS-5D-Mark-III',     name: 'Canon EOS 5D Mark III',                         price: '30.00',  img: 'EOS5DMarkIII.png' },
+    { id: 'Sony-a7s',                  name: 'Sony a7s',                                       price: '70.00',  img: 'sonyA7s.png' },
+    { id: 'GoPro-Hero3-Plus',          name: 'GoPro Hero 3+',                                  price: '35.00',  img: 'goproHero3+.png' },
+    { id: 'GoPro-Hero3',               name: 'GoPro Hero 3',                                   price: '30.00',  img: 'goproHero3.png' },
+  ],
+  zubehoer: [
+    { id: 'DJI-Ronin2',              name: 'DJI Ronin 2',                  price: '300.00', img: 'DJIRonin2.png' },
+    { id: 'Glidecam-HD2000',         name: 'Glidecam HD 2000',             price: '30.00',  img: 'glidecamHD-2000.png' },
+    { id: 'Shoulder-Rig',            name: 'Shoulder Rig',                 price: '50.00',  img: 'DSMCProductionPack.png' },
+    { id: 'Dynacore-VMount-220Wh',   name: 'Dynacore V-Mount Akku 220Wh', price: '60.00',  img: 'dynacore-powering-system.png' },
+    { id: 'Atomos-Ninja2',           name: 'Atomos Ninja 2',               price: '100.00', img: 'atomosNinja2.png' },
+  ],
+  objektive: [
+    { id: 'Canon-EF-24-70-f2.8L',    name: 'Canon EF 24-70mm f2.8L II USM',    price: '15.00', img: 'EF_24-70mm_f2.8L_II_USM.png' },
+    { id: 'Canon-EF-24-105-f4L',     name: 'Canon EF 24-105mm f4L IS USM',     price: '15.00', img: 'EF_24-105mm_f4L_IS_USM.png' },
+    { id: 'Canon-EF-28-f1.8',        name: 'Canon EF 28mm f1.8 USM',           price: '15.00', img: 'EF_28mm_f1.8_USM.png' },
+    { id: 'Canon-EF-50-f1.4',        name: 'Canon EF 50mm f1.4 USM',           price: '15.00', img: 'EF_50mm_f1.4_USM.png' },
+    { id: 'Canon-EF-70-200-f2.8L',   name: 'Canon EF 70-200mm f2.8L IS II USM', price: '15.00', img: 'EF_70-200mm_f2.8L_IS_II_USM.png' },
+  ],
+  redZubehoer: [
+    { id: 'RED-Rocket-X', name: 'RED Rocket X', price: '150.00', img: 'REDRocketX.png' },
+  ],
+  audio: [
+    { id: 'Zoom-H6',              name: 'Zoom H6',           price: '25.00', img: 'zoomH6.png' },
+    { id: 'Sennheiser-MKE-600',   name: 'Sennheiser MKE-600', price: '10.00', img: 'Sennheiser_MKE-600_1.png' },
+  ],
+};
+
+const clients = [
+  { name: 'Advokatur KM',           img: 'advokatur-km.png',          url: 'http://www.advokatur-km.ch/' },
+  { name: 'Aspire',                 img: 'aspire.png',                url: 'http://www.aspireme.co' },
+  { name: 'Bruno Kernen Snowcamp',  img: 'brunokernen.png',           url: 'http://www.brunokernen-snowcamp.ch/' },
+  { name: 'Christoph Ammann',       img: 'christophammann.png',       url: 'http://christophammann.com' },
+  { name: 'CM Integra',             img: 'cmintegra.png',             url: 'http://www.cmintegra.ch' },
+  { name: 'DistiSuisse',            img: 'distisuisse.png',           url: 'http://www.distisuisse.ch/' },
+  { name: 'DV Bern AG',             img: 'dvbern.png',                url: 'http://dvbern.ch' },
+  { name: 'Quap GmbH',              img: 'quap.png',                  url: 'http://quap.ch' },
+  { name: 'Startupweekend Zürich',  img: 'startupweekendZuerich.png', url: 'http://zuerich.startupweekend.ch/' },
+  { name: 'ZHdK',                   img: 'zhdk.png',                  url: '#' },
+];
+---
+
+<Layout title="sidefyn GmbH">
+
+  <!-- ─── BACKDROP (drawer overlay) ─── -->
+  <div
+    id="backdrop"
+    class="fixed inset-0 bg-black/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300"
+  ></div>
+
+  <!-- ═══════════════════════════════════════════════════
+       HEADER / NAV
+  ═══════════════════════════════════════════════════ -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-navy shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center shrink-0">
+        <img src="/img/logo/sidefyn.png" alt="sidefyn" class="h-8 w-auto" />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#kompetenzen" class="text-white hover:text-brand transition-colors font-display text-sm tracking-wider">Kompetenzen</a>
+        <a href="#equipment"   class="text-white hover:text-brand transition-colors font-display text-sm tracking-wider">Equipment</a>
+        <a href="#team"        class="text-white hover:text-brand transition-colors font-display text-sm tracking-wider">Team</a>
+        <a href="#referenzen"  class="text-white hover:text-brand transition-colors font-display text-sm tracking-wider">Referenzen</a>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="nav-toggle"
+        class="md:hidden text-white p-2 flex flex-col gap-1.5"
+        aria-label="Menü öffnen"
+      >
+        <span class="block w-6 h-0.5 bg-white transition-all"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu (collapsed) -->
+    <div id="nav-menu" class="hidden md:hidden bg-navy border-t border-white/10">
+      <div class="px-6 py-3 flex flex-col">
+        <a href="#kompetenzen" class="mobile-nav-link text-white hover:text-brand py-2.5 font-display">Kompetenzen</a>
+        <a href="#equipment"   class="mobile-nav-link text-white hover:text-brand py-2.5 font-display">Equipment</a>
+        <a href="#team"        class="mobile-nav-link text-white hover:text-brand py-2.5 font-display">Team</a>
+        <a href="#referenzen"  class="mobile-nav-link text-white hover:text-brand py-2.5 font-display">Referenzen</a>
+        <hr class="border-white/20 my-2" />
+        <button data-drawer="jobs"      class="mobile-nav-link text-left text-white hover:text-brand py-2.5">Jobs</button>
+        <button data-drawer="impressum" class="mobile-nav-link text-left text-white hover:text-brand py-2.5">Impressum</button>
+        <button data-drawer="agb"       class="mobile-nav-link text-left text-white hover:text-brand py-2.5">AGB</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════════════════ -->
+  <main class="pt-14">
+
+    <!-- ─── 1. HERO ─── -->
+    <section
+      id="header"
+      class="relative h-screen parallax flex items-center justify-center"
+      style="background-image: url('/img/background/background-head.png');"
+    >
+      <div class="absolute inset-0 bg-black/30"></div>
+      <img
+        src="/img/logo/sidefyn.png"
+        alt="sidefyn"
+        class="relative z-10 w-48 md:w-72 reveal"
+      />
+    </section>
+
+    <!-- ─── 2. KOMPETENZEN ─── -->
+    <section id="kompetenzen" class="bg-white py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+
+          <div class="reveal">
+            <h3 class="font-display text-xl text-brand mb-4">Fotografie</h3>
+            <p class="text-gray-700 text-sm leading-relaxed mb-6">
+              Egal, ob Eventfotos oder Einzelfotoshootings, mit unserem Equipment können wir jeden Wunsch erfüllen.
+            </p>
+            <button data-drawer="photography" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+              Mehr Infos
+            </button>
+          </div>
+
+          <div class="reveal" style="transition-delay: 0.15s">
+            <h3 class="font-display text-xl text-brand mb-4">Film</h3>
+            <p class="text-gray-700 text-sm leading-relaxed mb-6">
+              Seien es Musikvideos, Eventfilme oder Werbeclips, jeder Wunsch wird in Erfüllung gehen.
+            </p>
+            <button data-drawer="movies" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+              Mehr Infos
+            </button>
+          </div>
+
+          <div class="reveal" style="transition-delay: 0.3s">
+            <h3 class="font-display text-xl text-brand mb-4">Webapplikation</h3>
+            <p class="text-gray-700 text-sm leading-relaxed mb-6">
+              Innovative und dynamische Webapplikationen, die durch Qualität und Leistung auffallen.
+            </p>
+            <button data-drawer="webapplikation" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+              Mehr Infos
+            </button>
+          </div>
+
+          <div class="reveal" style="transition-delay: 0.45s">
+            <h3 class="font-display text-xl text-brand mb-4">IT-Dienstleistungen</h3>
+            <p class="text-gray-700 text-sm leading-relaxed mb-6">
+              Gerne stehen wir mit unserem technischen Know-how auch für weitere Fragen und Anliegen zur Verfügung.
+            </p>
+            <button data-drawer="it-services" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+              Mehr Infos
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 3. EQUIPMENT PARALLAX HEADER ─── -->
+    <section
+      class="relative h-screen parallax flex items-center justify-center"
+      style="background-image: url('/img/background/background-2.png');"
+    >
+      <div class="absolute inset-0 bg-black/30"></div>
+      <h1 class="relative z-10 font-display text-4xl md:text-6xl text-white text-center reveal px-4">
+        Miete geeignetes Equipment
+      </h1>
+    </section>
+
+    <!-- ─── 4. EQUIPMENT GRID ─── -->
+    <section id="equipment" class="bg-white py-20">
+      <div class="max-w-5xl mx-auto px-6">
+
+        <p class="text-brand font-display text-lg tracking-widest uppercase mb-8 text-center">Kameras</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-16 text-center">
+          {equipment.kameras.map(item => (
+            <div class="reveal flex flex-col items-center gap-2">
+              <img src={`/img/material/${item.img}`} alt={item.name} class="h-28 w-full object-contain" />
+              <p class="text-sm font-medium text-gray-800 leading-snug">{item.name}</p>
+              <p class="text-brand font-display text-sm">CHF {item.price} / Tag</p>
+              <button
+                data-reserve={item.id}
+                data-reserve-name={item.name}
+                class="reserve-btn border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-4 py-1.5 text-xs font-display tracking-wide w-full"
+              >
+                Reservieren
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-brand font-display text-lg tracking-widest uppercase mb-8 text-center">Zubehör</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-16 text-center">
+          {equipment.zubehoer.map(item => (
+            <div class="reveal flex flex-col items-center gap-2">
+              <img src={`/img/material/${item.img}`} alt={item.name} class="h-28 w-full object-contain" />
+              <p class="text-sm font-medium text-gray-800 leading-snug">{item.name}</p>
+              <p class="text-brand font-display text-sm">CHF {item.price} / Tag</p>
+              <button
+                data-reserve={item.id}
+                data-reserve-name={item.name}
+                class="reserve-btn border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-4 py-1.5 text-xs font-display tracking-wide w-full"
+              >
+                Reservieren
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-brand font-display text-lg tracking-widest uppercase mb-8 text-center">Objektive</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-16 text-center">
+          {equipment.objektive.map(item => (
+            <div class="reveal flex flex-col items-center gap-2">
+              <img src={`/img/material/${item.img}`} alt={item.name} class="h-28 w-full object-contain" />
+              <p class="text-sm font-medium text-gray-800 leading-snug">{item.name}</p>
+              <p class="text-brand font-display text-sm">CHF {item.price} / Tag</p>
+              <button
+                data-reserve={item.id}
+                data-reserve-name={item.name}
+                class="reserve-btn border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-4 py-1.5 text-xs font-display tracking-wide w-full"
+              >
+                Reservieren
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-brand font-display text-lg tracking-widest uppercase mb-8 text-center">RED Zubehör</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-16 text-center">
+          {equipment.redZubehoer.map(item => (
+            <div class="reveal flex flex-col items-center gap-2">
+              <img src={`/img/material/${item.img}`} alt={item.name} class="h-28 w-full object-contain" />
+              <p class="text-sm font-medium text-gray-800 leading-snug">{item.name}</p>
+              <p class="text-brand font-display text-sm">CHF {item.price} / Tag</p>
+              <button
+                data-reserve={item.id}
+                data-reserve-name={item.name}
+                class="reserve-btn border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-4 py-1.5 text-xs font-display tracking-wide w-full"
+              >
+                Reservieren
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-brand font-display text-lg tracking-widest uppercase mb-8 text-center">Audio</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+          {equipment.audio.map(item => (
+            <div class="reveal flex flex-col items-center gap-2">
+              <img src={`/img/material/${item.img}`} alt={item.name} class="h-28 w-full object-contain" />
+              <p class="text-sm font-medium text-gray-800 leading-snug">{item.name}</p>
+              <p class="text-brand font-display text-sm">CHF {item.price} / Tag</p>
+              <button
+                data-reserve={item.id}
+                data-reserve-name={item.name}
+                class="reserve-btn border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-4 py-1.5 text-xs font-display tracking-wide w-full"
+              >
+                Reservieren
+              </button>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── 5. RESERVATION FORM (hidden until an item is selected) ─── -->
+    <section id="materialformular" class="bg-brand py-16 hidden">
+      <form id="materialform" class="max-w-2xl mx-auto px-6">
+        <h2 class="font-display text-2xl text-white text-center mb-8">Anfrage senden</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4 items-center">
+          <label class="text-white text-right sm:text-right" for="name">Name, Vorname</label>
+          <input id="name" name="name" type="text" required
+            class="sm:col-span-2 bg-white/10 border border-white/30 text-white placeholder-white/50 px-4 py-2 focus:outline-none focus:border-white w-full" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4 items-center">
+          <label class="text-white text-right sm:text-right" for="email">E-Mail</label>
+          <input id="email" name="email" type="email" required
+            class="sm:col-span-2 bg-white/10 border border-white/30 text-white placeholder-white/50 px-4 py-2 focus:outline-none focus:border-white w-full" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4 items-center">
+          <label class="text-white text-right sm:text-right" for="telefon">Telefon</label>
+          <input id="telefon" name="telefon" type="tel"
+            class="sm:col-span-2 bg-white/10 border border-white/30 text-white placeholder-white/50 px-4 py-2 focus:outline-none focus:border-white w-full" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4 items-start">
+          <label class="text-white text-right sm:text-right pt-2" for="listartikel">Reservierte Artikel</label>
+          <textarea id="listartikel" name="listartikel" rows="4" readonly
+            class="sm:col-span-2 bg-white/10 border border-white/30 text-white px-4 py-2 focus:outline-none resize-none w-full"></textarea>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 items-start">
+          <label class="text-white text-right sm:text-right pt-2" for="message">Datum und Mitteilung</label>
+          <textarea id="message" name="message" rows="4" required
+            class="sm:col-span-2 bg-white/10 border border-white/30 text-white placeholder-white/50 px-4 py-2 focus:outline-none resize-none w-full"></textarea>
+        </div>
+
+        <div class="sm:col-span-3 flex justify-end">
+          <button type="submit"
+            class="bg-white text-brand hover:bg-navy hover:text-white transition-colors font-display tracking-wide px-8 py-3">
+            Absenden
+          </button>
+        </div>
+
+        <p id="form-success" class="hidden text-white text-center mt-4 font-display">
+          ✓ Nachricht wurde erfolgreich übermittelt.
+        </p>
+        <p id="form-error" class="hidden text-red-200 text-center mt-4 font-display">
+          Nachricht senden fehlgeschlagen. Bitte versuche es erneut.
+        </p>
+      </form>
+    </section>
+
+    <!-- ─── 6. TEAM PARALLAX HEADER ─── -->
+    <section
+      id="team"
+      class="relative h-screen parallax flex items-center justify-center"
+      style="background-image: url('/img/background/background-3.png');"
+    >
+      <div class="absolute inset-0 bg-black/30"></div>
+      <h1 class="relative z-10 font-display text-5xl md:text-7xl text-white reveal">Das Team</h1>
+    </section>
+
+    <!-- ─── 7. STATS ─── -->
+    <section id="sidefyn-in-zahlen-details" class="bg-white py-20">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+
+        <p class="font-display text-brand text-lg tracking-widest uppercase mb-6 reveal">Geschäftsführung</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
+          <p class="font-display text-xl text-gray-800 reveal">Nathanael Mägli</p>
+          <p class="font-display text-xl text-gray-800 reveal" style="transition-delay:.1s">David Wiedmer</p>
+          <p class="font-display text-xl text-gray-800 reveal" style="transition-delay:.2s">Moritz Weibel</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-10 mb-16">
+          <div class="reveal">
+            <p class="font-display text-6xl text-brand">54</p>
+            <p class="text-gray-600 mt-2 text-sm">sidefyne Fotoaufträge</p>
+          </div>
+          <div class="reveal" style="transition-delay:.1s">
+            <p class="font-display text-6xl text-brand">23</p>
+            <p class="text-gray-600 mt-2 text-sm">erfolgreiche Webauftritte</p>
+          </div>
+          <div class="reveal" style="transition-delay:.2s">
+            <p class="font-display text-6xl text-brand">100</p>
+            <p class="text-gray-600 mt-2 text-sm">% motiviert</p>
+          </div>
+          <div class="reveal" style="transition-delay:.3s">
+            <p class="font-display text-6xl text-brand">2</p>
+            <p class="text-gray-600 mt-2 text-sm">Jahre GmbH</p>
+          </div>
+          <div class="reveal" style="transition-delay:.4s">
+            <p class="font-display text-6xl text-brand">3</p>
+            <p class="text-gray-600 mt-2 text-sm">Freelancer</p>
+          </div>
+          <div class="reveal" style="transition-delay:.5s">
+            <p class="font-display text-6xl text-brand">4</p>
+            <p class="text-gray-600 mt-2 text-sm">Bereiche</p>
+          </div>
+        </div>
+
+        <p class="font-display text-brand text-lg tracking-widest uppercase mb-6 reveal">Beteiligung an</p>
+        <a href="http://www.quap.ch" target="_blank" rel="noopener" class="inline-block reveal">
+          <img src="/img/logo/quap.png" alt="Quap" class="h-12 mx-auto grayscale hover:grayscale-0 transition-all" />
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ─── 8. SOCIAL MEDIA ─── -->
+    <section id="socialmedia" class="bg-green py-20 text-center">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-4xl text-white mb-4 reveal">Social Media</h2>
+        <p class="text-white mb-10 reveal">Du findest uns auf folgenden Plattformen:</p>
+        <div class="flex justify-center gap-8 flex-wrap reveal">
+          <a href="http://www.facebook.com/sidefyn" target="_blank" rel="noopener">
+            <img src="/img/socialmedia/facebook.png" alt="Facebook" class="h-12 hover:scale-110 transition-transform" />
+          </a>
+          <a href="https://www.linkedin.com/company/sidefyn-gmbh" target="_blank" rel="noopener">
+            <img src="/img/socialmedia/linkedin.png" alt="LinkedIn" class="h-12 hover:scale-110 transition-transform" />
+          </a>
+          <a href="http://www.twitter.com/sidefyn" target="_blank" rel="noopener">
+            <img src="/img/socialmedia/twitter.png" alt="Twitter" class="h-12 hover:scale-110 transition-transform" />
+          </a>
+          <a href="http://www.youtube.com/c/Sidefynch" target="_blank" rel="noopener">
+            <img src="/img/socialmedia/youtube.png" alt="YouTube" class="h-12 hover:scale-110 transition-transform" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 9. REFERENCES PARALLAX HEADER ─── -->
+    <section
+      id="referenzen"
+      class="relative h-screen parallax flex items-center justify-center"
+      style="background-image: url('/img/background/background-1.png');"
+    >
+      <div class="absolute inset-0 bg-black/30"></div>
+      <h1 class="relative z-10 font-display text-5xl md:text-7xl text-white reveal">Referenzen</h1>
+    </section>
+
+    <!-- ─── 10. CLIENTS ─── -->
+    <section id="kunden" class="bg-white py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 items-center justify-items-center">
+          {clients.map((client, i) => (
+            <a
+              href={client.url}
+              target="_blank"
+              rel="noopener"
+              class="reveal grayscale hover:grayscale-0 transition-all"
+              style={`transition-delay: ${i * 0.07}s`}
+            >
+              <img src={`/img/logo/${client.img}`} alt={client.name} class="h-12 w-36 object-contain" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 11. MAP ─── -->
+    <section id="karte" class="bg-brand">
+      <iframe
+        src="https://maps.google.com/maps?q=Polygonstrasse+47,+3014+Bern,+Switzerland&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        width="100%"
+        height="315"
+        style="border:0; display:block;"
+        loading="lazy"
+        allowfullscreen
+        title="sidefyn GmbH Standort Bern"
+      ></iframe>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+  <footer class="bg-navy py-12">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row gap-10 justify-between">
+
+      <!-- Addresses -->
+      <div class="flex flex-col sm:flex-row gap-10">
+        <address class="not-italic text-white/80 text-sm leading-loose">
+          <strong class="text-white font-display">sidefyn GmbH</strong><br />
+          Polygonstrasse 47<br />
+          CH-3014 Bern<br />
+          <span class="text-brand">+41 79 533 97 99</span>
+        </address>
+        <address class="not-italic text-white/80 text-sm leading-loose">
+          <strong class="text-white font-display">sidefyn GmbH</strong><br />
+          Kornhausstrasse 34<br />
+          CH-8006 Zürich<br />
+          <span class="text-brand">+41 79 766 14 09</span>
+        </address>
+      </div>
+
+      <!-- Footer nav -->
+      <nav class="flex flex-col gap-2 text-sm">
+        <button data-drawer="jobs"      class="text-white/70 hover:text-brand text-left transition-colors font-display tracking-wide">Jobs</button>
+        <button data-drawer="impressum" class="text-white/70 hover:text-brand text-left transition-colors font-display tracking-wide">Impressum</button>
+        <button data-drawer="agb"       class="text-white/70 hover:text-brand text-left transition-colors font-display tracking-wide">AGB</button>
+      </nav>
+
+    </div>
+    <p class="text-center text-white/30 text-xs mt-10">© sidefyn GmbH · <a href="mailto:info@sidefyn.ch" class="hover:text-brand transition-colors">info@sidefyn.ch</a></p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════
+       DRAWERS
+  ═══════════════════════════════════════════════════ -->
+
+  <!-- ─── Photography ─── -->
+  <aside id="drawer-photography" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+    <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+      <button data-drawer="movies" class="text-white/50 hover:text-brand transition-colors text-sm font-display">&nbsp;</button>
+      <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+      <button data-drawer="movies" class="text-white/50 hover:text-brand transition-colors text-sm font-display">Film &rarr;</button>
+    </div>
+    <div class="p-8 flex-1">
+      <div class="flex items-center gap-4 mb-6">
+        <img src="/img/icon/photo.png" alt="" class="h-10 w-10 object-contain" />
+        <h2 class="font-display text-3xl">Fotografie</h2>
+      </div>
+      <p class="text-white/80 leading-relaxed mb-8">
+        Du brauchst jemanden, der für dein Anlass professionelle Bilder erstellt? Jemanden, der unsichtbar den gegebenen Auftrag ausführt?
+        Da bist du bei sidefyn genau richtig. Wir arbeiten für jede Situation mit Spezialisten zusammen. Wir fangen Impressionen und
+        Situationen ein und erschaffen ausdrucksstarke Bilder für dein Projekt.<br /><br />
+        Individuelle, auf dein Unternehmen abgestimmte Fotos machen deinen Werbeauftritt unverwechselbar — sei es für Printmedien,
+        Internet, Messen, Veranstaltungen oder Pressearbeit.
+      </p>
+      <div class="flex gap-2 mb-6 flex-wrap" data-tabs>
+        <button data-tab="ph-angebot"    class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors active">Angebot</button>
+        <button data-tab="ph-arbeiten"   class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors">Arbeiten</button>
+        <button data-tab="ph-referenzen" class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors">Weitere Referenzen</button>
+      </div>
+      <div id="tab-ph-angebot" class="tab-panel active">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <p class="font-semibold mb-1">Eventfotos</p>
+            <p class="text-white/70 text-sm">Sei es ein Konzert, ein Firmenanlass oder ein Turnier — wir machen Bilder.</p>
+          </div>
+          <img src="/img/picturework/eventfotos.png" alt="Eventfotos" class="w-full object-cover rounded" />
+          <div>
+            <p class="font-semibold mb-1">Fotoshootings</p>
+            <p class="text-white/70 text-sm">Fancy Fashionbilder oder schlichte Bewerbungsfotos — wir haben die passende Lösung.</p>
+          </div>
+          <img src="/img/picturework/fotoshootings.png" alt="Fotoshootings" class="w-full object-cover rounded" />
+          <div>
+            <p class="font-semibold mb-1">Dokumentationen</p>
+            <p class="text-white/70 text-sm">Du hast ein langwieriges Projekt? Wir begleiten dich dabei gerne.</p>
+          </div>
+          <img src="/img/picturework/dokumentation.png" alt="Dokumentationen" class="w-full object-cover rounded" />
+          <div>
+            <p class="font-semibold mb-1">Sonstiges</p>
+            <p class="text-white/70 text-sm">Du brauchst etwas, was wir nicht aufgelistet haben? Melde dich trotzdem — wir finden eine Lösung.</p>
+          </div>
+          <img src="/img/picturework/sonstiges.png" alt="Sonstiges" class="w-full object-cover rounded" />
+        </div>
+      </div>
+      <div id="tab-ph-arbeiten" class="tab-panel">
+        <ul class="list-disc list-inside text-white/80 space-y-2">
+          <li>CM-Integra</li><li>Bruno Kernen Snowcamp</li><li>Distisuisse</li>
+          <li>Startupweekend Zürich</li><li>Aspire</li><li>ZhdK</li><li>Glice</li>
+        </ul>
+      </div>
+      <div id="tab-ph-referenzen" class="tab-panel">
+        <div class="grid grid-cols-3 gap-6 items-center">
+          <a href="http://www.cmintegra.ch" target="_blank" rel="noopener">
+            <img src="/img/logo/cmintegra.png" alt="CMIntegra" class="h-10 w-full object-contain filter brightness-0 invert hover:filter-none transition-all" />
+          </a>
+          <a href="http://www.brunokernen-snowcamp.ch/" target="_blank" rel="noopener">
+            <img src="/img/logo/brunokernen.png" alt="Bruno Kernen Snowcamp" class="h-10 w-full object-contain filter brightness-0 invert hover:filter-none transition-all" />
+          </a>
+          <a href="http://www.distisuisse.ch/" target="_blank" rel="noopener">
+            <img src="/img/logo/distisuisse.png" alt="Distisuisse" class="h-10 w-full object-contain filter brightness-0 invert hover:filter-none transition-all" />
+          </a>
+        </div>
+      </div>
+      <div class="mt-10 pt-6 border-t border-white/10 text-sm text-white/60">
+        <p class="font-display text-white mb-1">Moritz Weibel</p>
+        <a href="mailto:mo@sidefyn.ch" class="text-brand hover:underline">mo@sidefyn.ch</a> &middot;
+        <span>+41 79 766 14 09</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ─── Film ─── -->
+  <aside id="drawer-movies" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+    <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+      <button data-drawer="photography" class="text-white/50 hover:text-brand transition-colors text-sm font-display">&larr; Fotografie</button>
+      <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+      <button data-drawer="webapplikation" class="text-white/50 hover:text-brand transition-colors text-sm font-display">Webapplikation &rarr;</button>
+    </div>
+    <div class="p-8 flex-1">
+      <div class="flex items-center gap-4 mb-6">
+        <img src="/img/icon/movie.png" alt="" class="h-10 w-10 object-contain" />
+        <h2 class="font-display text-3xl">Film</h2>
+      </div>
+      <p class="text-white/80 leading-relaxed mb-8">
+        Egal, ob Werbung, Musikvideo oder Dokumentation, wir produzieren einen kurzen Trailer mit genau so viel Engagement und
+        Begeisterung wie einen langen Imagefilm. Wir arbeiten bei jedem Projekt kundeneffizient, kreativ und immer mit Fokus
+        auf das gemeinsame Ziel: die Entwicklung eines grossartigen Filmes.
+      </p>
+      <div class="flex gap-2 mb-6 flex-wrap" data-tabs>
+        <button data-tab="mv-angebot"    class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors active">Angebot</button>
+        <button data-tab="mv-arbeiten"   class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors">Arbeiten</button>
+        <button data-tab="mv-referenzen" class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors">Weitere Referenzen</button>
+      </div>
+      <div id="tab-mv-angebot" class="tab-panel active">
+        <p class="text-white/80 mb-4">Bewegte Bilder sagen mehr als Worte!</p>
+        <ul class="list-disc list-inside text-white/80 space-y-2">
+          <li>Musikvideos</li><li>Eventvideos</li><li>Kurzfilme</li><li>Dokumentationen</li><li>Werbungen</li>
+        </ul>
+      </div>
+      <div id="tab-mv-arbeiten" class="tab-panel">
+        <ul class="text-white/80 space-y-4">
+          <li>
+            <p class="font-semibold mb-2">JB-Funks Dr Shit Musikvideo</p>
+            <div class="aspect-video">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/NxWXx8MWVlE" frameborder="0" allowfullscreen class="rounded"></iframe>
+            </div>
+          </li>
+          <li>
+            <p class="font-semibold mb-2">Startup Weekend Zürich 2014</p>
+            <div class="aspect-video">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/sglEKIPEUDU" frameborder="0" allowfullscreen class="rounded"></iframe>
+            </div>
+          </li>
+          <li>
+            <p class="font-semibold mb-2">Riddemption Misplaced Musikvideo</p>
+            <div class="aspect-video">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Z59n9VcjQiM" frameborder="0" allowfullscreen class="rounded"></iframe>
+            </div>
+          </li>
+          <li><a href="http://youtu.be/6X-vdo8ro_k" target="_blank" class="text-brand hover:underline">Aspire Launch Event and Photo Exhibition</a></li>
+          <li><a href="http://youtu.be/VZeqxXHGTpc" target="_blank" class="text-brand hover:underline">Ryan Tennis</a></li>
+          <li><a href="http://youtu.be/36q1fmv3-bE" target="_blank" class="text-brand hover:underline">Up the chain</a></li>
+        </ul>
+      </div>
+      <div id="tab-mv-referenzen" class="tab-panel">
+        <div class="grid grid-cols-2 gap-6 items-center">
+          <a href="http://www.aspireme.co" target="_blank" rel="noopener">
+            <img src="/img/logo/aspire.png" alt="Aspire" class="h-10 w-full object-contain filter brightness-0 invert hover:filter-none transition-all" />
+          </a>
+          <a href="http://zuerich.startupweekend.ch/" target="_blank" rel="noopener">
+            <img src="/img/logo/startupweekendZuerich.png" alt="Startupweekend Zürich" class="h-10 w-full object-contain filter brightness-0 invert hover:filter-none transition-all" />
+          </a>
+        </div>
+      </div>
+      <div class="mt-10 pt-6 border-t border-white/10 text-sm text-white/60">
+        <p class="font-display text-white mb-1">Moritz Weibel</p>
+        <a href="mailto:mo@sidefyn.ch" class="text-brand hover:underline">mo@sidefyn.ch</a> &middot;
+        <span>+41 79 766 14 09</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ─── Webapplikation ─── -->
+  <aside id="drawer-webapplikation" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+    <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+      <button data-drawer="movies" class="text-white/50 hover:text-brand transition-colors text-sm font-display">&larr; Film</button>
+      <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+      <button data-drawer="it-services" class="text-white/50 hover:text-brand transition-colors text-sm font-display">IT-Services &rarr;</button>
+    </div>
+    <div class="p-8 flex-1">
+      <div class="flex items-center gap-4 mb-6">
+        <img src="/img/icon/cms.png" alt="" class="h-10 w-10 object-contain" />
+        <h2 class="font-display text-3xl">Webapplikation</h2>
+      </div>
+      <p class="text-white/80 leading-relaxed mb-8">
+        Egal, ob eine einfache informative oder eine komplexe Webseite, wir gehen auf jedes Bedürfnis individuell ein.
+        Wir stehen dir sowohl bei der technischen als auch bei der inhaltlichen Beratung zur Seite, und lassen dich dabei
+        deine eigenen Ideen verwirklichen. Weiterhin unterstützen wir dich bei dem Design und erstellen somit die Seite
+        genau nach deinen Wünschen.
+      </p>
+      <div class="flex gap-2 mb-6 flex-wrap" data-tabs>
+        <button data-tab="wa-angebot"    class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors active">Angebot</button>
+        <button data-tab="wa-arbeiten"   class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors">Arbeiten</button>
+        <button data-tab="wa-referenzen" class="tab-btn border border-white/30 hover:border-brand px-4 py-1.5 text-sm font-display transition-colors">Referenzen</button>
+      </div>
+      <div id="tab-wa-angebot" class="tab-panel active">
+        <div class="space-y-4 text-white/80 text-sm">
+          <div><p class="font-semibold text-white">Responsive Design</p><p>Wir machen dir eine Webseite, die für Handy-, Tablet- und Computerdisplay optimiert ist.</p></div>
+          <div><p class="font-semibold text-white">Webseiten nach Mass</p><p>Wir designen und entwickeln deine neue Webseite genau nach deinen Wünschen.</p></div>
+          <div><p class="font-semibold text-white">Redesign</p><p>Du hast eine veraltete Webseite, die dringend ein neues Design braucht? Wir erneuern es.</p></div>
+          <div><p class="font-semibold text-white">Hosting</p><p>Wir können für dich die Webseiten hosten und warten.</p></div>
+        </div>
+      </div>
+      <div id="tab-wa-arbeiten" class="tab-panel">
+        <div class="space-y-6 text-white/80 text-sm">
+          <div class="grid sm:grid-cols-2 gap-4 items-start">
+            <div><p class="font-semibold text-white"><a href="http://dvbern.ch" target="_blank" class="text-brand hover:underline">dvbern.ch</a></p><p>OnePager, mehrsprachig, XML-gesteuert.</p></div>
+            <a href="http://dvbern.ch" target="_blank"><img src="/img/work/dvbern.png" alt="DV Bern" class="w-full rounded" /></a>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4 items-start">
+            <div><p class="font-semibold text-white"><a href="http://quap.ch" target="_blank" class="text-brand hover:underline">quap.ch</a></p><p>Terminbuchungsplattform für Kunden und Unternehmen.</p></div>
+            <a href="http://quap.ch" target="_blank"><img src="/img/work/quap.png" alt="Quap" class="w-full rounded" /></a>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4 items-start">
+            <div><p class="font-semibold text-white"><a href="http://advokatur-km.ch" target="_blank" class="text-brand hover:underline">advokatur-km.ch</a></p><p>Visitenkarte in 4 Sprachen inkl. Russisch.</p></div>
+            <a href="http://advokatur-km.ch" target="_blank"><img src="/img/work/advokatur-km.png" alt="Advokatur KM" class="w-full rounded" /></a>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4 items-start">
+            <div><p class="font-semibold text-white"><a href="http://christophammann.com" target="_blank" class="text-brand hover:underline">christophammann.com</a></p><p>Fotograf-Portfolio mit Fotostrecken.</p></div>
+            <a href="http://christophammann.com" target="_blank"><img src="/img/work/christophammann.png" alt="Christoph Ammann" class="w-full rounded" /></a>
+          </div>
+        </div>
+      </div>
+      <div id="tab-wa-referenzen" class="tab-panel">
+        <p class="font-display text-white/60 text-sm mb-4">Weitere Kunden</p>
+        <div class="grid grid-cols-3 gap-4 items-center">
+          {['quap','dvbern','advokatur-km','christophammann','blessed','kemimalaika'].map(logo => (
+            <img src={`/img/logo/${logo}.png`} alt={logo} class="h-8 w-full object-contain filter brightness-0 invert" />
+          ))}
+        </div>
+      </div>
+      <div class="mt-10 pt-6 border-t border-white/10 text-sm text-white/60">
+        <p class="font-display text-white mb-1">David Wiedmer</p>
+        <a href="mailto:dave@sidefyn.ch" class="text-brand hover:underline">dave@sidefyn.ch</a> &middot;
+        <span>+41 79 533 97 99</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ─── IT-Services ─── -->
+  <aside id="drawer-it-services" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+    <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+      <button data-drawer="webapplikation" class="text-white/50 hover:text-brand transition-colors text-sm font-display">&larr; Webapplikation</button>
+      <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+      <span class="w-24"></span>
+    </div>
+    <div class="p-8 flex-1">
+      <div class="flex items-center gap-4 mb-6">
+        <img src="/img/icon/resp.png" alt="" class="h-10 w-10 object-contain" />
+        <h2 class="font-display text-3xl">IT-Services</h2>
+      </div>
+      <p class="text-white/80 leading-relaxed">
+        Wir sind Spezialisten und bei Fragen rund um den Computer immer top informiert. Gerne helfen wir dir bei der Auswahl
+        der unzähligen Möglichkeiten in der Informatik. Wir helfen und beraten kompetent und können den Computer für deine
+        Bedürfnisse optimal einrichten.
+      </p>
+      <div class="mt-10 pt-6 border-t border-white/10 text-sm text-white/60">
+        <p class="font-display text-white mb-1">David Wiedmer</p>
+        <a href="mailto:dave@sidefyn.ch" class="text-brand hover:underline">dave@sidefyn.ch</a> &middot;
+        <span>+41 79 533 97 99</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ─── Jobs ─── -->
+  <aside id="drawer-jobs" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+    <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+      <span></span>
+      <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+      <span></span>
+    </div>
+    <div class="p-8 flex-1">
+      <h2 class="font-display text-3xl mb-6">Jobs</h2>
+      <p class="text-white/80 mb-8">
+        Talente finden bei uns ein Zuhause. Melde dich unter <a href="mailto:info@sidefyn.ch" class="text-brand hover:underline">info@sidefyn.ch</a>.
+      </p>
+      <h3 class="font-display text-xl text-brand mb-3">Freelancer Multimedia/Webentwicklung</h3>
+      <p class="text-white/80 leading-relaxed">
+        Du bist talentiert und engagierst dich im Bereich Multimedia oder Webentwicklung? Du bist ein Teamplayer und
+        erledigst deine Aufgaben schnell und sorgfältig? Dann schicke uns dein Portfolio oder nimm mit uns Kontakt auf!
+      </p>
+    </div>
+  </aside>
+
+  <!-- ─── Impressum ─── -->
+  <aside id="drawer-impressum" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+    <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+      <span></span>
+      <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+      <span></span>
+    </div>
+    <div class="p-8 flex-1 space-y-6 text-white/80 text-sm leading-relaxed">
+      <h2 class="font-display text-3xl text-white">Impressum</h2>
+      <div>
+        <h3 class="font-display text-white mb-2">Inhaltliche und technische Verantwortung</h3>
+        <p>sidefyn GmbH · Laubeggstrasse 30 · 3006 Bern · Schweiz<br />
+        Telefon: +41 79 533 97 99 · <a href="mailto:info@sidefyn.ch" class="text-brand hover:underline">info@sidefyn.ch</a></p>
+      </div>
+      <div>
+        <h3 class="font-display text-white mb-2">Urheberrechte</h3>
+        <p>Diese Web-Site beinhaltet möglicherweise Informationen aus fremden Quellen und durch Copyright oder Trademarks geschützte
+        Angaben Dritter. Der Schutz dieser Rechte darf durch die Benutzer unserer Web-Site nicht verletzt werden. Alle Informationen
+        sind soweit zulässig ausschliesslich mit Quellenangabe weiter zu verwenden.</p>
+      </div>
+      <div>
+        <h3 class="font-display text-white mb-2">Informationen</h3>
+        <p>Wir möchten über unsere Web-Site keine vertraulichen Informationen erhalten und behandeln alle hier eingehenden
+        Informationen als «nicht vertraulich» resp. öffentlich zugänglich.</p>
+      </div>
+      <div>
+        <h3 class="font-display text-white mb-2">Haftungsausschluss</h3>
+        <p>Wir übernehmen keine Verantwortung, Garantie und Gewährleistung für Produkte dritter, welche auf unseren Web-Sites
+        vorgestellt werden. Ebenso übernehmen wir keine Verantwortung für Inhalte in von uns als Link eingeblendeten Web-Sites Dritter.</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ─── AGB ─── -->
+  <aside id="drawer-agb" class="drawer fixed top-0 right-0 h-full w-full md:w-[620px] bg-navy text-white z-50 overflow-y-auto flex flex-col">
+    <div class="flex items-center justify-between p-5 border-b border-white/10 shrink-0">
+      <span></span>
+      <button data-close-drawer class="text-white hover:text-brand transition-colors text-2xl leading-none">&times;</button>
+      <span></span>
+    </div>
+    <div class="p-8 flex-1 space-y-6 text-white/80 text-sm leading-relaxed">
+      <h2 class="font-display text-3xl text-white">AGB Webdesign</h2>
+
+      {[
+        { title: 'Auftragsvorbereitung und Planung', items: ['Formulierung von Bedarf und Konzeptvorstellungen seitens des Kunden','Besprechung von Zusammenarbeitsformen','Evaluation von notwendigen Massnahmen','Ermittlung von Zeit- und Kostenaufwand','Festlegung des Arbeitsablaufes'] },
+        { title: 'Konzeption und Entwurf', items: ['Entwicklung und Ausarbeitung von Skizzenentwürfen','Herstellung von Reinentwürfen','Konsultation von Netzwerkpartnern','Teilnahme an Zwischengesprächen','Vorbereitung und Durchführung von Präsentationen'] },
+        { title: 'Detailgestaltung und Ausführung', items: ['Überarbeitung der Entwürfe','Planung von externen Leistungen','Herstellung und Beschaffung von Bildmaterial u.a. Unterlagen'] },
+        { title: 'Realisation und Produktüberwachung', items: ['Qualitätssicherung von internen und externen Leistungen','Übergabe des Produktes'] },
+        { title: 'Sorgfaltspflicht', items: ['Die sidefyn GmbH berät den Kunden nach bestem Wissen und Können, führt die ihr übertragenen Aufgaben sorgfältig aus und wahrt in jedem Fall die Interessen der Kunden.'] },
+        { title: 'Vertraulichkeit', items: ['Die sidefyn GmbH wird alle zu ihrer Kenntnis gelangenden Geschäftsvorgänge streng vertraulich behandeln; dies betrifft auch die Zeit nach Projektabschluss.'] },
+        { title: 'Mehrwertsteuer', items: ['Die sidefyn GmbH ist nicht mehrwertsteuerpflichtig.'] },
+      ].map(section => (
+        <div>
+          <h3 class="font-display text-white mb-2">{section.title}</h3>
+          <ul class="list-disc list-inside space-y-1">
+            {section.items.map(item => <li>{item}</li>)}
+          </ul>
+        </div>
+      ))}
+
+      <h2 class="font-display text-3xl text-white pt-4">AGB Foto/Video</h2>
+
+      <div>
+        <h3 class="font-display text-white mb-2">Geltungsbereich</h3>
+        <p>Diese AGB gelten für alle vom Fotografen durchgeführten Aufträge, Angebote, Lieferungen und Leistungen,
+        auch für digital generierte Bilder.</p>
+      </div>
+      <div>
+        <h3 class="font-display text-white mb-2">Nutzungsrechte</h3>
+        <p>Der Kunde erwirbt mit der Lieferung und Bezahlung des Werks eine Lizenz zur Nutzung der fotografischen
+        Arbeit im vereinbarten Rahmen. Exklusivrechte müssen gesondert vereinbart werden.</p>
+      </div>
+      <div>
+        <h3 class="font-display text-white mb-2">Honorar</h3>
+        <p>Das zwischen den Parteien vereinbarte Honorar ist zahlbar innert 10 Tagen ab Rechnungstellung.</p>
+      </div>
+      <div>
+        <h3 class="font-display text-white mb-2">Gerichtsstand</h3>
+        <p>Ausschliesslicher Gerichtsstand ist der Geschäftssitz des Fotografen. Anwendbares Recht: materielles Schweizer Recht.</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════════════ -->
+  <script define:vars={{ slackWebhook }}>
+
+    // ─── Mobile nav ───────────────────────────────────────
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu   = document.getElementById('nav-menu');
+    navToggle?.addEventListener('click', () => navMenu?.classList.toggle('hidden'));
+    document.querySelectorAll('.mobile-nav-link').forEach(el => {
+      el.addEventListener('click', () => navMenu?.classList.add('hidden'));
+    });
+
+    // ─── Drawers ──────────────────────────────────────────
+    let currentDrawer = null;
+
+    function openDrawer(id) {
+      if (currentDrawer) {
+        currentDrawer.classList.remove('open');
+      }
+      const drawer = document.getElementById(`drawer-${id}`);
+      if (!drawer) return;
+      drawer.classList.add('open');
+      document.getElementById('backdrop')?.classList.remove('opacity-0', 'pointer-events-none');
+      document.getElementById('backdrop')?.classList.add('opacity-100');
+      document.body.style.overflow = 'hidden';
+      currentDrawer = drawer;
+    }
+
+    function closeDrawer() {
+      currentDrawer?.classList.remove('open');
+      currentDrawer = null;
+      const backdrop = document.getElementById('backdrop');
+      backdrop?.classList.add('opacity-0', 'pointer-events-none');
+      backdrop?.classList.remove('opacity-100');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-drawer]').forEach(btn => {
+      btn.addEventListener('click', () => openDrawer(btn.dataset.drawer));
+    });
+    document.querySelectorAll('[data-close-drawer]').forEach(btn => {
+      btn.addEventListener('click', closeDrawer);
+    });
+    document.getElementById('backdrop')?.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+    // ─── Tabs ─────────────────────────────────────────────
+    document.querySelectorAll('[data-tabs]').forEach(tabContainer => {
+      tabContainer.querySelectorAll('[data-tab]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.dataset.tab;
+          // Update buttons
+          tabContainer.querySelectorAll('[data-tab]').forEach(b => b.classList.toggle('active', b === btn));
+          // Update panels — find the parent drawer
+          const drawer = btn.closest('aside');
+          drawer?.querySelectorAll('.tab-panel').forEach(panel => {
+            panel.classList.toggle('active', panel.id === `tab-${target}`);
+          });
+        });
+      });
+    });
+
+    // ─── Equipment reservation cart ───────────────────────
+    const cart = new Map(); // id → name
+
+    function syncForm() {
+      const textarea = document.getElementById('listartikel');
+      if (textarea) {
+        textarea.value = [...cart.values()].join('\n');
+      }
+      const section = document.getElementById('materialformular');
+      if (cart.size > 0) {
+        section?.classList.remove('hidden');
+        section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        section?.classList.add('hidden');
+      }
+    }
+
+    document.querySelectorAll('[data-reserve]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id   = btn.dataset.reserve;
+        const name = btn.dataset.reserveName;
+        if (cart.has(id)) {
+          cart.delete(id);
+          btn.textContent = 'Reservieren';
+          btn.classList.remove('selected');
+        } else {
+          cart.set(id, name);
+          btn.textContent = '✓ Ausgewählt';
+          btn.classList.add('selected');
+        }
+        syncForm();
+      });
+    });
+
+    // ─── Slack form submission ─────────────────────────────
+    document.getElementById('materialform')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form    = e.target;
+      const data    = new FormData(form);
+      const success = document.getElementById('form-success');
+      const error   = document.getElementById('form-error');
+
+      const text = [
+        '📷 *Neue Materialreservierung — sidefyn.ch*',
+        `*Name:* ${data.get('name')}`,
+        `*E-Mail:* ${data.get('email')}`,
+        `*Telefon:* ${data.get('telefon') || '—'}`,
+        `*Artikel:*\n${data.get('listartikel')}`,
+        `*Datum/Mitteilung:* ${data.get('message')}`,
+      ].join('\n');
+
+      try {
+        await fetch(slackWebhook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ payload: JSON.stringify({ text }) }),
+        });
+        success?.classList.remove('hidden');
+        error?.classList.add('hidden');
+        form.reset();
+        cart.clear();
+        document.querySelectorAll('.reserve-btn.selected').forEach(btn => {
+          btn.textContent = 'Reservieren';
+          btn.classList.remove('selected');
+        });
+        setTimeout(() => document.getElementById('materialformular')?.classList.add('hidden'), 3000);
+      } catch {
+        error?.classList.remove('hidden');
+        success?.classList.add('hidden');
+      }
+    });
+
+    // ─── Scroll reveal ────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  </script>
+
+</Layout>
