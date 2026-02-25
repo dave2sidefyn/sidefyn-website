@@ -97,6 +97,20 @@
     50%, 100% { border-color: transparent; }
   }
 
+  .scroll-dot {
+    animation: scrollDot 1.4s ease-in-out infinite;
+  }
+  @keyframes scrollDot {
+    0% { transform: translateY(0); opacity: 1; }
+    60% { transform: translateY(12px); opacity: 0.3; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  .icon-muted {
+    filter: grayscale(1) brightness(1.5);
+    opacity: 0.75;
+  }
+
   /* Reserve button selected state */
   .reserve-btn.selected {
     background-color: #3bbac5;

@@ -8,32 +8,42 @@ const base = import.meta.env.BASE_URL;
   style={`background-image: url('${base}img/background/background-head2.png');`}
 >
   <div class="absolute inset-0 bg-black/40"></div>
-  <img
-    src={`${base}img/logo/sidefyn.png`}
-    alt="sidefyn"
-    class="relative z-10 w-72 md:w-[480px] reveal"
-  />
-  <div class="relative z-10 mt-6 text-center px-6">
-    <p class="text-white/90 font-display text-lg md:text-xl reveal">
-      <span
+  <div class="relative z-10 flex flex-col items-center text-center px-6">
+    <div class="flex items-center justify-center min-h-[120px] md:min-h-[200px]">
+      <img
+        src={`${base}img/logo/sidefyn.png`}
+        alt="sidefyn"
+        class="w-72 md:w-[480px] reveal"
+      />
+    </div>
+    <div class="mt-6 md:mt-8">
+      <p class="text-white/90 font-display text-lg md:text-xl reveal">
+        <span
+          data-typing
+          data-typing-order="1"
+          data-text="sidefyni IT-Lösige us Bärn."
+          class="typing-caret"
+        ></span>
+      </p>
+      <button
+        data-drawer="kontakt"
+        class="mt-5 inline-block border border-white text-white hover:bg-white hover:text-navy transition-colors px-6 py-2 text-sm font-display tracking-wide reveal disabled:opacity-60"
+        style="transition-delay: 0.1s"
         data-typing
-        data-typing-order="1"
-        data-text="sidefyni IT-Lösige us Bärn."
-        class="typing-caret"
-      ></span>
-    </p>
-    <button
-      data-drawer="kontakt"
-      class="mt-5 inline-block border border-white text-white hover:bg-white hover:text-navy transition-colors px-6 py-2 text-sm font-display tracking-wide reveal disabled:opacity-60"
-      style="transition-delay: 0.1s"
-      data-typing
-      data-typing-order="2"
-      data-text="I bruche sidefyni Ungerstützig!"
-      data-typing-target="button"
-      disabled
-      aria-disabled="true"
-    >
-      <span class="typing-caret"></span>
-    </button>
+        data-typing-order="2"
+        data-text="I bruche sidefyni Ungerstützig!"
+        data-typing-target="button"
+        disabled
+        aria-disabled="true"
+      >
+        <span class="typing-caret"></span>
+      </button>
+    </div>
+  </div>
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-white/80 text-xs tracking-wide">
+    <span class="mb-2">Scroll für mehr</span>
+    <span class="w-6 h-10 border border-white/60 rounded-full flex items-start justify-center">
+      <span class="w-1.5 h-1.5 bg-white/80 rounded-full mt-2 scroll-dot"></span>
+    </span>
   </div>
 </section>
