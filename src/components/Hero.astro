@@ -14,13 +14,26 @@ const base = import.meta.env.BASE_URL;
     class="relative z-10 w-72 md:w-[480px] reveal"
   />
   <div class="relative z-10 mt-6 text-center px-6">
-    <p class="text-white/90 font-display text-lg md:text-xl reveal">sidefyni Lösige us Bärn.</p>
+    <p class="text-white/90 font-display text-lg md:text-xl reveal">
+      <span
+        data-typing
+        data-typing-order="1"
+        data-text="sidefyni IT-Lösige us Bärn."
+        class="typing-caret"
+      ></span>
+    </p>
     <button
       data-drawer="kontakt"
-      class="mt-5 inline-block border border-white text-white hover:bg-white hover:text-navy transition-colors px-6 py-2 text-sm font-display tracking-wide reveal"
+      class="mt-5 inline-block border border-white text-white hover:bg-white hover:text-navy transition-colors px-6 py-2 text-sm font-display tracking-wide reveal disabled:opacity-60"
       style="transition-delay: 0.1s"
+      data-typing
+      data-typing-order="2"
+      data-text="I bruche sidefyni Ungerstützig!"
+      data-typing-target="button"
+      disabled
+      aria-disabled="true"
     >
-      I bruche sidefyni Ungerstützig!
+      <span class="typing-caret"></span>
     </button>
   </div>
 </section>

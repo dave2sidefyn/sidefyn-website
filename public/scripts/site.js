@@ -118,6 +118,53 @@ const initContactForm = () => {
   });
 };
 
+const initTyping = () => {
+  const nodes = Array.from(document.querySelectorAll('[data-typing]'));
+  if (nodes.length === 0) return;
+
+  const ordered = nodes
+    .map(node => ({ node, order: Number(node.getAttribute('data-typing-order') || 0) }))
+    .sort((a, b) => a.order - b.order);
+
+  const typeNode = (entry) => new Promise((resolve) => {
+    const targetType = entry.node.getAttribute('data-typing-target');
+    const text = entry.node.getAttribute('data-text') || '';
+    const caretEl = targetType === 'button'
+      ? entry.node.querySelector('.typing-caret')
+      : entry.node;
+
+    if (!caretEl) {
+      resolve();
+      return;
+    }
+
+    caretEl.textContent = '';
+    caretEl.classList.add('typing-caret');
+    const speed = 35;
+    let i = 0;
+
+    const tick = () => {
+      caretEl.textContent = text.slice(0, i + 1);
+      i += 1;
+      if (i < text.length) {
+        setTimeout(tick, speed);
+      } else {
+        entry.node.classList.remove('typing-caret');
+        caretEl.classList.remove('typing-caret');
+        if (targetType === 'button') {
+          entry.node.removeAttribute('disabled');
+          entry.node.removeAttribute('aria-disabled');
+        }
+        resolve();
+      }
+    };
+
+    setTimeout(tick, 150);
+  });
+
+  ordered.reduce((p, entry) => p.then(() => typeNode(entry)), Promise.resolve());
+};
+
 const init = () => {
   initMobileNav();
   initDrawers();
@@ -125,6 +172,7 @@ const init = () => {
   initReveal();
   initHeaderBackground();
   initContactForm();
+  initTyping();
 };
 
 if (document.readyState === 'loading') {
