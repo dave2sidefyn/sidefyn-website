@@ -4,7 +4,7 @@ export type Client = {
 };
 
 export const clients: Client[] = [
-  { name: 'Aaremarzili', url: 'https://aaremarzili.info' },
+  { name: 'aaremarzili.info', url: 'https://aaremarzili.info' },
   { name: 'Aareschlauchboot GmbH', url: 'https://www.xn--aarebtle-r4aa.com/' },
   { name: 'Advokatur KM', url: 'https://www.advokatur-km.ch/' },
   { name: 'Allez! GmbH', url: 'https://allez-gmbh.ch/' },
