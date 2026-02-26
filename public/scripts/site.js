@@ -128,6 +128,15 @@ const initTyping = () => {
 
   const typeNode = (entry) => new Promise((resolve) => {
     const targetType = entry.node.getAttribute('data-typing-target');
+
+    if (targetType === 'reveal') {
+      setTimeout(() => {
+        entry.node.style.opacity = '1';
+        setTimeout(resolve, 450);
+      }, 150);
+      return;
+    }
+
     const text = entry.node.getAttribute('data-text') || '';
     const caretEl = targetType === 'button'
       ? entry.node.querySelector('.typing-caret')
