@@ -152,8 +152,12 @@ const initTyping = () => {
         entry.node.classList.remove('typing-caret');
         caretEl.classList.remove('typing-caret');
         if (targetType === 'button') {
-          entry.node.removeAttribute('disabled');
-          entry.node.removeAttribute('aria-disabled');
+          entry.node.classList.remove('cta-border-pending');
+          entry.node.classList.add('cta-border-ready');
+          setTimeout(() => {
+            entry.node.removeAttribute('disabled');
+            entry.node.removeAttribute('aria-disabled');
+          }, 180);
         }
         resolve();
       }

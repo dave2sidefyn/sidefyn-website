@@ -111,6 +111,14 @@
     opacity: 0.75;
   }
 
+  .cta-border-pending {
+    border-color: transparent !important;
+  }
+  .cta-border-ready {
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    transition: border-color 0.35s ease;
+  }
+
   /* Reserve button selected state */
   .reserve-btn.selected {
     background-color: #3bbac5;
