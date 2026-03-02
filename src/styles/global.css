@@ -34,6 +34,7 @@
   body {
     font-family: "Oxygen", ui-sans-serif, system-ui, sans-serif;
     overflow-x: hidden;
+    background-color: black;
   }
   ::-webkit-scrollbar            { width: 6px; }
   ::-webkit-scrollbar-track      { background: #f1f1f1; }
