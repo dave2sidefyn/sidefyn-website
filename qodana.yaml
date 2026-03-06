@@ -9,7 +9,7 @@
 #################################################################################
 version: "1.0"
 
-linter: jetbrains/qodana-js-community:2025.3
+linter: qodana-js
 
 bootstrap: npm ci
 
