@@ -1,0 +1,67 @@
+---
+const base = import.meta.env.BASE_URL;
+
+const projects = [
+  {
+    image: 'aaremarzili.webp',
+    title: 'Aaremarzili',
+    caseStudyUrl: `${base}projekte/aaremarzili`,
+    description:
+      "Mein Soloprojekt seit über 10 Jahren – und die Spielwiese für neue Technologien: Webseite und native Apps für iOS und Android aus einer einzigen Codebase. KI-gestützt, datengetrieben, mit Feature Flags und A/B-Testing, fast vollständig automatisiert. Über 200'000 Nutzer:innen und mehr als 1 Mio. Aufrufe pro Jahr.",
+  },
+  {
+    image: 'mattebrennerei.ch.webp',
+    title: 'Matte Brennerei GmbH',
+    caseStudyUrl: `${base}projekte/matte-brennerei`,
+    description:
+      "Mehr als ein Onlineshop: Die Webseite wickelt den kompletten Verkauf ab – inklusive Anbindung an einen Verpackungsdienstleister, diverse Zahlungsarten und über CHF 100'000 Jahresumsatz. Auch Workshops und Events werden hier administriert, und ein eigener B2B-Shop bedient Grosskunden mit individuellen Preisen und Konditionen. Das digitale Herzstück des Unternehmens.",
+  },
+  {
+    image: 'aare-fundbuero.webp',
+    title: 'Aare Fundbüro',
+    caseStudyUrl: `${base}projekte/aare-fundbuero`,
+    description:
+      'Vom ersten Gespräch bis zur fertigen Webseite in weniger als zwei Tagen: Wer in der Aare etwas verloren hat, kann es hier melden und Hilfe bekommen. Schneller und günstiger geht es nicht – und das strahlende Gesicht danach ist unbezahlbar. Genau dafür liebe ich solche Projekte.',
+  },
+  {
+    image: 'eventadmin.webp',
+    title: 'EventAdmin – Volunteer Management',
+    caseStudyUrl: `${base}projekte/eventadmin`,
+    description:
+      'Ihr organisiert eine Veranstaltung und braucht Freiwillige? Genau dafür habe ich dieses Plugin entwickelt – ursprünglich fürs Herzogstrassenfest. Heute organisiert es auf mindestens drei Kontinenten Schichten: vom Stolze Openair in Zürich über eine Elch-Auffangstation bis zu einem Holocaust-Museum.',
+  },
+];
+---
+
+<section id="ausgewaehlte-projekte" class="bg-gray-50 py-20 border-b border-gray-100">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="reveal font-display text-2xl md:text-3xl text-navy text-center mb-2">Ausgewählte Projekte</h2>
+    <p class="reveal text-gray-600 text-center mb-12 max-w-2xl mx-auto" style="transition-delay: 0.1s">
+      Eine kleine Auswahl an Projekten, auf die ich besonders stolz bin.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      {projects.map((project, i) => (
+        <div
+          class="reveal group bg-white border border-gray-200 hover:border-brand rounded-lg overflow-hidden transition-colors"
+          style={`transition-delay: ${i * 0.1}s`}
+        >
+          <a href={project.caseStudyUrl} class="block">
+            <div class="aspect-16/9 overflow-hidden bg-gray-100">
+              <img
+                src={`${base}img/work/${project.image}`}
+                alt={project.title}
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-lg text-navy group-hover:text-brand transition-colors mb-2">{project.title}</h3>
+              <p class="text-sm text-gray-700 leading-relaxed mb-4">{project.description}</p>
+              <span class="text-sm font-display text-brand">Mehr erfahren →</span>
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

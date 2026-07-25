@@ -10,12 +10,14 @@ const base = import.meta.env.BASE_URL;
   <div class="absolute inset-0 bg-black/40"></div>
   <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 gap-6 md:gap-8">
 
+    <h1 class="sr-only">sidefyn GmbH – Webseiten, Webapplikationen und Digitalisierung für Startups und KMU in Bern</h1>
+
     <!-- Line 1: Typed tagline -->
     <p
       class="text-white font-display text-2xl md:text-4xl tracking-wide"
       data-typing
       data-typing-order="1"
-      data-text="Mit üs wird dis IT-Projekt"
+      data-text="Mit mir wird dis IT-Projekt"
     ></p>
 
     <!-- Line 2: Logo (revealed after tagline types) -->
@@ -49,6 +51,35 @@ const base = import.meta.env.BASE_URL;
     >
       <span class="typing-caret"></span>
     </button>
+
+    <a
+      href={`${base}#ueber-mich`}
+      class="flex items-center gap-2 hover:opacity-80 transition-opacity"
+      data-typing
+      data-typing-order="4"
+      data-typing-target="reveal"
+      style="opacity: 0; transition: opacity 0.45s ease;"
+    >
+      <img
+        src={`${base}img/team/david-wiedmer.webp`}
+        alt="David Wiedmer"
+        class="h-8 w-8 rounded-full object-cover border border-white/30"
+        width="800"
+        height="800"
+        loading="lazy"
+      />
+      <span class="text-white/80 text-xs font-display tracking-wide">David Wiedmer — Gründer</span>
+    </a>
+
+    <p
+      class="text-white/60 text-xs tracking-wide"
+      data-typing
+      data-typing-order="5"
+      data-typing-target="reveal"
+      style="opacity: 0; transition: opacity 0.45s ease;"
+    >
+      Unverbindlich &amp; kostenlos. Antwort garantiert innerhalb 24h.
+    </p>
 
   </div>
   <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-white/80 text-xs tracking-wide">

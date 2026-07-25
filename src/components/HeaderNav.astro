@@ -9,8 +9,9 @@ const base = import.meta.env.BASE_URL;
     </a>
 
     <nav class="hidden md:flex items-center gap-6 ml-auto">
-      <a href="#kompetenzen" class="text-white hover:text-brand transition-colors font-display text-sm tracking-wider">Kompetenzen</a>
-      <a href="#referenzen" class="text-white hover:text-brand transition-colors font-display text-sm tracking-wider">Referenzen</a>
+      <a href={`${base}#kompetenzen`} class="text-white hover:text-brand transition-colors font-display text-sm tracking-wider">Kompetenzen</a>
+      <a href={`${base}#ueber-mich`} class="text-white hover:text-brand transition-colors font-display text-sm tracking-wider">Über mich</a>
+      <a href={`${base}#referenzen`} class="text-white hover:text-brand transition-colors font-display text-sm tracking-wider">Referenzen</a>
     </nav>
 
     <button
@@ -27,6 +28,7 @@ const base = import.meta.env.BASE_URL;
   <div id="nav-menu" class="hidden md:hidden bg-navy border-t border-white/10">
     <div class="px-6 py-3 flex flex-col">
       <a href="#kompetenzen" class="mobile-nav-link text-white hover:text-brand py-2.5 font-display">Kompetenzen</a>
+      <a href="#ueber-mich" class="mobile-nav-link text-white hover:text-brand py-2.5 font-display">Über mich</a>
       <a href="#referenzen" class="mobile-nav-link text-white hover:text-brand py-2.5 font-display">Referenzen</a>
     </div>
   </div>

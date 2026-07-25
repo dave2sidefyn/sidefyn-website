@@ -1,0 +1,92 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<ProjectLayout
+  title="Aaremarzili – Aare-Temperatur App & Webseite | sidefyn"
+  description="Wie aus einer einzigen Frage – wie warm ist die Aare gerade? – eine App mit über 200'000 Nutzer:innen pro Jahr wurde. Ein sidefyn Soloprojekt seit 2015."
+  eyebrow="Eigenes Projekt seit 2015"
+  heading="Aaremarzili"
+>
+  <img
+    src={`${base}img/work/aaremarzili.webp`}
+    alt="Aaremarzili App: aktuelle Aare-Temperatur, Abfluss, Pegel und Wetter"
+    class="w-full rounded-lg border border-gray-200 mb-10"
+    loading="eager"
+  />
+
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10 text-center">
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">2015</p>
+      <p class="text-xs text-gray-500 mt-1">übernommen von Joseph Bürgi</p>
+    </div>
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">200'000+</p>
+      <p class="text-xs text-gray-500 mt-1">Nutzer:innen pro Jahr</p>
+    </div>
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">1 Mio.+</p>
+      <p class="text-xs text-gray-500 mt-1">Aufrufe pro Jahr</p>
+    </div>
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">4.7★</p>
+      <p class="text-xs text-gray-500 mt-1">bei über 100 Bewertungen</p>
+    </div>
+  </div>
+
+  <div class="space-y-5 text-gray-700 leading-relaxed">
+    <p>
+      aaremarzili.info gibt es schon seit 2002. Als der damalige Betreiber Joseph Bürgi 2015 ankündigte, den Betrieb
+      einzustellen, habe ich übernommen, aus einem einfachen Grund: Ich hätte es nicht ertragen, wenn diese Seite
+      verschwunden wäre. Seither ist aaremarzili.info mein Soloprojekt daneben, und gleichzeitig meine Spielwiese
+      für neue Technologien. Hier probiere ich aus, was auf sidefyn-Projekten für Kunden oft noch zu früh wäre.
+    </p>
+    <p>
+      Aus der einfachen Frage ist längst mehr geworden: eine Webseite und, seit 2025, auch native Apps für iOS und
+      Android aus einer einzigen Codebase, KI-gestützt und datengetrieben. Ich arbeite mit Feature Flags und
+      A/B-Testing, fast alles läuft automatisiert, von der Datenerfassung bis zur Vorhersage.
+    </p>
+    <p>
+      Heute nutzen über 200'000 Menschen aaremarzili.info pro Jahr, mit mehr als 1 Million Aufrufen. In den App
+      Stores steht die App bei 4.7 von 5 Sternen, bei über 100 Bewertungen zusammen auf iOS und Android. Der
+      Aare-Guide zeigt Temperaturen von über 70 Messstationen, in 6 Sprachen (inklusive Berndeutsch und Chinesisch)
+      und mit Rekorden bis zurück ins Jahr 1970. Böötli lassen sich direkt in der App buchen, und wer will, loggt
+      seine Schwimm-Erfolge.
+    </p>
+    <p>
+      Finanziert wird das Projekt über Werbepartner und Kollaborationen, etwa mit den Aareliebi-Socken, sowie über
+      eine Kartenintegration mit Partnern wie Bootsvermietungen und Campingplätzen. Das Prinzip dahinter: Die
+      Einnahmen sollen die anfallenden Kosten decken, nicht mehr und nicht weniger.
+    </p>
+    <p>
+      Das Aare Fundbüro ist inzwischen sogar testweise direkt in die aaremarzili-App integriert. Nach dem Relaunch
+      und App-Launch 2026 habe ich das Projekt ausserdem an zwei Meetups vorgestellt: bei ProductTank Bern und bei
+      Mobile Romandie Beer in der Westschweiz.
+    </p>
+    <p>
+      Mittlerweile ist aaremarzili.info auch bei den Profis ein Begriff: SRF, nau.ch und watson.ch zitieren meine
+      Messwerte regelmässig, wenn die Aare Rekordtemperaturen erreicht. Auch Radio Energy hat schon für Beiträge zur
+      Aaretemperatur bei mir angefragt.
+    </p>
+    <p>
+      Journalist:innen der Berner Zeitung nutzen die Seite regelmässig, und 2018 habe ich sie sogar auf einen Fehler
+      in ihrer eigenen Berichterstattung zur Aaretemperatur aufmerksam gemacht, worauf sie die falschen Angaben
+      umgehend korrigierten. Und wenn mich jemand auf eine gefährliche Stelle hinweist, wie kürzlich beim Stauwehr
+      Engehalde, passe ich die Warnhinweise oft noch am selben Tag an.
+    </p>
+  </div>
+
+  <div class="flex flex-wrap items-center gap-3 mt-8 mb-10">
+    <a href="https://apps.apple.com/ch/app/aaremarzili/id6749715500" target="_blank" rel="noopener" class="border border-gray-300 hover:border-brand hover:text-brand text-gray-600 transition-colors px-4 py-2 text-sm font-display tracking-wide">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=ch.sidefyn.aaremarzili" target="_blank" rel="noopener" class="border border-gray-300 hover:border-brand hover:text-brand text-gray-600 transition-colors px-4 py-2 text-sm font-display tracking-wide">Google Play</a>
+    <a href="https://aaremarzili.info" target="_blank" rel="noopener" class="text-brand font-display text-sm hover:underline">aaremarzili.info ansehen →</a>
+  </div>
+
+  <div class="border-t border-gray-100 pt-8 flex flex-wrap items-center gap-4">
+    <button data-drawer="kontakt" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+      Ein ähnliches Projekt im Kopf? Schreib mir
+    </button>
+    <a href={`${base}#ausgewaehlte-projekte`} class="text-gray-500 hover:text-brand text-sm font-display">← Alle Projekte ansehen</a>
+  </div>
+</ProjectLayout>

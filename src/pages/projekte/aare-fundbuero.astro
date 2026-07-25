@@ -1,0 +1,70 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<ProjectLayout
+  title="Aare Fundbüro – Webseite in unter 2 Tagen umgesetzt | sidefyn"
+  description="Vom ersten Gespräch zur fertigen Webseite in weniger als zwei Tagen: Wie sidefyn das Aare Fundbüro online brachte."
+  eyebrow="Von der Idee zur Webseite in 2 Tagen"
+  heading="Aare Fundbüro"
+>
+  <img
+    src={`${base}img/work/aare-fundbuero.webp`}
+    alt="Webseite des Aare Fundbüro"
+    class="w-full rounded-lg border border-gray-200 mb-10"
+    loading="eager"
+  />
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 text-center">
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">&lt; 2 Tage</p>
+      <p class="text-xs text-gray-500 mt-1">vom ersten Gespräch bis live</p>
+    </div>
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">1 Woche</p>
+      <p class="text-xs text-gray-500 mt-1">bis zu den ersten Meldungen</p>
+    </div>
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">3+ Medien</p>
+      <p class="text-xs text-gray-500 mt-1">berichteten bereits über Dave</p>
+    </div>
+  </div>
+
+  <div class="space-y-5 text-gray-700 leading-relaxed">
+    <p>
+      Wer in der Aare etwas verloren hat, kann es über das Aare Fundbüro melden und wird direkt mit Dave verbunden,
+      der freiwillig in der Aare sucht und dabei immer wieder Gegenstände findet.
+    </p>
+    <p>
+      Vom ersten Gespräch bis zur fertigen Webseite vergingen weniger als zwei Tage. Schneller und günstiger geht es
+      kaum, und genau dafür liebe ich solche Projekte: kurze Wege, eine klare Idee, und eine Umsetzung ohne
+      Umschweife. Bereits nach einer Woche hatten mehrere Personen den Service über die Webseite und das
+      Meldeformular genutzt.
+    </p>
+    <p>
+      Das strahlende Gesicht, wenn jemand seinen verlorenen Gegenstand zurückbekommt, ist am Ende unbezahlbar, auch
+      wenn die Website selbst bewusst schlank und pragmatisch gehalten ist.
+    </p>
+    <p>
+      Dave ist längst mehr als ein Geheimtipp: Berner Zeitung, Watson und Der Bund haben bereits über seine Funde
+      berichtet, darunter ein Billettautomat von Bernmobil, dessen Herkunft bis heute ein Rätsel ist. Seine
+      Fundstücke waren sogar schon im Alpinen Museum Bern ausgestellt.
+    </p>
+    <p>
+      Das Angebot ist inzwischen sogar testweise direkt in die aaremarzili-App integriert, meinem eigenen
+      Aare-Projekt.
+    </p>
+  </div>
+
+  <div class="mb-10">
+    <a href="https://aare-fundbuero.ch" target="_blank" rel="noopener" class="text-brand font-display text-sm hover:underline">aare-fundbuero.ch ansehen →</a>
+  </div>
+
+  <div class="border-t border-gray-100 pt-8 flex flex-wrap items-center gap-4">
+    <button data-drawer="kontakt" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+      Ein ähnliches Projekt im Kopf? Schreib mir
+    </button>
+    <a href={`${base}#ausgewaehlte-projekte`} class="text-gray-500 hover:text-brand text-sm font-display">← Alle Projekte ansehen</a>
+  </div>
+</ProjectLayout>

@@ -1,0 +1,73 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<ProjectLayout
+  title="Matte Brennerei – Digitales Herzstück eines Berner Getränkeherstellers | sidefyn"
+  description="Seit über 8 Jahren digitalisiert und automatisiert sidefyn die Matte Brennerei: Onlineshop, B2B-Shop, Events und mehr."
+  eyebrow="Kunde seit über 8 Jahren"
+  heading="Matte Brennerei GmbH"
+>
+  <img
+    src={`${base}img/work/mattebrennerei.ch.webp`}
+    alt="Onlineshop der Matte Brennerei GmbH"
+    class="w-full rounded-lg border border-gray-200 mb-10"
+    loading="eager"
+  />
+
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10 text-center">
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">8+</p>
+      <p class="text-xs text-gray-500 mt-1">Jahre Zusammenarbeit</p>
+    </div>
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">CHF 100'000+</p>
+      <p class="text-xs text-gray-500 mt-1">Jahresumsatz über die Website</p>
+    </div>
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">2</p>
+      <p class="text-xs text-gray-500 mt-1">Shops: B2C und B2B</p>
+    </div>
+  </div>
+
+  <div class="space-y-5 text-gray-700 leading-relaxed">
+    <p>
+      Die Matte Brennerei ist längst mehr als ein Onlineshop. Über die Website läuft der komplette Verkauf, inklusive
+      Anbindung an einen Verpackungsdienstleister und diverser Zahlungsarten. Über CHF 100'000 Jahresumsatz werden
+      mittlerweile über die Website generiert.
+    </p>
+    <p>
+      Auch Workshops und Events werden hier administriert, und ein eigener B2B-Shop bedient Grosskunden mit
+      individuellen Preisen und Konditionen, komplett getrennt vom öffentlichen Shop. Für die Matte Brennerei ist die
+      Website damit das digitale Herzstück des Unternehmens.
+    </p>
+    <p>
+      Seit mehr als 8 Jahren arbeite ich mit der Matte Brennerei zusammen, und viele Automatisierungen und
+      Modernisierungen wären ohne diese langjährige Partnerschaft nicht möglich gewesen.
+    </p>
+    <p>
+      Als ein Ansprechpartner bei der Matte Brennerei kurz vor einem Event eine Frage zur automatischen Weiterleitung
+      von Käufen hatte, stand noch am selben Tag eine erste Lösung bereit. Die Reaktion: &ldquo;Das ging total flott,
+      besten Dank!&rdquo;
+    </p>
+  </div>
+
+  <blockquote class="border-l-2 border-brand pl-6 my-10 italic text-gray-700 leading-relaxed">
+    &ldquo;Ich bin sehr zufrieden mit der Zusammenarbeit, die nun seit mehr als 8 Jahren besteht. Viele
+    Automatisierungen und Modernisierungen wären ohne sidefyn nicht möglich gewesen. David hat stets dafür gesorgt,
+    dass die Interessen der Matte Brennerei im Vordergrund stehen.&rdquo;
+    <footer class="mt-3 not-italic text-sm text-gray-500">Lars Urfer, Matte Brennerei GmbH</footer>
+  </blockquote>
+
+  <div class="mb-10">
+    <a href="https://mattebrennerei.ch" target="_blank" rel="noopener" class="text-brand font-display text-sm hover:underline">mattebrennerei.ch ansehen →</a>
+  </div>
+
+  <div class="border-t border-gray-100 pt-8 flex flex-wrap items-center gap-4">
+    <button data-drawer="kontakt" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+      Ein ähnliches Projekt im Kopf? Schreib mir
+    </button>
+    <a href={`${base}#ausgewaehlte-projekte`} class="text-gray-500 hover:text-brand text-sm font-display">← Alle Projekte ansehen</a>
+  </div>
+</ProjectLayout>

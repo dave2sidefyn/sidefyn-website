@@ -17,6 +17,7 @@ const { clients } = Astro.props as { clients: Client[] };
             style={`transition-delay: ${i * 0.05}s`}
           >
             {client.name}
+            {client.note && <span class="block text-[10px] font-sans text-gray-400 italic mt-1">{client.note}</span>}
           </a>
         ) : (
           <span
@@ -24,6 +25,7 @@ const { clients } = Astro.props as { clients: Client[] };
             style={`transition-delay: ${i * 0.05}s`}
           >
             {client.name}
+            {client.note && <span class="block text-[10px] font-sans text-gray-400 italic mt-1">{client.note}</span>}
           </span>
         )
       ))}

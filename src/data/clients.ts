@@ -1,11 +1,13 @@
 export type Client = {
   name: string;
   url: string | null;
+  note?: string;
 };
 
 export const clients: Client[] = [
   { name: 'aaremarzili.info', url: 'https://aaremarzili.info' },
-  { name: 'Aareschlauchboot GmbH', url: 'https://www.xn--aarebtle-r4aa.com/' },
+  { name: 'Aare Fundbüro', url: 'https://aare-fundbuero.ch' },
+  { name: 'Aareschlauchboot GmbH', url: 'https://aareschlauchboot.ch/' },
   { name: 'Advokatur KM', url: 'https://www.advokatur-km.ch/' },
   { name: 'Allez! GmbH', url: 'https://allez-gmbh.ch/' },
   { name: 'ChocoBern Tours', url: 'https://chocobern.ch/' },

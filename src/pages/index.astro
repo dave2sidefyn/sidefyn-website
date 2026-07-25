@@ -3,8 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import Backdrop from '../components/Backdrop.astro';
 import HeaderNav from '../components/HeaderNav.astro';
 import Hero from '../components/Hero.astro';
+import FuerWen from '../components/FuerWen.astro';
 import Kompetenzen from '../components/Kompetenzen.astro';
+import UeberMich from '../components/UeberMich.astro';
 import ReferenzenHeader from '../components/ReferenzenHeader.astro';
+import FeaturedWork from '../components/FeaturedWork.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Clients from '../components/Clients.astro';
 import Map from '../components/Map.astro';
@@ -20,15 +23,18 @@ import DrawerKontakt from '../components/DrawerKontakt.astro';
 import { clients } from '../data/clients';
 ---
 
-<Layout title="sidefyn GmbH">
+<Layout>
   <Backdrop />
 
   <HeaderNav />
 
   <main>
     <Hero />
+    <FuerWen />
     <Kompetenzen />
+    <UeberMich />
     <ReferenzenHeader />
+    <FeaturedWork />
     <Testimonials />
     <Clients clients={clients} />
     <Map />
