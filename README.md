@@ -19,33 +19,18 @@ npm run dev
 
 Local site runs at `http://localhost:4321` by default.
 
-## Deployment (GitHub Pages)
+## Deployment (Plesk)
 
-The site is deployed via GitHub Actions to GitHub Pages.
-Important settings:
+The site is hosted on the Plesk server `avitus.sui-inter.net` (webspace `sidefyn.ch`, document root `site/`).
+Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and uploads `dist/` via FTPS.
 
-- `astro.config.mjs` uses:
-  - `site: https://dave2sidefyn.github.io/sidefyn-website`
-  - `base: /sidefyn-website/`
+Required GitHub secrets:
 
-### Deployment checklist
+- `FTP_USERNAME` / `FTP_PASSWORD`: FTP account of the sidefyn.ch webspace
+- `PUBLIC_GOOGLE_MAPS_API_KEY`: see below
 
-- GitHub repo → **Settings → Pages**: Source = **GitHub Actions**
-- Push to `main` triggers the workflow in `.github/workflows/deploy.yml`
-
-If assets (images/CSS) are broken on GitHub Pages, verify:
-- `base` is `/sidefyn-website/`
-- all asset URLs use `import.meta.env.BASE_URL` (already set in components)
-
-### Custom domain later (sidefyn.ch)
-
-When switching to a custom domain, update:
-
-- `astro.config.mjs`
-  - `site: https://sidefyn.ch`
-  - `base: /`
-
-GitHub Pages URL will no longer work unless you maintain two separate builds.
+`public/.htaccess` redirects every other hostname (www.sidefyn.ch, davidwiedmer.ch) to `https://sidefyn.ch`
+and leaves `/.well-known/acme-challenge/` alone so Let's Encrypt can renew the certificate automatically.
 
 ## Google Maps
 

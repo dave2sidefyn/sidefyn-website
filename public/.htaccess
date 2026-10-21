@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Let's Encrypt validation must never be redirected, otherwise certificates for
+# davidwiedmer.ch and www cannot be renewed automatically.
+RewriteRule ^\.well-known/acme-challenge/ - [L]
+
+# Every other hostname served by this webspace (www.sidefyn.ch, davidwiedmer.ch,
+# www.davidwiedmer.ch) redirects permanently to https://sidefyn.ch, keeping the path.
+# http -> https is handled by Plesk ("Redirect from http to https").
+RewriteCond %{HTTP_HOST} !^sidefyn\.ch$ [NC]
+RewriteRule ^ https://sidefyn.ch%{REQUEST_URI} [R=301,L]

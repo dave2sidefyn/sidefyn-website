@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to Plesk
 
 on:
   push:
@@ -7,16 +7,17 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: deploy
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://sidefyn.ch
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,18 +36,15 @@ jobs:
         env:
           PUBLIC_GOOGLE_MAPS_API_KEY: ${{ secrets.PUBLIC_GOOGLE_MAPS_API_KEY }}
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      # Uploads dist/ to the document root "site/" of the sidefyn.ch webspace on
+      # avitus.sui-inter.net (Plesk). Only changed files are transferred; the
+      # sync state is kept on the server in .ftp-deploy-sync-state.json.
+      - name: Upload to Plesk via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          path: dist/
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          server: avitus.sui-inter.net
+          protocol: ftps
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: site/
