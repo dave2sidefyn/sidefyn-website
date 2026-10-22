@@ -37,14 +37,20 @@ jobs:
           PUBLIC_GOOGLE_MAPS_API_KEY: ${{ secrets.PUBLIC_GOOGLE_MAPS_API_KEY }}
 
       # Uploads dist/ to the document root "site/" of the sidefyn.ch webspace on
-      # avitus.sui-inter.net (Plesk). Only changed files are transferred; the
-      # sync state is kept on the server in .ftp-deploy-sync-state.json.
+      # avitus.sui-inter.net (Plesk) over FTPS. lftp is used because ProFTPD on Plesk
+      # requires TLS session reuse on data connections. --delete removes files that
+      # are no longer part of the build.
       - name: Upload to Plesk via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: avitus.sui-inter.net
-          protocol: ftps
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: site/
+        env:
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          sudo apt-get update -qq > /dev/null && sudo apt-get install -y -qq lftp > /dev/null
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" avitus.sui-inter.net <<'LFTP'
+          set ftp:ssl-force true
+          set ftp:ssl-protect-data true
+          set ssl:verify-certificate true
+          set net:max-retries 2
+          mirror --reverse --delete --verbose=1 --parallel=4 dist/ site/
+          bye
+          LFTP
