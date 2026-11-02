@@ -11,6 +11,7 @@ export const clients: Client[] = [
   { name: 'Advokatur KM', url: 'https://www.advokatur-km.ch/' },
   { name: 'Allez! GmbH', url: 'https://allez-gmbh.ch/' },
   { name: 'Binoxxo Pro', url: 'https://binoxxo.pro/' },
+  { name: 'boat2bag', url: 'https://boat2bag.ch' },
   { name: 'ChocoBern Tours', url: 'https://chocobern.ch/' },
   { name: 'CZ-Parts', url: 'https://cz-parts.ch' },
   { name: 'DV Bern AG', url: 'https://dvbern.ch' },

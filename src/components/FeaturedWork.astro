@@ -7,7 +7,7 @@ const projects = [
     title: 'Aaremarzili',
     caseStudyUrl: `${base}projekte/aaremarzili`,
     description:
-      "Mein Soloprojekt seit über 10 Jahren – und die Spielwiese für neue Technologien: Webseite und native Apps für iOS und Android aus einer einzigen Codebase. KI-gestützt, datengetrieben, mit Feature Flags und A/B-Testing, fast vollständig automatisiert. Über 200'000 Nutzer:innen und mehr als 1 Mio. Aufrufe pro Jahr.",
+      "Mein Soloprojekt seit über 10 Jahren – und die Spielwiese für neue Technologien: Webseite und native Apps für iOS und Android aus einer einzigen Codebase, bewertet mit 5.0 Sternen auf Google Play und 4.8 im App Store. KI-gestützt, datengetrieben, mit Feature Flags und A/B-Testing, fast vollständig automatisiert. Über 200'000 Nutzer:innen und mehr als 1 Mio. Aufrufe pro Jahr.",
   },
   {
     image: 'binoxxo-pro.webp',
@@ -15,6 +15,14 @@ const projects = [
     caseStudyUrl: `${base}projekte/binoxxo-pro`,
     description:
       'Im Zug nach Frankfurt, ein Binoxxo vor mir – aber keinen Stift dabei. Daraus wurde zuerst ein digitaler Rätselblock und wenige Stunden später die erste eingereichte Version einer mobilen App. Komplett am Handy mit Claude entwickelt: Zeitungsrätsel fotografieren und direkt auf dem Bildschirm lösen.',
+  },
+  {
+    image: 'boat2bag.webp',
+    title: 'boat2bag',
+    caseStudyUrl: `${base}projekte/boat2bag`,
+    description:
+      'Aus Schlauchbooten, die im Sommer an der Aare liegen bleiben, werden Taschen. Für den Berner Verein entsteht aus zwei getrennten Websites ein einziger Auftritt auf Shopify: zweisprachig, fürs Handy gemacht und mit eigenem Weg für Firmen. Gleichzeitig begleite ich den ganzen Verein auf dem Weg zur KI-nativen Organisation: Wissen, das bisher nur in Köpfen steckt, wird strukturiert und für alle verfügbar.',
+    status: 'Noch nicht released',
   },
   {
     image: 'mattebrennerei.ch.webp',
@@ -53,7 +61,13 @@ const projects = [
           style={`transition-delay: ${i * 0.1}s`}
         >
           <a href={project.caseStudyUrl} class="block">
-            <div class="aspect-16/9 overflow-hidden bg-gray-100">
+            <div class="relative aspect-16/9 overflow-hidden bg-gray-100">
+              {project.status && (
+                <span class="absolute bottom-3 left-3 z-10 inline-flex items-center gap-1.5 bg-navy text-white text-xs font-display tracking-wide px-3 py-1 rounded-full shadow-md">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" aria-hidden="true"></span>
+                  {project.status}
+                </span>
+              )}
               <img
                 src={`${base}img/work/${project.image}`}
                 alt={project.title}

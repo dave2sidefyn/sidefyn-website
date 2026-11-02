@@ -1,0 +1,137 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+const base = import.meta.env.BASE_URL;
+
+const screenshots = [
+  { image: 'home', alt: 'boat2bag Startseite am Handy: «Once a boat, now a bag.» mit Vorher-Nachher-Bildern', caption: 'Einst ein Boot, jetzt eine Tasche' },
+  { image: 'products', alt: 'boat2bag Produkte am Handy: Etui, Schultertasche, Rucksack und Laptoptasche, je nach einem Schweizer Fluss benannt', caption: 'Jede Tasche nach einem Fluss benannt' },
+  { image: 'companies', alt: 'boat2bag Seite für Firmen und Partner: Geschenke und Eventmaterial mit Geschichte', caption: 'Ein eigener Weg für Firmen' },
+];
+---
+
+<ProjectLayout
+  title="boat2bag – Aus Aare-Booten werden Taschen | sidefyn"
+  description="Noch nicht released: neuer Webauftritt und Shop für boat2bag auf Shopify, und der Weg des ganzen Vereins zur KI-nativen Organisation."
+  eyebrow="Aus Aare-Booten werden Taschen"
+  heading="boat2bag"
+>
+  <img
+    src={`${base}img/work/boat2bag.webp`}
+    alt="Neue Startseite von boat2bag: «Once a boat, now a bag.» mit Vorher-Nachher-Bildern von der Aare und den Taschen"
+    width="1280"
+    height="720"
+    class="w-full rounded-lg border border-gray-200 mb-10"
+    loading="eager"
+  />
+
+  <div class="flex gap-3 items-start border border-brand/40 bg-brand/5 rounded-lg px-5 py-4 mb-10">
+    <span class="relative flex w-2.5 h-2.5 mt-1.5 shrink-0" aria-hidden="true">
+      <span class="absolute inline-flex w-full h-full rounded-full bg-brand opacity-60 animate-ping"></span>
+      <span class="relative inline-flex w-2.5 h-2.5 rounded-full bg-brand"></span>
+    </span>
+    <p class="text-sm text-gray-700 leading-relaxed">
+      <strong class="font-display text-navy">Noch nicht released.</strong>
+      Die neue Website ist gebaut und in der Vorschau, aber noch nicht online. Die Bilder hier zeigen den
+      aktuellen Stand. Bis zum Go-live ist unter boat2bag.ch noch die bisherige Website zu sehen.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 text-center">
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">&lt; 2 Wochen</p>
+      <p class="text-xs text-gray-500 mt-1">vom ersten Gespräch bis zur Vorschau</p>
+    </div>
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">2 → 1</p>
+      <p class="text-xs text-gray-500 mt-1">Websites, bald alles in Shopify</p>
+    </div>
+    <div class="border border-gray-200 rounded-lg py-4">
+      <p class="font-display text-2xl text-brand">2 Sprachen</p>
+      <p class="text-xs text-gray-500 mt-1">Deutsch und Englisch, fürs Handy gemacht</p>
+    </div>
+  </div>
+
+  <div class="space-y-5 text-gray-700 leading-relaxed mb-10">
+    <h2 class="font-display text-2xl text-navy">Einst ein Boot, jetzt eine Tasche</h2>
+    <p>
+      Jeden Sommer bleiben an der Aare Schlauchboote liegen. Der Berner Verein boat2bag sammelt sie ein
+      und macht daraus Taschen, Etuis und Laptophüllen: Upcycling mit lokaler Wirkung, und jedes Stück
+      ist ein Unikat.
+    </p>
+    <p>
+      Warum mich das Projekt sofort gepackt hat? Es geht um Nachhaltigkeit, und es geht um die Aare.
+      Mit <a href={`${base}projekte/aaremarzili`} class="text-brand hover:underline">aaremarzili</a> und dem
+      <a href={`${base}projekte/aare-fundbuero`} class="text-brand hover:underline">Aare Fundbüro</a> bin ich
+      ohnehin schon am Fluss zuhause. boat2bag passt genau dazu, und die neue Website zeigt sogar live,
+      wie warm die Aare gerade ist, direkt aus aaremarzili.
+    </p>
+
+    <h2 class="font-display text-2xl text-navy pt-3">Aus zwei Websites wird eine</h2>
+    <p>
+      Bisher war boat2bag aufgeteilt: die Geschichte, die Partner und die Presse auf einer Baukasten-Website,
+      der Verkauf in einem separaten Shopify-Shop. Wer die Geschichte las, fand den Shop nicht, und wer im
+      Shop war, sah nichts von der Geschichte.
+    </p>
+    <p>
+      Darum baue ich alles in einem einzigen Shopify-Auftritt neu auf: Geschichte, Partner und Shop an einem
+      Ort, zweisprachig auf Deutsch und Englisch und fürs Handy gemacht. Neu gibt es neben dem Shop einen
+      eigenen Weg für Firmen, die Geschenke oder Eventmaterial mit Geschichte suchen. Sobald die neue
+      Website online ist, wird die alte abgeschaltet.
+    </p>
+
+    <h2 class="font-display text-2xl text-navy pt-3">Die Farben der Boote</h2>
+    <p>
+      Das Design nimmt auf, woraus die Taschen gemacht sind: Blau, Gelb, Orange und Grau wie die Schläuche
+      eines Flussboots, als feiner Streifen unter dem Einstieg und als Markierung in den Titeln. Feedback setze
+      ich in kurzen Runden um, oft noch am selben Abend: so steht der Slogan «Once a boat, now a bag.» gross auf
+      der Startseite, und die Partner laufen als Logo-Reihe durchs Bild.
+    </p>
+
+    <h2 class="font-display text-2xl text-navy pt-3">Auf dem Weg zum KI-nativen Verein</h2>
+    <p>
+      Die Website ist nur der sichtbare Teil. Wie in vielen jungen Vereinen steckt bei boat2bag das meiste Wissen
+      in einem einzigen Kopf: Partner und Kontakte, woher die Boote kommen, wie eine Tasche entsteht, was
+      Firmenkunden fragen, welche Ideen noch offen sind. Hundert Dinge, unstrukturiert, und jede Frage landet
+      bei derselben Person.
+    </p>
+    <p>
+      Darum ist im ganzen Verein eine Transformation zur KI-nativen Organisation im Gange. Das Wissen wird
+      festgehalten, mit KI strukturiert und so für alle im Verein verfügbar gemacht. Wer etwas wissen muss,
+      findet es, statt nachzufragen. Und Aufgaben wie Texte, Übersetzungen, Analysen oder Änderungen an der
+      Website erledige ich zusammen mit Claude, sauber dokumentiert und automatisch geprüft. So stand die erste
+      Vorschau knapp zwei Wochen nach dem ersten Gespräch.
+    </p>
+    <p>
+      Das Ziel: deutlich weniger Administration, damit mehr Zeit für das bleibt, worum es eigentlich geht.
+      Boote aus der Aare holen und daraus Taschen machen.
+    </p>
+  </div>
+
+  <section aria-labelledby="boat2bag-screenshots" class="mb-10">
+    <h2 id="boat2bag-screenshots" class="font-display text-2xl text-navy mb-5">Ein Blick auf die neue Website</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      {screenshots.map((screenshot) => (
+        <figure class="max-w-64 mx-auto w-full">
+          <a href={`${base}img/work/boat2bag/${screenshot.image}.webp`} class="block rounded-xl overflow-hidden border border-gray-200 hover:border-brand transition-colors">
+            <img
+              src={`${base}img/work/boat2bag/${screenshot.image}.webp`}
+              alt={screenshot.alt}
+              width="390"
+              height="844"
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </a>
+          <figcaption class="text-sm text-gray-600 text-center mt-3">{screenshot.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <div class="border-t border-gray-100 pt-8 flex flex-wrap items-center gap-4">
+    <button data-drawer="kontakt" class="inline-block border border-brand text-brand hover:bg-brand hover:text-white transition-colors px-5 py-2 text-sm font-display tracking-wide">
+      Ein Projekt mit Wirkung? Schreib mir
+    </button>
+    <a href={`${base}#ausgewaehlte-projekte`} class="text-gray-500 hover:text-brand text-sm font-display">← Alle Projekte ansehen</a>
+  </div>
+</ProjectLayout>
