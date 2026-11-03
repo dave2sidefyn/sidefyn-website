@@ -1,65 +1,115 @@
 ---
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import EventAdminGallery from '../../components/EventAdminGallery.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
 <ProjectLayout
   title="EventAdmin – WordPress Plugin für Freiwilligen-Management | sidefyn"
-  description="Ursprünglich fürs Herzogstrassenfest entwickelt, heute auf mindestens drei Kontinenten im Einsatz: das EventAdmin WordPress-Plugin von sidefyn."
+  description="Vom Herzogstrassenfest auf drei Kontinente: EventAdmin von sidefyn verbindet Freiwilligen-Anmeldung, visuelle Schichtplanung und Kommunikation in WordPress."
   eyebrow="WordPress Plugin, entwickelt von sidefyn"
   heading="EventAdmin – Volunteer Management"
 >
   <img
-    src={`${base}img/work/eventadmin.webp`}
-    alt="EventAdmin WordPress Plugin für Freiwilligen-Schichtplanung"
+    src={`${base}img/work/eventadmin-header.png`}
+    alt="EventAdmin: Freiwillige planen. Gemeinsam anpacken. – Schichtplanung und Anmeldung in WordPress"
+    width="1710"
+    height="1069"
     class="w-full rounded-lg border border-gray-200 mb-10"
     loading="eager"
   />
 
-  <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10 text-center">
+  <div class="grid grid-cols-3 gap-3 sm:gap-4 mb-10 text-center">
+    <a href="https://wordpress.org/plugins/eventadmin-volunteer-management/" target="_blank" rel="noopener" class="border border-gray-200 rounded-lg py-4 hover:border-brand transition-colors">
+      <p class="font-display text-2xl text-brand">50+</p>
+      <p class="text-xs text-gray-500 mt-1">Aktive Installationen</p>
+    </a>
+    <a href="https://wordpress.org/support/plugin/eventadmin-volunteer-management/reviews/" target="_blank" rel="noopener" class="border border-gray-200 rounded-lg py-4 hover:border-brand transition-colors">
+      <p class="font-display text-2xl text-brand">5 / 5</p>
+      <p class="text-xs text-gray-500 mt-1">6 Fünf-Sterne-Reviews</p>
+    </a>
     <div class="border border-gray-200 rounded-lg py-4">
       <p class="font-display text-2xl text-brand">3+</p>
       <p class="text-xs text-gray-500 mt-1">Kontinente im Einsatz</p>
-    </div>
-    <div class="border border-gray-200 rounded-lg py-4">
-      <p class="font-display text-2xl text-brand">Herzogstrassenfest</p>
-      <p class="text-xs text-gray-500 mt-1">wo alles begann</p>
-    </div>
-    <div class="border border-gray-200 rounded-lg py-4">
-      <p class="font-display text-2xl text-brand">Open Source</p>
-      <p class="text-xs text-gray-500 mt-1">Frei auf WordPress.org</p>
     </div>
   </div>
 
   <div class="space-y-5 text-gray-700 leading-relaxed">
     <p>
       Ihr organisiert eine Veranstaltung und braucht Freiwillige für Schichten? Genau dafür habe ich EventAdmin
-      entwickelt, ursprünglich fürs Herzogstrassenfest, um Freiwillige unkompliziert für Schichten einzuteilen.
+      entwickelt, ursprünglich fürs
+      <a href="https://www.herzogstrassenfest.ch/" target="_blank" rel="noopener" class="text-brand hover:underline">Herzogstrassenfest</a>
+      im Berner Breitenrain. Aus dem Helferplan für ein Quartierfest ist ein WordPress-Plugin geworden, das heute
+      auf mindestens drei Kontinenten eingesetzt wird: vom
+      <a href="https://stolze-openair.ch/" target="_blank" rel="noopener" class="text-brand hover:underline">Stolze Openair in Zürich</a>
+      über eine Elch-Auffangstation bis zu einem Holocaust-Museum.
     </p>
     <p>
-      Heute organisiert das Plugin auf mindestens drei Kontinenten Schichten für ganz unterschiedliche Anlässe: vom
-      Stolze Openair in Zürich über eine Elch-Auffangstation bis zu einem Holocaust-Museum. Freiwillige tragen sich
-      selbst für verfügbare Schichten ein, Regeln und Kommunikation lassen sich anpassen, Daten können jederzeit
-      importiert und exportiert werden, und Social-Logins erleichtern die Anmeldung.
+      Freiwillige melden sich direkt auf der eigenen Webseite an, wählen freie Schichten und verwalten ihre
+      Einsätze selbst. Der Einstieg klappt per Login-Link in einer E-Mail oder optional über Social Login.
+      Schichtlimits, Schutz vor Überschneidungen und automatische Erinnerungen nehmen dem Organisationsteam
+      Arbeit ab.
     </p>
     <p>
-      EventAdmin ist frei auf WordPress.org verfügbar und wird von mir laufend weiterentwickelt.
+      Für die Planung gibt es eine visuelle Zeitleiste: Schichten lassen sich per Drag-and-drop verschieben,
+      offene Plätze und Engpässe sind auf einen Blick sichtbar. Gezielte E-Mails erreichen einzelne Teams oder
+      Schichten, CSV-Import und -Export erleichtern den Datenaustausch. Eigene Rollen für Schicht- und
+      Freiwilligen-Verantwortliche verteilen die Arbeit im OK.
+    </p>
+    <p>
+      Auch KI-Assistenten können inzwischen mithelfen: Über die optionale
+      <a href="https://github.com/dave2sidefyn/eventadmin-volunteer-management/tree/main/mcp-server" target="_blank" rel="noopener" class="text-brand hover:underline">MCP-Anbindung</a>
+      lassen sich Schichten abfragen und anlegen oder Nachrichten an die eingeteilten Freiwilligen senden.
+      Die Einsatzplanung läuft in der eigenen WordPress-Installation. EventAdmin ist kostenlos und
+      <a href="https://github.com/dave2sidefyn/eventadmin-volunteer-management" target="_blank" rel="noopener" class="text-brand hover:underline">Open Source</a>.
+      Ich entwickle das Plugin laufend weiter, auch mit Rückmeldungen und Wünschen aus der Praxis.
     </p>
   </div>
 
-  <div class="grid sm:grid-cols-2 gap-6 my-10">
-    <blockquote class="border-l-2 border-brand pl-6 italic text-gray-700 leading-relaxed">
-      &ldquo;Very intuitive and gets the job done!&rdquo;
-      <footer class="mt-3 not-italic text-sm text-gray-500">Till, Stolze Openair Zürich · via WordPress.org</footer>
-    </blockquote>
-    <blockquote class="border-l-2 border-brand pl-6 italic text-gray-700 leading-relaxed">
-      &ldquo;If I could give you a 10 for responsiveness you would get it :-)&rdquo;
-      <footer class="mt-3 not-italic text-sm text-gray-500">marceeck, via WordPress.org</footer>
-    </blockquote>
-  </div>
+  <EventAdminGallery />
 
-  <div class="mb-10">
+  <section class="my-12" aria-labelledby="reviews-heading">
+    <div class="flex flex-wrap items-baseline justify-between gap-3 mb-6">
+      <h2 id="reviews-heading" class="font-display text-xl text-navy">Stimmen aus der Praxis</h2>
+      <a href="https://wordpress.org/support/plugin/eventadmin-volunteer-management/reviews/" target="_blank" rel="noopener" class="text-brand text-sm hover:underline">Alle 6 Reviews auf WordPress.org →</a>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <blockquote class="border border-gray-200 rounded-lg p-6 flex flex-col">
+        <p class="text-brand tracking-wider mb-3" aria-label="5 von 5 Sternen">★★★★★</p>
+        <p lang="en" class="italic text-gray-700 leading-relaxed mb-4">&ldquo;Very intuitive and gets the job done!&rdquo;</p>
+        <footer class="mt-auto text-sm text-gray-500">Till, <a href="https://stolze-openair.ch/" target="_blank" rel="noopener" class="hover:text-brand hover:underline">Stolze Openair Zürich</a><br /><a href="https://wordpress.org/support/topic/really-nice-206/" target="_blank" rel="noopener" class="text-brand hover:underline">Review auf WordPress.org →</a></footer>
+      </blockquote>
+      <blockquote class="border border-gray-200 rounded-lg p-6 flex flex-col">
+        <p class="text-brand tracking-wider mb-3" aria-label="5 von 5 Sternen">★★★★★</p>
+        <p lang="en" class="italic text-gray-700 leading-relaxed mb-4">&ldquo;It does exactly what we need.&rdquo;</p>
+        <footer class="mt-auto text-sm text-gray-500">soniaca · Strassenfest mit rund 80 Freiwilligen<br /><a href="https://wordpress.org/support/topic/great-tool-2333/" target="_blank" rel="noopener" class="text-brand hover:underline">Review auf WordPress.org →</a></footer>
+      </blockquote>
+      <blockquote class="border border-gray-200 rounded-lg p-6 flex flex-col">
+        <p class="text-brand tracking-wider mb-3" aria-label="5 von 5 Sternen">★★★★★</p>
+        <p lang="en" class="italic text-gray-700 leading-relaxed mb-4">&ldquo;We are very pleased with how it works.&rdquo;</p>
+        <footer class="mt-auto text-sm text-gray-500">steinselseth · Veranstaltungen und Raumvermietung<br /><a href="https://wordpress.org/support/topic/great-tool-2335/" target="_blank" rel="noopener" class="text-brand hover:underline">Review auf WordPress.org →</a></footer>
+      </blockquote>
+      <blockquote class="border border-gray-200 rounded-lg p-6 flex flex-col">
+        <p class="text-brand tracking-wider mb-3" aria-label="5 von 5 Sternen">★★★★★</p>
+        <p lang="en" class="italic text-gray-700 leading-relaxed mb-4">&ldquo;Simple app, and the author is quick to respond with fixes and updates!&rdquo;</p>
+        <footer class="mt-auto text-sm text-gray-500">rpclarke42 · Gemeinnützige Organisation<br /><a href="https://wordpress.org/support/topic/great-app-804/" target="_blank" rel="noopener" class="text-brand hover:underline">Review auf WordPress.org →</a></footer>
+      </blockquote>
+      <blockquote class="border border-gray-200 rounded-lg p-6 flex flex-col">
+        <p class="text-brand tracking-wider mb-3" aria-label="5 von 5 Sternen">★★★★★</p>
+        <p lang="en" class="italic text-gray-700 leading-relaxed mb-4">&ldquo;I love to see this plugin grow in the wp community.&rdquo;</p>
+        <footer class="mt-auto text-sm text-gray-500">marceeck · Holocaust-Museum<br /><a href="https://wordpress.org/support/topic/very-nice-app-24/" target="_blank" rel="noopener" class="text-brand hover:underline">Review auf WordPress.org →</a></footer>
+      </blockquote>
+      <blockquote class="border border-gray-200 rounded-lg p-6 flex flex-col">
+        <p class="text-brand tracking-wider mb-3" aria-label="5 von 5 Sternen">★★★★★</p>
+        <p lang="fr" class="italic text-gray-700 leading-relaxed mb-4">&ldquo;Idéal pour la gestion des bénévoles sur un évènement.&rdquo;</p>
+        <footer class="mt-auto text-sm text-gray-500">michelrichir · Festival über drei Tage<br /><a href="https://wordpress.org/support/topic/existe-en-francais/" target="_blank" rel="noopener" class="text-brand hover:underline">Review auf WordPress.org →</a></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <div class="flex flex-wrap items-center gap-4 mb-10">
     <a href="https://wordpress.org/plugins/eventadmin-volunteer-management/" target="_blank" rel="noopener" class="text-brand font-display text-sm hover:underline">Plugin auf WordPress.org ansehen →</a>
+    <a href="https://github.com/dave2sidefyn/eventadmin-volunteer-management" target="_blank" rel="noopener" class="text-brand font-display text-sm hover:underline">Quellcode auf GitHub →</a>
   </div>
 
   <div class="border-t border-gray-100 pt-8 flex flex-wrap items-center gap-4">

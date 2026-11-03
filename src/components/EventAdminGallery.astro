@@ -1,0 +1,78 @@
+---
+const base = import.meta.env.BASE_URL;
+const slides = [
+  { image: 'timeline-view.webp', title: 'Schichten planen', caption: 'Teams, Einsätze und offene Plätze auf einer Zeitleiste im Blick.' },
+  { image: 'volunteer-available-shifts.webp', title: 'Selbst eintragen', caption: 'Freiwillige finden passende Schichten direkt auf der Webseite.' },
+  { image: 'send-announcement.webp', title: 'Gezielt informieren', caption: 'Nachrichten an die richtigen Freiwilligen senden, mit E-Mail-Vorschau.' },
+];
+---
+
+<section data-eventadmin-gallery class="my-12" aria-label="Einblicke in EventAdmin">
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+    <h2 class="font-display text-xl text-navy">So sieht EventAdmin aus</h2>
+    <button data-play hidden class="text-sm text-brand hover:underline" type="button">Animation pausieren</button>
+  </div>
+  <div class="gallery-panels rounded-lg border border-gray-200 overflow-hidden bg-gray-50">
+    {slides.map((slide, index) => (
+      <figure data-slide data-active={index === 0 ? 'true' : 'false'} aria-hidden={index !== 0} inert={index !== 0}>
+        <a href={`${base}img/eventadmin/${slide.image}`} target="_blank" rel="noopener" aria-label={`${slide.title}: Screenshot vergrössern`}>
+          <img src={`${base}img/eventadmin/${slide.image}`} alt={slide.caption} width="900" height={index === 1 ? '586' : '651'} loading="lazy" class="w-full aspect-[900/651] object-contain object-top bg-white" />
+        </a>
+        <figcaption class="p-5 border-t border-gray-200 bg-white">
+          <p class="font-display text-navy mb-1">{slide.title}</p>
+          <p class="text-sm text-gray-600">{slide.caption}</p>
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+  <div class="flex flex-wrap gap-2 mt-4" role="group" aria-label="Ansicht auswählen">
+    {slides.map((slide, index) => (
+      <button data-select={index} aria-pressed={index === 0} type="button" class="gallery-choice border border-gray-200 rounded-full px-4 py-2 text-sm hover:border-brand transition-colors">{slide.title}</button>
+    ))}
+  </div>
+</section>
+
+<style>
+  .gallery-panels { display: grid; }
+  [data-slide] { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .5s, visibility .5s; }
+  [data-slide][data-active="true"] { opacity: 1; visibility: visible; }
+  .gallery-choice[aria-pressed="true"] { background: var(--color-navy, #1b2a40); color: white; border-color: transparent; }
+  @media (prefers-reduced-motion: reduce) { [data-slide] { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-eventadmin-gallery]').forEach((gallery) => {
+    const slides = [...gallery.querySelectorAll<HTMLElement>('[data-slide]')];
+    const choices = [...gallery.querySelectorAll<HTMLButtonElement>('[data-select]')];
+    const play = gallery.querySelector<HTMLButtonElement>('[data-play]')!;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    let playing = !motion.matches;
+    let visible = false;
+    let timer: ReturnType<typeof setInterval> | undefined;
+    const show = (index: number) => {
+      current = index;
+      slides.forEach((slide, i) => {
+        slide.dataset.active = String(i === index);
+        slide.setAttribute('aria-hidden', String(i !== index));
+        slide.inert = i !== index;
+        choices[i].setAttribute('aria-pressed', String(i === index));
+      });
+    };
+    const update = () => {
+      clearInterval(timer);
+      play.hidden = false;
+      play.textContent = playing ? 'Animation pausieren' : 'Animation starten';
+      if (playing && visible && !document.hidden) timer = setInterval(() => show((current + 1) % slides.length), 5000);
+    };
+    play.addEventListener('click', () => { playing = !playing; update(); });
+    choices.forEach((choice, index) => choice.addEventListener('click', () => { playing = false; show(index); update(); }));
+    gallery.addEventListener('focusin', (event) => {
+      if ((event.target as HTMLElement).closest('[data-slide]')) { playing = false; update(); }
+    });
+    motion.addEventListener('change', () => { playing = false; update(); });
+    document.addEventListener('visibilitychange', update);
+    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; update(); }).observe(gallery);
+    update();
+  });
+</script>
