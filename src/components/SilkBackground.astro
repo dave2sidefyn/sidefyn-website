@@ -23,12 +23,23 @@
       attribute vec2 p;
       void main() { gl_Position = vec4(p, 0.0, 1.0); }
     `;
+    // Many phone GPUs run mediump at ~10 bit precision. The finite-difference normal below
+    // then turns into noise (grainy, streaky silk), so ask for highp wherever it exists.
     const frag = `
+      #ifdef GL_FRAGMENT_PRECISION_HIGH
+      precision highp float;
+      #else
       precision mediump float;
+      #endif
       uniform vec2 res;
       uniform float t;
 
-      float hash(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+      // Sine-free hash: stays stable at lower precision
+      float hash(vec2 p) {
+        vec3 p3 = fract(vec3(p.xyx) * 0.1031);
+        p3 += dot(p3, p3.yzx + 33.33);
+        return fract((p3.x + p3.y) * p3.z);
+      }
 
       // Height of the fabric: a few long, slow folds, warped so they curve like draped silk
       float fabric(vec2 p) {
@@ -46,7 +57,7 @@
         vec2 p = (gl_FragCoord.xy - 0.5 * res) / min(res.x, res.y) * 1.4;
 
         // Surface normal from the height field -> light it like a satin surface
-        float e = 0.01;
+        float e = 0.03; // wide enough step to survive reduced float precision
         float h = fabric(p);
         vec2 grad = vec2(fabric(p + vec2(e, 0.0)) - h, fabric(p + vec2(0.0, e)) - h) / e;
         vec3 n = normalize(vec3(-grad * 0.22, 1.0));
@@ -69,7 +80,7 @@
         float d = length((uv - vec2(0.5, 0.48)) * vec2(1.0, 1.25));
         col *= mix(0.80, 1.05, smoothstep(0.05, 0.45, d)) * mix(1.0, 0.72, smoothstep(0.45, 0.95, d));
 
-        col += (hash(gl_FragCoord.xy + t) - 0.5) / 255.0 * 2.0; // dither against banding
+        col += (hash(gl_FragCoord.xy + fract(t) * 97.0) - 0.5) / 255.0 * 2.0; // dither against banding
         gl_FragColor = vec4(col, 1.0);
       }
     `;
@@ -96,7 +107,9 @@
       const uRes = gl.getUniformLocation(prog, 'res');
       const uT = gl.getUniformLocation(prog, 't');
 
-      const scale = 0.5; // soft fabric needs no full resolution; keeps it light on laptops and phones
+      // Soft fabric needs no full resolution: roughly one pixel per CSS pixel keeps it light
+      // on laptops and phones without looking blocky on high-density screens.
+      const scale = Math.min(window.devicePixelRatio || 1, 2) * 0.5;
       const resize = () => {
         canvas.width = Math.max(1, Math.round(canvas.clientWidth * scale));
         canvas.height = Math.max(1, Math.round(canvas.clientHeight * scale));
